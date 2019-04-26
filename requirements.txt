@@ -1,0 +1,10 @@
+numpy
+music21
+keras
+midi2audio
+tqdm
+msgpack
+matplotlib
+tensorflow
+midi
+mido
