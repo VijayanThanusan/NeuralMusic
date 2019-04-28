@@ -11,6 +11,7 @@ import shutil
 from keras import backend as K
 from keras.layers.core import Dense, Activation, Dropout
 from keras.layers.recurrent import LSTM
+from keras.layers import CuDNNLSTM
 from keras.models import Sequential
 from keras.optimizers import RMSprop
 import numpy as np
@@ -196,7 +197,7 @@ def generate(model, seed, mid_name, temperature=1.0, length=512):
 def init_model():
     # Build the model.
     model = Sequential()
-    model.add(LSTM(
+    model.add(CuDNNLSTM(
         NUM_HIDDEN_UNITS,
         return_sequences=True,
         input_shape=(PHRASE_LEN, SYMBOL_DIM)))
@@ -208,7 +209,7 @@ def init_model():
         input_shape=(SYMBOL_DIM, SYMBOL_DIM)))
     model.add(Dropout(0.2))
     '''
-    model.add(LSTM(NUM_HIDDEN_UNITS, return_sequences=False))
+    model.add(CuDNNLSTM(NUM_HIDDEN_UNITS, return_sequences=False))
     model.add(Dropout(0.3))
     model.add(Dense(SYMBOL_DIM))
     model.add(Activation('softmax'))
