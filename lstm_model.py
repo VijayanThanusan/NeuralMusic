@@ -38,10 +38,10 @@ MIN_HITS = 8
 NUM_HIDDEN_UNITS = 128
 # The length of the phrase from which the predict the next symbol.
 #PHRASE_LEN = 64
-PHRASE_LEN = 5
+PHRASE_LEN = 59
 # Dimensionality of the symbol space.
 SYMBOL_DIM = 2 ** len(IN_PITCHES)
-NUM_ITERATIONS = 60
+NUM_ITERATIONS = 61
 BATCH_SIZE = 64
 
 VALIDATION_PERCENT = 0.1
@@ -296,7 +296,7 @@ def train(config_sequences, train_generator, valid_generator):
 
         history = model.fit_generator(
             train_generator.gen(),
-            samples_per_epoch=BATCH_SIZE,
+            samples_per_epoch=BATCH_SIZE*512,
             nb_epoch=1,
             validation_data=valid_generator.gen(),
             nb_val_samples=nb_val_samples)
