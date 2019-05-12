@@ -304,10 +304,13 @@ def array_to_midi(array,
 
     mid = MidiFile()
     meta_track = MidiTrack()
-    note_track = MidiTrack()
+    note_track1 = MidiTrack()
+    note_track2 = MidiTrack()
     mid.tracks.append(meta_track)
-    mid.tracks.append(note_track)
+    mid.tracks.append(note_track1)
+    mid.tracks.append(note_track2)
 
+    meta_track.append(MetaMessage('track_name', name=name, time=0))
     meta_track.append(MetaMessage('track_name', name=name, time=0))
     meta_track.append(MetaMessage('time_signature',
                                   numerator=4,
@@ -320,7 +323,8 @@ def array_to_midi(array,
 
     ticks_per_quantum = ticks_per_quarter * 4 / 2**quantization
 
-    note_track.append(MetaMessage('track_name', name=name, time=0))
+    note_track1.append(MetaMessage('track_name', name=name, time=0))
+    note_track2.append(MetaMessage('track_name', name=name, time=0))
     cumulative_events = []
     for t, time_slice in enumerate(array):
         for i, pitch_on in enumerate(time_slice):
@@ -340,13 +344,31 @@ def array_to_midi(array,
         key=lambda msg: msg['time'] if msg['type']=='note_on' else msg['time'] + 0.5)
     last_time = 0
     for msg in cumulative_events:
-        note_track.append(Message(type=msg['type'],
+        note_track1.append(Message(type=msg['type'],
                                   channel=0,
                                   note=msg['pitch'],
                                   velocity=100,
                                   time=msg['time']-last_time))
+        note_track2.append(Message(type=msg['type'],
+                                   channel=9,
+                                   note=msg['pitch'],
+                                   velocity=100,
+                                   time=msg['time'] - last_time))
         last_time = msg['time']
-    note_track.append(MetaMessage('end_of_track', time=0))
+    note_track1.append(MetaMessage('end_of_track', time=0))
+    note_track2.append(MetaMessage('end_of_track', time=0))
+    # for msg in cumulative_events:
+    #     note_track2.append(Message(type=msg['type'],
+    #                               channel=9,
+    #                               note=msg['pitch'],
+    #                               velocity=100,
+    #                               time=msg['time']-last_time))
+    #     last_time = msg['time']
+    # note_track2.append(MetaMessage('end_of_track', time=0))
+
+    for track in mid.tracks:
+        for msg in track:
+            print("the actualMessage is " + str(msg))
     return mid
 
 

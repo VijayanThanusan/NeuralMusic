@@ -208,32 +208,9 @@ def generate(model, seed, mid_name, temperature=1.0, length=512):
         #element.time = int(element.time)
         #print("theChecko " + str(type(element)))
     mid = updateValue(mid)
-    # for element in mid.tracks:
-    #     for msg in element:
-    #         print("elmentsdfdf s " + str(msg))
-    #
-    # print("the mid_name is + " + str(mid_name))
-    # midiFileToReturn = MidiFile()
-    # # track = []
-    # # midiFileToReturn.tracks.append(track)
-    # tmpTime = 0
-    # # for element in midiFileInput:
-    # #    print("notrack: "+ str(element))
-    # for i, element in enumerate(mid.tracks):
-    #     tmpTrack = MidiTrack()
-    #     midiFileToReturn.tracks.append(tmpTrack)
-    #     print("inFOrefe is " + str(element))
-    #     # if(element.type == "note_on" or element.type == "note_off"):
-    #     # print("timoIs " + str(element.time))
-    #     ##element.time = int(element.time*480)
-    #     # element.time = int(element.time*480)
-    #     # tmpTime+=1
-    #     # track.append(element)
-    #     for msg in element:
-    #         msg.time = int(msg.time)
-    #         print("track" + str(msg.time))
-    #         tmpTrack.append(msg)
-
+    #for element in mid:
+    #    print("checko " + str(element))
+    print("the mid_name is + " + str(mid_name))
     mid.save(os.path.join(MIDI_OUT_DIR, mid_name))
     return mid
 
@@ -267,15 +244,12 @@ def init_model():
 
 def updateValue(midiFileInput):
     midiFileToReturn = MidiFile()
-    #track = []
-    #midiFileToReturn.tracks.append(track)
+    track = MidiTrack()
+    midiFileToReturn.tracks.append(track)
     tmpTime = 0
     #for element in midiFileInput:
     #    print("notrack: "+ str(element))
-    for i,element in enumerate(midiFileInput.tracks):
-        tmpTrack = MidiTrack()
-        midiFileToReturn.tracks.append(tmpTrack)
-        print("inFOrefe is " + str(element))
+    for element in midiFileInput.tracks:
         #if(element.type == "note_on" or element.type == "note_off"):
             #print("timoIs " + str(element.time))
             ##element.time = int(element.time*480)
@@ -285,9 +259,7 @@ def updateValue(midiFileInput):
         for msg in element:
             msg.time = int(msg.time)
             print("track" + str(msg.time))
-            tmpTrack.append(msg)
-
-        #track.append(tmpTrack)
+            track.append(msg)
         #else:
         #    track.append(element)
     #print("for message + " + str(messageInput) + " type " + str(messageInput.type))
@@ -297,9 +269,6 @@ def updateValue(midiFileInput):
     #return Message(message.type,message.channel,message.note,message.velocity,int(message.time))
     #if(messageInput.type == "note_on" or messageInput.type == "note_off"):
     #    message =
-    for element in midiFileToReturn.tracks:
-        for msg in element:
-            print("fekfdsf " + str(msg) )
     return midiFileToReturn
 
 def train(config_sequences, train_generator, valid_generator):

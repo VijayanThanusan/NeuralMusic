@@ -1,9 +1,0 @@
-Namespace(path='test_song2/', quantization=5, use_cached=False)
-the path prefix is test_song2
-the path suffix is 
-test 0
-test 0 path_prefix
-test 0 path_suffixtest_song2
-out is array
-true beethoven_ode_to_joy.mid
-out_dir : array/ outfile array/beethoven_ode_to_joy.mid.npy

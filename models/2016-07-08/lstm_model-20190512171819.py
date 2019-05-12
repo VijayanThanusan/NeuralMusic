@@ -207,35 +207,35 @@ def generate(model, seed, mid_name, temperature=1.0, length=512):
         #element = updateValue(element)
         #element.time = int(element.time)
         #print("theChecko " + str(type(element)))
-    mid = updateValue(mid)
+    #mid = updateValue(mid)
     # for element in mid.tracks:
     #     for msg in element:
     #         print("elmentsdfdf s " + str(msg))
     #
     # print("the mid_name is + " + str(mid_name))
-    # midiFileToReturn = MidiFile()
-    # # track = []
-    # # midiFileToReturn.tracks.append(track)
-    # tmpTime = 0
-    # # for element in midiFileInput:
-    # #    print("notrack: "+ str(element))
-    # for i, element in enumerate(mid.tracks):
-    #     tmpTrack = MidiTrack()
-    #     midiFileToReturn.tracks.append(tmpTrack)
-    #     print("inFOrefe is " + str(element))
-    #     # if(element.type == "note_on" or element.type == "note_off"):
-    #     # print("timoIs " + str(element.time))
-    #     ##element.time = int(element.time*480)
-    #     # element.time = int(element.time*480)
-    #     # tmpTime+=1
-    #     # track.append(element)
-    #     for msg in element:
-    #         msg.time = int(msg.time)
-    #         print("track" + str(msg.time))
-    #         tmpTrack.append(msg)
+    midiFileToReturn = MidiFile()
+    # track = []
+    # midiFileToReturn.tracks.append(track)
+    tmpTime = 0
+    # for element in midiFileInput:
+    #    print("notrack: "+ str(element))
+    for i, element in enumerate(mid.tracks):
+        tmpTrack = MidiTrack()
+        midiFileToReturn.tracks.append(tmpTrack)
+        print("inFOrefe is " + str(element))
+        # if(element.type == "note_on" or element.type == "note_off"):
+        # print("timoIs " + str(element.time))
+        ##element.time = int(element.time*480)
+        # element.time = int(element.time*480)
+        # tmpTime+=1
+        # track.append(element)
+        for msg in element:
+            msg.time = int(msg.time)
+            print("track" + str(msg.time))
+            tmpTrack.append(msg)
 
-    mid.save(os.path.join(MIDI_OUT_DIR, mid_name))
-    return mid
+    midiFileToReturn.save(os.path.join(MIDI_OUT_DIR, mid_name))
+    return midiFileToReturn
 
 
 
