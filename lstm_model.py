@@ -15,6 +15,7 @@ from keras.layers import CuDNNLSTM
 from keras.models import Sequential
 from keras.optimizers import RMSprop
 import numpy as np
+from numpy import array
 
 from data import *
 from midi_util import array_to_midi, print_array
@@ -42,12 +43,12 @@ NUM_HIDDEN_UNITS = 128
 PHRASE_LEN = 59
 # Dimensionality of the symbol space.
 SYMBOL_DIM = 2 ** len(IN_PITCHES)
-NUM_ITERATIONS = 61
+NUM_ITERATIONS = 11
 BATCH_SIZE = 64
 
 VALIDATION_PERCENT = 0.1
 #0.1
-BASE_DIR = '/Users/vijayakulanathanthanushan/Downloads/Keras-music-generation-master-2'
+BASE_DIR = '/Users/vijayakulanathanthanushan/Downloads/NeuralMuusic'
 # BASE_DIR = '/home/ubuntu/neural-beats'
 
 # MIDI_IN_DIR = os.path.join(BASE_DIR, 'midi_arrays/mega/')
@@ -112,6 +113,11 @@ def unfold(midi_array, pitches):
         res[:, pitches[i]] = midi_array[:, i]
     return res
 
+def crop_center(img,cropx,cropy):
+    y,x = img.shape
+    startx = x//2-(cropx//2)
+    starty = y//2-(cropy//2)
+    return img[starty:starty+cropy,startx:startx+cropx]
 
 def prepare_data():
     # Load the data.
@@ -131,6 +137,20 @@ def prepare_data():
             if filename.split('.')[-1] != 'npy':
                 continue
             array = np.load(os.path.join(root, filename))
+            newArray = []
+            #array = crop_center(array,)
+            print("array is " + str(array))
+            for i,val in enumerate(array):
+                for j, valJ in enumerate(val):
+                    #print(" for i " + str(i) + " val : " + str(val) + " j = " + str(j) + " valj : " + str(valJ))
+                    if(valJ > 0):
+                        newArray.append(val)
+                        break
+            newArray = np.asarray(newArray,dtype=np.float32)
+            print("the type of array is " + str(type(array)))
+            print("the type of newArray is " + str(type(newArray)))
+            #array = newArray
+            print("sizzzzzeOfArray is " + str(len(array)))
             if np.sum(np.sum(array[:, in_pitch_indices] > 0)) < MIN_HITS:
                 continue
             print("in_pitch_indices "+ str(in_pitch_indices))
@@ -197,7 +217,7 @@ def generate(model, seed, mid_name, temperature=1.0, length=512):
 def init_model():
     # Build the model.
     model = Sequential()
-    model.add(CuDNNLSTM(
+    model.add(LSTM(
         NUM_HIDDEN_UNITS,
         return_sequences=True,
         input_shape=(PHRASE_LEN, SYMBOL_DIM)))
@@ -209,7 +229,7 @@ def init_model():
         input_shape=(SYMBOL_DIM, SYMBOL_DIM)))
     model.add(Dropout(0.2))
     '''
-    model.add(CuDNNLSTM(NUM_HIDDEN_UNITS, return_sequences=False))
+    model.add(LSTM(NUM_HIDDEN_UNITS, return_sequences=False))
     model.add(Dropout(0.3))
     model.add(Dense(SYMBOL_DIM))
     model.add(Activation('softmax'))
@@ -297,7 +317,7 @@ def train(config_sequences, train_generator, valid_generator):
 
         history = model.fit_generator(
             train_generator.gen(),
-            samples_per_epoch=BATCH_SIZE*512,
+            samples_per_epoch=BATCH_SIZE,
             nb_epoch=1,
             validation_data=valid_generator.gen(),
             nb_val_samples=nb_val_samples)

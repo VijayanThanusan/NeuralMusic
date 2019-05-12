@@ -18,9 +18,48 @@ from keras.callbacks import ModelCheckpoint
 from tqdm import tqdm
 import argparse
 import os
-from mido import MidiFile
+from mido import MidiFile,MidiTrack,MetaMessage
 from midi_util import midi_to_array, quantize
 
+
+def updateValue(midiFileInput):
+    midiFileToReturn = MidiFile()
+    #track = MidiTrack()
+    #midiFileToReturn.tracks.append(track)
+    tmpTime = 0
+    # for element in midiFileInput:
+    #    print("notrack: "+ str(element))
+
+    for element in midiFileInput.tracks:
+        tmpTrack = MidiTrack()
+        midiFileToReturn.tracks.append(tmpTrack)
+        for msg in element:
+            if (msg.type == 'time_signature'):
+                print("the predzddd is " + str(msg))
+                msg.numerator = 4
+                msg.denominator = 4
+            msg.time = msg.time
+            print("the postdzddd is " + str(msg.time))
+            tmpTrack.append(msg)
+        #track.append(element)
+    # for element in midiFileInput.tracks:
+    # if(element.type == "note_on" or element.type == "note_off"):
+    # print("timoIs " + str(element.time))
+    ##element.time = int(element.time*480)
+    # element.time = int(element.time*480)
+    # tmpTime+=1
+    # track.append(element)
+
+    # else:
+    #    track.append(element)
+    # print("for message + " + str(messageInput) + " type " + str(messageInput.type))
+    # print("from updatevalue " + str(message.channel))
+    # print("from uV2 " + str(Message(message.type, message.channel, message.note, message.velocity, int(message.time))))
+    # message.time = int(message.time)
+    # return Message(message.type,message.channel,message.note,message.velocity,int(message.time))
+    # if(messageInput.type == "note_on" or messageInput.type == "note_off"):
+    #    message =
+    return midiFileInput
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(
@@ -68,9 +107,17 @@ if __name__ == "__main__":
 
                 mid = quantize(MidiFile(os.path.join(root, file)),
                                quantization=args.quantization)
-                print("the quantizedMid is " + str(mid))
-                time_sig_msgs = [msg for msg in mid.tracks[0] if msg.type == 'time_signature']
-                if len(time_sig_msgs) == 1:
+                mid = updateValue(mid)
+                print("the quantizedMid is " + str(mid.tracks[0]))
+                for element in mid.tracks[0]:
+                    print("elementdqsd is " + str(element.type))
+                #time_sig_msgs = [msg for msg in mid.tracks[0] if msg.type == 'time_signature']
+                for msg in mid.tracks[0]:
+                    if msg.type == 'time_signature':
+                        time_sig_msgs = [msg]
+                        break
+                print("lffhf "+str(len(time_sig_msgs)))
+                if len(time_sig_msgs) >= 1:
                     time_sig = time_sig_msgs[0]
                     if not (time_sig.numerator == 4 and time_sig.denominator == 4):
                         print('Time signature not 4/4. Skipping...')
@@ -80,13 +127,14 @@ if __name__ == "__main__":
                     continue
 
                 array = midi_to_array(mid, int(args.quantization))
+                for i, val in enumerate(array):
+                    print("for i " + str(i) + " val : " + str(val))
                 print("len of array is "+ str(len(array)))
                 print("array is " + str(array))
                 if not os.path.exists(out_dir):
                     os.makedirs(out_dir)
                 print ('Saving' + str(out_file))
                 np.save(out_file, array)
-
 
 
 def main_train():

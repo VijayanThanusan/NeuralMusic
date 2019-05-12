@@ -1,0 +1,9 @@
+Namespace(path='test_song2/', quantization=5, use_cached=False)
+the path prefix is test_song2
+the path suffix is 
+test 0
+test 0 path_prefix
+test 0 path_suffixtest_song2
+out is array
+true 089 West Coast 06 Fill.mid
+out_dir : array/ outfile array/089 West Coast 06 Fill.mid.npy

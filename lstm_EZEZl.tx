@@ -1,0 +1,13 @@
+filename10_little_indiansfl.mid.npy
+array is [[0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ ...
+ [0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]
+ [0. 0. 0. ... 0. 0. 0.]]
+the type of array is <class 'numpy.ndarray'>
+the type of newArray is <class 'numpy.ndarray'>
+sizzzzzeOfArray is 256
+config_sequences[]
+n_points []

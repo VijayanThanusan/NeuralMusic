@@ -224,8 +224,15 @@ def midi_to_array(mid, quantization):
     Arguments:
     mid -- MIDI object with a 4/4 time signature
     quantization -- The note duration, represented as 1/2**quantization.'''
-
-    time_sig_msgs = [ msg for msg in mid.tracks[0] if msg.type == 'time_signature' ]
+    for element in mid.tracks[0]:
+        print("fd,klscdks " + str(element.type))
+    for msg in mid.tracks[0]:
+        if msg.type == 'time_signature':
+            time_sig_msgs = [msg]
+            break
+    print("time_sig_msgs is " + str(time_sig_msgs))
+    print("thetime_sig_msgslen is " + str(len(time_sig_msgs)))
+    #time_sig_msgs = [ msg for msg in mid.tracks[0] if msg.type == 'time_signature' ]
     assert len(time_sig_msgs) == 1, 'No time signature found'
     time_sig = time_sig_msgs[0]
     assert time_sig.numerator == 4 and time_sig.denominator == 4, 'Not 4/4 time.'
@@ -328,7 +335,7 @@ def array_to_midi(array,
     last_time = 0
     for msg in cumulative_events:
         note_track.append(Message(type=msg['type'],
-                                  channel=9,
+                                  channel=1,
                                   note=msg['pitch'],
                                   velocity=100,
                                   time=msg['time']-last_time))

@@ -1,0 +1,502 @@
+filename.DS_Store
+filenamebeethoven_ode_to_joy.mid.npy
+filenamehummel_ecossaise.mid.npy
+filenamebeethoven_ode_to_joy_fl.mid.npy
+filenametwinkle_twinkle.mid.npy
+filenamebach_air.mid.npy
+in_pitch_indices [0, 2, 5, 12, 13, 15]
+filenamefunk_study_no_3.mid.npy
+config_sequences[array([0, 0, 0, ..., 0, 0, 0])]
+seq[0 0 0 ... 0 0 0]
+len 11
+n_points [array([0, 0, 0, ..., 0, 0, 0])]
+seq[0 0 0 ... 0 0 0]
+len 11
+n_points [array([0, 0, 0, ..., 0, 0, 0])]
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+lstm_1 (LSTM)                (None, 10, 128)           98816     
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 10, 128)           0         
+_________________________________________________________________
+lstm_2 (LSTM)                (None, 128)               131584    
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 64)                8256      
+_________________________________________________________________
+activation_1 (Activation)    (None, 64)                0         
+=================================================================
+Total params: 238,656
+Trainable params: 238,656
+Non-trainable params: 0
+_________________________________________________________________
+Training the model...
+Attempting to load previous weights...
+seq[0 0 0 ... 0 0 0]
+len 11
+Number of training points: 2038
+Using 203.8 validation batches
+Iteration 0
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 1:12 - loss: 0.2566
+ 4/64 [>.............................] - ETA: 18s - loss: 0.2427 
+ 7/64 [==>...........................] - ETA: 10s - loss: 0.2798
+10/64 [===>..........................] - ETA: 7s - loss: 0.2800 
+13/64 [=====>........................] - ETA: 5s - loss: 0.2939
+16/64 [======>.......................] - ETA: 4s - loss: 0.2666
+19/64 [=======>......................] - ETA: 3s - loss: 0.2698
+22/64 [=========>....................] - ETA: 3s - loss: 0.2718
+25/64 [==========>...................] - ETA: 2s - loss: 0.2629
+28/64 [============>.................] - ETA: 2s - loss: 0.2521
+31/64 [=============>................] - ETA: 1s - loss: 0.2595
+34/64 [==============>...............] - ETA: 1s - loss: 0.2488
+37/64 [================>.............] - ETA: 1s - loss: 0.2519
+40/64 [=================>............] - ETA: 1s - loss: 0.2592
+43/64 [===================>..........] - ETA: 1s - loss: 0.2564
+46/64 [====================>.........] - ETA: 0s - loss: 0.2572
+49/64 [=====================>........] - ETA: 0s - loss: 0.2539
+52/64 [=======================>......] - ETA: 0s - loss: 0.2586
+55/64 [========================>.....] - ETA: 0s - loss: 0.2592
+58/64 [==========================>...] - ETA: 0s - loss: 0.2631
+61/64 [===========================>..] - ETA: 0s - loss: 0.2618
+64/64 [==============================] - 4s 63ms/step - loss: 0.2662 - val_loss: 0.2546
+seq[0 0 0 ... 0 0 0]
+len 10
+Iteration 1
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.3498
+ 4/64 [>.............................] - ETA: 1s - loss: 0.2557
+ 7/64 [==>...........................] - ETA: 1s - loss: 0.2324
+10/64 [===>..........................] - ETA: 1s - loss: 0.2187
+13/64 [=====>........................] - ETA: 1s - loss: 0.2082
+16/64 [======>.......................] - ETA: 1s - loss: 0.1975
+19/64 [=======>......................] - ETA: 1s - loss: 0.2030
+22/64 [=========>....................] - ETA: 1s - loss: 0.1928
+25/64 [==========>...................] - ETA: 0s - loss: 0.2080
+28/64 [============>.................] - ETA: 0s - loss: 0.2082
+31/64 [=============>................] - ETA: 0s - loss: 0.2064
+34/64 [==============>...............] - ETA: 0s - loss: 0.2055
+37/64 [================>.............] - ETA: 0s - loss: 0.2007
+40/64 [=================>............] - ETA: 0s - loss: 0.2077
+43/64 [===================>..........] - ETA: 0s - loss: 0.2168
+46/64 [====================>.........] - ETA: 0s - loss: 0.2216
+49/64 [=====================>........] - ETA: 0s - loss: 0.2201
+52/64 [=======================>......] - ETA: 0s - loss: 0.2251
+55/64 [========================>.....] - ETA: 0s - loss: 0.2367
+58/64 [==========================>...] - ETA: 0s - loss: 0.2372
+61/64 [===========================>..] - ETA: 0s - loss: 0.2409
+64/64 [==============================] - 3s 43ms/step - loss: 0.2427 - val_loss: 0.2447
+seq[0 0 0 ... 0 0 0]
+len 10
+Iteration 2
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 3s - loss: 0.4102
+ 4/64 [>.............................] - ETA: 1s - loss: 0.3172
+ 7/64 [==>...........................] - ETA: 1s - loss: 0.2438
+10/64 [===>..........................] - ETA: 1s - loss: 0.2526
+13/64 [=====>........................] - ETA: 1s - loss: 0.2426
+16/64 [======>.......................] - ETA: 1s - loss: 0.2187
+19/64 [=======>......................] - ETA: 1s - loss: 0.2174
+22/64 [=========>....................] - ETA: 1s - loss: 0.2128
+25/64 [==========>...................] - ETA: 0s - loss: 0.2186
+28/64 [============>.................] - ETA: 0s - loss: 0.2181
+31/64 [=============>................] - ETA: 0s - loss: 0.2164
+34/64 [==============>...............] - ETA: 0s - loss: 0.2108
+37/64 [================>.............] - ETA: 0s - loss: 0.2093
+40/64 [=================>............] - ETA: 0s - loss: 0.2137
+43/64 [===================>..........] - ETA: 0s - loss: 0.2192
+46/64 [====================>.........] - ETA: 0s - loss: 0.2225
+49/64 [=====================>........] - ETA: 0s - loss: 0.2214
+52/64 [=======================>......] - ETA: 0s - loss: 0.2277
+55/64 [========================>.....] - ETA: 0s - loss: 0.2372
+58/64 [==========================>...] - ETA: 0s - loss: 0.2369
+61/64 [===========================>..] - ETA: 0s - loss: 0.2415
+64/64 [==============================] - 3s 44ms/step - loss: 0.2428 - val_loss: 0.2480
+seq[0 0 0 ... 0 0 0]
+len 10
+Iteration 3
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.2756
+ 3/64 [>.............................] - ETA: 1s - loss: 0.3155
+ 6/64 [=>............................] - ETA: 1s - loss: 0.2516
+ 9/64 [===>..........................] - ETA: 1s - loss: 0.2435
+12/64 [====>.........................] - ETA: 1s - loss: 0.2184
+15/64 [======>.......................] - ETA: 1s - loss: 0.1945
+18/64 [=======>......................] - ETA: 1s - loss: 0.1930
+21/64 [========>.....................] - ETA: 1s - loss: 0.1930
+24/64 [==========>...................] - ETA: 0s - loss: 0.1997
+27/64 [===========>..................] - ETA: 0s - loss: 0.2029
+30/64 [=============>................] - ETA: 0s - loss: 0.1978
+33/64 [==============>...............] - ETA: 0s - loss: 0.1957
+36/64 [===============>..............] - ETA: 0s - loss: 0.1956
+39/64 [=================>............] - ETA: 0s - loss: 0.2004
+41/64 [==================>...........] - ETA: 0s - loss: 0.2075
+44/64 [===================>..........] - ETA: 0s - loss: 0.2105
+47/64 [=====================>........] - ETA: 0s - loss: 0.2169
+50/64 [======================>.......] - ETA: 0s - loss: 0.2151
+53/64 [=======================>......] - ETA: 0s - loss: 0.2253
+56/64 [=========================>....] - ETA: 0s - loss: 0.2307
+59/64 [==========================>...] - ETA: 0s - loss: 0.2341
+62/64 [============================>.] - ETA: 0s - loss: 0.2348
+64/64 [==============================] - 3s 43ms/step - loss: 0.2383 - val_loss: 0.2517
+seq[0 0 0 ... 0 0 0]
+len 10
+Iteration 4
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.1997
+ 4/64 [>.............................] - ETA: 1s - loss: 0.2450
+ 7/64 [==>...........................] - ETA: 1s - loss: 0.2611
+ 9/64 [===>..........................] - ETA: 1s - loss: 0.2447
+12/64 [====>.........................] - ETA: 1s - loss: 0.2200
+15/64 [======>.......................] - ETA: 1s - loss: 0.2061
+18/64 [=======>......................] - ETA: 1s - loss: 0.2041
+21/64 [========>.....................] - ETA: 1s - loss: 0.2005
+24/64 [==========>...................] - ETA: 0s - loss: 0.2095
+27/64 [===========>..................] - ETA: 0s - loss: 0.2115
+30/64 [=============>................] - ETA: 0s - loss: 0.2039
+33/64 [==============>...............] - ETA: 0s - loss: 0.2005
+36/64 [===============>..............] - ETA: 0s - loss: 0.1988
+39/64 [=================>............] - ETA: 0s - loss: 0.2040
+42/64 [==================>...........] - ETA: 0s - loss: 0.2127
+45/64 [====================>.........] - ETA: 0s - loss: 0.2174
+48/64 [=====================>........] - ETA: 0s - loss: 0.2188
+51/64 [======================>.......] - ETA: 0s - loss: 0.2193
+54/64 [========================>.....] - ETA: 0s - loss: 0.2313
+57/64 [=========================>....] - ETA: 0s - loss: 0.2363
+60/64 [===========================>..] - ETA: 0s - loss: 0.2387
+63/64 [============================>.] - ETA: 0s - loss: 0.2395
+64/64 [==============================] - 3s 43ms/step - loss: 0.2408 - val_loss: 0.2464
+seq[0 0 0 ... 0 0 0]
+len 10
+Iteration 5
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 3s - loss: 0.2676
+ 3/64 [>.............................] - ETA: 2s - loss: 0.1823
+ 6/64 [=>............................] - ETA: 1s - loss: 0.1862
+ 9/64 [===>..........................] - ETA: 1s - loss: 0.1990
+12/64 [====>.........................] - ETA: 1s - loss: 0.1990
+15/64 [======>.......................] - ETA: 1s - loss: 0.1912
+18/64 [=======>......................] - ETA: 1s - loss: 0.1943
+21/64 [========>.....................] - ETA: 1s - loss: 0.1923
+24/64 [==========>...................] - ETA: 0s - loss: 0.2017
+27/64 [===========>..................] - ETA: 0s - loss: 0.2046
+30/64 [=============>................] - ETA: 0s - loss: 0.2006
+33/64 [==============>...............] - ETA: 0s - loss: 0.1967
+36/64 [===============>..............] - ETA: 0s - loss: 0.1966
+39/64 [=================>............] - ETA: 0s - loss: 0.2014
+42/64 [==================>...........] - ETA: 0s - loss: 0.2095
+45/64 [====================>.........] - ETA: 0s - loss: 0.2161
+48/64 [=====================>........] - ETA: 0s - loss: 0.2176
+51/64 [======================>.......] - ETA: 0s - loss: 0.2180
+54/64 [========================>.....] - ETA: 0s - loss: 0.2299
+57/64 [=========================>....] - ETA: 0s - loss: 0.2354
+60/64 [===========================>..] - ETA: 0s - loss: 0.2364
+63/64 [============================>.] - ETA: 0s - loss: 0.2379
+64/64 [==============================] - 3s 44ms/step - loss: 0.2408 - val_loss: 0.2482
+seq[0 0 0 ... 0 0 0]
+len 10
+Iteration 6
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.2883
+ 3/64 [>.............................] - ETA: 1s - loss: 0.2828
+ 6/64 [=>............................] - ETA: 1s - loss: 0.2398
+ 9/64 [===>..........................] - ETA: 1s - loss: 0.2345
+12/64 [====>.........................] - ETA: 1s - loss: 0.2213
+15/64 [======>.......................] - ETA: 1s - loss: 0.2050
+18/64 [=======>......................] - ETA: 1s - loss: 0.2040
+21/64 [========>.....................] - ETA: 1s - loss: 0.2023
+24/64 [==========>...................] - ETA: 0s - loss: 0.2079
+27/64 [===========>..................] - ETA: 0s - loss: 0.2181
+30/64 [=============>................] - ETA: 0s - loss: 0.2078
+33/64 [==============>...............] - ETA: 0s - loss: 0.2081
+36/64 [===============>..............] - ETA: 0s - loss: 0.2051
+39/64 [=================>............] - ETA: 0s - loss: 0.2070
+42/64 [==================>...........] - ETA: 0s - loss: 0.2129
+45/64 [====================>.........] - ETA: 0s - loss: 0.2198
+48/64 [=====================>........] - ETA: 0s - loss: 0.2197
+51/64 [======================>.......] - ETA: 0s - loss: 0.2191
+54/64 [========================>.....] - ETA: 0s - loss: 0.2331
+57/64 [=========================>....] - ETA: 0s - loss: 0.2358
+60/64 [===========================>..] - ETA: 0s - loss: 0.2375
+63/64 [============================>.] - ETA: 0s - loss: 0.2367
+64/64 [==============================] - 3s 43ms/step - loss: 0.2395 - val_loss: 0.2426
+seq[0 0 0 ... 0 0 0]
+len 10
+Iteration 7
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.2212
+ 3/64 [>.............................] - ETA: 1s - loss: 0.3779
+ 6/64 [=>............................] - ETA: 1s - loss: 0.3114
+ 9/64 [===>..........................] - ETA: 1s - loss: 0.2934
+12/64 [====>.........................] - ETA: 1s - loss: 0.2548
+15/64 [======>.......................] - ETA: 1s - loss: 0.2318
+18/64 [=======>......................] - ETA: 1s - loss: 0.2257
+21/64 [========>.....................] - ETA: 1s - loss: 0.2211
+24/64 [==========>...................] - ETA: 0s - loss: 0.2241
+27/64 [===========>..................] - ETA: 0s - loss: 0.2265
+30/64 [=============>................] - ETA: 0s - loss: 0.2164
+33/64 [==============>...............] - ETA: 0s - loss: 0.2169
+36/64 [===============>..............] - ETA: 0s - loss: 0.2129
+39/64 [=================>............] - ETA: 0s - loss: 0.2141
+42/64 [==================>...........] - ETA: 0s - loss: 0.2198
+45/64 [====================>.........] - ETA: 0s - loss: 0.2236
+48/64 [=====================>........] - ETA: 0s - loss: 0.2259
+51/64 [======================>.......] - ETA: 0s - loss: 0.2247
+54/64 [========================>.....] - ETA: 0s - loss: 0.2346
+57/64 [=========================>....] - ETA: 0s - loss: 0.2381
+60/64 [===========================>..] - ETA: 0s - loss: 0.2415
+63/64 [============================>.] - ETA: 0s - loss: 0.2399
+64/64 [==============================] - 3s 44ms/step - loss: 0.2442 - val_loss: 0.2485
+seq[0 0 0 ... 0 0 0]
+len 10
+Iteration 8
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.2245
+ 3/64 [>.............................] - ETA: 1s - loss: 0.3287
+ 6/64 [=>............................] - ETA: 1s - loss: 0.2830
+ 9/64 [===>..........................] - ETA: 1s - loss: 0.2530
+12/64 [====>.........................] - ETA: 1s - loss: 0.2449
+15/64 [======>.......................] - ETA: 1s - loss: 0.2343
+18/64 [=======>......................] - ETA: 1s - loss: 0.2257
+21/64 [========>.....................] - ETA: 1s - loss: 0.2177
+24/64 [==========>...................] - ETA: 0s - loss: 0.2228
+27/64 [===========>..................] - ETA: 0s - loss: 0.2257
+30/64 [=============>................] - ETA: 0s - loss: 0.2147
+33/64 [==============>...............] - ETA: 0s - loss: 0.2164
+36/64 [===============>..............] - ETA: 0s - loss: 0.2133
+39/64 [=================>............] - ETA: 0s - loss: 0.2143
+42/64 [==================>...........] - ETA: 0s - loss: 0.2199
+45/64 [====================>.........] - ETA: 0s - loss: 0.2257
+48/64 [=====================>........] - ETA: 0s - loss: 0.2279
+51/64 [======================>.......] - ETA: 0s - loss: 0.2259
+54/64 [========================>.....] - ETA: 0s - loss: 0.2377
+57/64 [=========================>....] - ETA: 0s - loss: 0.2420
+60/64 [===========================>..] - ETA: 0s - loss: 0.2440
+63/64 [============================>.] - ETA: 0s - loss: 0.2422
+64/64 [==============================] - 3s 44ms/step - loss: 0.2456 - val_loss: 0.2416
+seq[0 0 0 ... 0 0 0]
+len 10
+Iteration 9
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.2001
+ 3/64 [>.............................] - ETA: 2s - loss: 0.2927
+ 6/64 [=>............................] - ETA: 1s - loss: 0.2484
+ 9/64 [===>..........................] - ETA: 1s - loss: 0.2261
+12/64 [====>.........................] - ETA: 1s - loss: 0.2388
+15/64 [======>.......................] - ETA: 1s - loss: 0.2150
+18/64 [=======>......................] - ETA: 1s - loss: 0.2097
+21/64 [========>.....................] - ETA: 1s - loss: 0.2057
+24/64 [==========>...................] - ETA: 0s - loss: 0.2105
+27/64 [===========>..................] - ETA: 0s - loss: 0.2130
+30/64 [=============>................] - ETA: 0s - loss: 0.2054
+33/64 [==============>...............] - ETA: 0s - loss: 0.2046
+36/64 [===============>..............] - ETA: 0s - loss: 0.2026
+39/64 [=================>............] - ETA: 0s - loss: 0.2049
+42/64 [==================>...........] - ETA: 0s - loss: 0.2127
+45/64 [====================>.........] - ETA: 0s - loss: 0.2196
+48/64 [=====================>........] - ETA: 0s - loss: 0.2204
+51/64 [======================>.......] - ETA: 0s - loss: 0.2207
+54/64 [========================>.....] - ETA: 0s - loss: 0.2312
+57/64 [=========================>....] - ETA: 0s - loss: 0.2354
+60/64 [===========================>..] - ETA: 0s - loss: 0.2369
+63/64 [============================>.] - ETA: 0s - loss: 0.2365
+64/64 [==============================] - 3s 43ms/step - loss: 0.2395 - val_loss: 0.2471
+seq[0 0 0 ... 0 0 0]
+len 10
+Iteration 10
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.3740
+ 3/64 [>.............................] - ETA: 2s - loss: 0.2531
+ 6/64 [=>............................] - ETA: 1s - loss: 0.2337
+ 9/64 [===>..........................] - ETA: 1s - loss: 0.2402
+12/64 [====>.........................] - ETA: 1s - loss: 0.2278
+15/64 [======>.......................] - ETA: 1s - loss: 0.2145
+18/64 [=======>......................] - ETA: 1s - loss: 0.1990
+21/64 [========>.....................] - ETA: 1s - loss: 0.2046
+24/64 [==========>...................] - ETA: 0s - loss: 0.2053
+27/64 [===========>..................] - ETA: 0s - loss: 0.2138
+30/64 [=============>................] - ETA: 0s - loss: 0.2048
+33/64 [==============>...............] - ETA: 0s - loss: 0.2044
+36/64 [===============>..............] - ETA: 0s - loss: 0.2037
+39/64 [=================>............] - ETA: 0s - loss: 0.2069
+42/64 [==================>...........] - ETA: 0s - loss: 0.2129
+45/64 [====================>.........] - ETA: 0s - loss: 0.2144
+48/64 [=====================>........] - ETA: 0s - loss: 0.2190
+51/64 [======================>.......] - ETA: 0s - loss: 0.2174
+54/64 [========================>.....] - ETA: 0s - loss: 0.2274
+57/64 [=========================>....] - ETA: 0s - loss: 0.2325
+60/64 [===========================>..] - ETA: 0s - loss: 0.2367
+63/64 [============================>.] - ETA: 0s - loss: 0.2349
+64/64 [==============================] - 3s 44ms/step - loss: 0.2374 - val_loss: 0.2413
+seq[0 0 0 ... 0 0 0]
+len 10
+checkpoint 1 + 10
+----- Generating with temperature: 0.5
+checkpoint 2 + 10
+the mid is + <class 'mido.midifiles.midifiles.MidiFile'>
+track0
+track0
+track0
+track0
+track0
+track0
+the intitial msg is <meta message track_name name='out_512_0.5_10.mid' time=0>
+the intitial msg is <meta message time_signature numerator=4 denominator=4 clocks_per_click=24 notated_32nd_notes_per_beat=8 time=0>
+the intitial msg is <meta message set_tempo tempo=500000 time=0>
+the intitial msg is <meta message end_of_track time=0>
+the intitial msg is <meta message track_name name='out_512_0.5_10.mid' time=0>
+the intitial msg is <meta message end_of_track time=0>
+the mid_name is + <midi file None type 1, 1 tracks, 6 messages>
+----- Generating with temperature: 0.75
+checkpoint 2 + 10
+the mid is + <class 'mido.midifiles.midifiles.MidiFile'>
+track0
+track0
+track0
+track0
+track0
+track1200
+track30
+track1980
+track30
+track990
+track30
+track1230
+track30
+track5760
+track30
+track840
+track30
+track570
+track30
+track2340
+track0
+track30
+track0
+track0
+the intitial msg is <meta message track_name name='out_512_0.75_10.mid' time=0>
+the intitial msg is <meta message time_signature numerator=4 denominator=4 clocks_per_click=24 notated_32nd_notes_per_beat=8 time=0>
+the intitial msg is <meta message set_tempo tempo=500000 time=0>
+the intitial msg is <meta message end_of_track time=0>
+the intitial msg is <meta message track_name name='out_512_0.75_10.mid' time=0>
+the intitial msg is note_on channel=1 note=59 velocity=100 time=1200
+the intitial msg is note_off channel=1 note=59 velocity=100 time=30
+the intitial msg is note_on channel=1 note=61 velocity=100 time=1980
+the intitial msg is note_off channel=1 note=61 velocity=100 time=30
+the intitial msg is note_on channel=1 note=61 velocity=100 time=990
+the intitial msg is note_off channel=1 note=61 velocity=100 time=30
+the intitial msg is note_on channel=1 note=59 velocity=100 time=1230
+the intitial msg is note_off channel=1 note=59 velocity=100 time=30
+the intitial msg is note_on channel=1 note=42 velocity=100 time=5760
+the intitial msg is note_off channel=1 note=42 velocity=100 time=30
+the intitial msg is note_on channel=1 note=59 velocity=100 time=840
+the intitial msg is note_off channel=1 note=59 velocity=100 time=30
+the intitial msg is note_on channel=1 note=59 velocity=100 time=570
+the intitial msg is note_off channel=1 note=59 velocity=100 time=30
+the intitial msg is note_on channel=1 note=42 velocity=100 time=2340
+the intitial msg is note_on channel=1 note=61 velocity=100 time=0
+the intitial msg is note_off channel=1 note=42 velocity=100 time=30
+the intitial msg is note_off channel=1 note=61 velocity=100 time=0
+the intitial msg is <meta message end_of_track time=0>
+the mid_name is + <midi file None type 1, 1 tracks, 24 messages>
+----- Generating with temperature: 1.0
+checkpoint 2 + 10
+the mid is + <class 'mido.midifiles.midifiles.MidiFile'>
+track0
+track0
+track0
+track0
+track0
+track1770
+track30
+track390
+track30
+track210
+track30
+track300
+track30
+track690
+track30
+track210
+track30
+track2100
+track30
+track780
+track30
+track420
+track30
+track720
+track30
+track210
+track30
+track810
+track30
+track1140
+track30
+track1440
+track30
+track390
+track30
+track930
+track30
+track900
+track30
+track450
+track30
+track0
+the intitial msg is <meta message track_name name='out_512_1.0_10.mid' time=0>
+the intitial msg is <meta message time_signature numerator=4 denominator=4 clocks_per_click=24 notated_32nd_notes_per_beat=8 time=0>
+the intitial msg is <meta message set_tempo tempo=500000 time=0>
+the intitial msg is <meta message end_of_track time=0>
+the intitial msg is <meta message track_name name='out_512_1.0_10.mid' time=0>
+the intitial msg is note_on channel=1 note=38 velocity=100 time=1770
+the intitial msg is note_off channel=1 note=38 velocity=100 time=30
+the intitial msg is note_on channel=1 note=59 velocity=100 time=390
+the intitial msg is note_off channel=1 note=59 velocity=100 time=30
+the intitial msg is note_on channel=1 note=59 velocity=100 time=210
+the intitial msg is note_off channel=1 note=59 velocity=100 time=30
+the intitial msg is note_on channel=1 note=42 velocity=100 time=300
+the intitial msg is note_off channel=1 note=42 velocity=100 time=30
+the intitial msg is note_on channel=1 note=61 velocity=100 time=690
+the intitial msg is note_off channel=1 note=61 velocity=100 time=30
+the intitial msg is note_on channel=1 note=42 velocity=100 time=210
+the intitial msg is note_off channel=1 note=42 velocity=100 time=30
+the intitial msg is note_on channel=1 note=59 velocity=100 time=2100
+the intitial msg is note_off channel=1 note=59 velocity=100 time=30
+the intitial msg is note_on channel=1 note=42 velocity=100 time=780
+the intitial msg is note_off channel=1 note=42 velocity=100 time=30
+the intitial msg is note_on channel=1 note=38 velocity=100 time=420
+the intitial msg is note_off channel=1 note=38 velocity=100 time=30
+the intitial msg is note_on channel=1 note=61 velocity=100 time=720
+the intitial msg is note_off channel=1 note=61 velocity=100 time=30
+the intitial msg is note_on channel=1 note=42 velocity=100 time=210
+the intitial msg is note_off channel=1 note=42 velocity=100 time=30
+the intitial msg is note_on channel=1 note=42 velocity=100 time=810
+the intitial msg is note_off channel=1 note=42 velocity=100 time=30
+the intitial msg is note_on channel=1 note=59 velocity=100 time=1140
+the intitial msg is note_off channel=1 note=59 velocity=100 time=30
+the intitial msg is note_on channel=1 note=59 velocity=100 time=1440
+the intitial msg is note_off channel=1 note=59 velocity=100 time=30
+the intitial msg is note_on channel=1 note=59 velocity=100 time=390
+the intitial msg is note_off channel=1 note=59 velocity=100 time=30
+the intitial msg is note_on channel=1 note=59 velocity=100 time=930
+the intitial msg is note_off channel=1 note=59 velocity=100 time=30
+the intitial msg is note_on channel=1 note=42 velocity=100 time=900
+the intitial msg is note_off channel=1 note=42 velocity=100 time=30
+the intitial msg is note_on channel=1 note=59 velocity=100 time=450
+the intitial msg is note_off channel=1 note=59 velocity=100 time=30
+the intitial msg is <meta message end_of_track time=0>
+the mid_name is + <midi file None type 1, 1 tracks, 42 messages>
