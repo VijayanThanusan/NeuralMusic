@@ -25,9 +25,10 @@ np.random.seed(10)
 # All the pitches represented in the MIDI data arrays.
 # TODO: Read pitches from pitches.txt file in corresponding midi array
 # directory.
-PITCHES = [36, 37, 38, 40, 41, 42, 44, 45, 46, 47, 49, 50, 58, 59, 60, 61, 62, 63, 64, 66]
+PITCHES = [36, 37, 38, 40, 41, 42, 44, 45, 46, 47, 49, 50, 58, 59, 60, 61, 62, 63, 64, 66,72,76,79,74,71,69,67,77]
 # The subset of pitches we'll actually use.
-IN_PITCHES = [36, 38, 42, 58, 59, 61]  # [36, 38, 41, 42, 47, 58, 59, 61]
+#IN_PITCHES = [36, 38, 42, 58, 59, 61]  # [36, 38, 41, 42, 47, 58, 59, 61]
+IN_PITCHES = [72,76,79,74,71,69]
 # The pitches we want to generate (potentially for different drum kit)
 OUT_PITCHES = IN_PITCHES  # [54, 56, 58, 60, 61, 62, 63, 64]
 # The minimum number of hits to keep a drum loop after the types of
@@ -40,7 +41,7 @@ MIN_HITS = 8
 NUM_HIDDEN_UNITS = 128
 # The length of the phrase from which the predict the next symbol.
 #PHRASE_LEN = 64
-PHRASE_LEN = 59
+PHRASE_LEN = 10
 # Dimensionality of the symbol space.
 SYMBOL_DIM = 2 ** len(IN_PITCHES)
 NUM_ITERATIONS = 11
@@ -66,7 +67,7 @@ LOAD_WEIGHTS = True
 
 # Encode each configuration of p pitches, each on or off, as a
 # number between 0 and 2**p-1.
-assert len(IN_PITCHES) <= 8, 'Too many configurations for this many pitches!'
+#assert len(IN_PITCHES) <= 8, 'Too many configurations for this many pitches!'
 encodings = {
     config: i
     for i, config in enumerate(itertools.product([0, 1], repeat=len(IN_PITCHES)))
@@ -151,10 +152,12 @@ def prepare_data():
             print("the type of newArray is " + str(type(newArray)))
             #array = newArray
             print("sizzzzzeOfArray is " + str(len(array)))
+            print("what I want to know is " + str(np.sum(np.sum(array[:, in_pitch_indices] > 0))))
             if np.sum(np.sum(array[:, in_pitch_indices] > 0)) < MIN_HITS:
                 continue
             print("in_pitch_indices "+ str(in_pitch_indices))
             config_sequences.append(np.array(encode(array[:, in_pitch_indices])))
+            print("the len of config_sequences are "  + str(len(config_sequences)))
         print
         'Loaded {}/{} directories'.format(dir_idx + 1, num_dirs)
     print("config_sequences"+str(config_sequences))

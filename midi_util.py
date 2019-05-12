@@ -13,7 +13,8 @@ import numpy as np
 DEBUG = True
 
 # The MIDI pitches we use.
-PITCHES = [36, 37, 38, 40, 41, 42, 44, 45, 46, 47, 49, 50, 58, 59, 60, 61, 62, 63, 64, 66]
+PITCHES = [36, 37, 38, 40, 41, 42, 44, 45, 46, 47, 49, 50, 58, 59, 60, 61, 62, 63, 64, 66,72,76,79,74,71,69,67,77]
+
 PITCHES_MAP = { p : i for i, p in enumerate(PITCHES) }
 PITCHES_VERSION = '0.1'
 
@@ -107,6 +108,7 @@ def quantize_track(track, ticks_per_quarter, quantization):
                 # cumulative time of note_on plus the orginal difference
                 # of the unquantized cumulative times.
                 quantized_note_off_cum_time = quantized_note_on_cum_time + (cum_time - note_on_cum_time)
+                print("test1 " + str((min(end_of_track_cum_time, quantized_note_on_cum_time), note_on_msg)))
                 quantized_msgs.append((min(end_of_track_cum_time, quantized_note_on_cum_time), note_on_msg))
                 quantized_msgs.append((min(end_of_track_cum_time, quantized_note_off_cum_time), msg))
 
@@ -124,7 +126,9 @@ def quantize_track(track, ticks_per_quarter, quantization):
     # differential times and construct the quantized track messages.
     #print("the quantized_msgsSize " + str(quantized_msgs))
     #quantized_msgs = sorted(quantized_msgs, key=lambda tup: tup[3])
-    quantized_msgs = Sort_Tuple(quantized_msgs)
+
+    #quantized_msgs = Sort_Tuple(quantized_msgs)
+
     #for idx,x in enumerate(quantized_msgs):
     #    quantized_msgs[idx] = (quantized_msgs[idx][0],quantized_msgs[idx][1])
     #print("the quantized_msgsSize 2" + str(quantized_msgs))
@@ -261,7 +265,9 @@ def midi_to_array(mid, quantization):
         print (normalized_num_steps)
 
     midi_array = np.zeros((normalized_num_steps, len(PITCHES)))
+    print("begining of big test")
     for (position, note_num, velocity) in notes:
+        print("the notes : " + str(notes) + " position : " + str(position) + " note_num " + str(note_num) + " velocity " + str(velocity) + " note_num in pitches " + str(note_num in PITCHES_MAP))
         if position == normalized_num_steps:
             #print 'Warning: truncating from position {} to {}'.format(position, normalized_num_steps - 1)
             continue
@@ -270,7 +276,7 @@ def midi_to_array(mid, quantization):
             #print 'Warning: skipping note at position {} (greater than {})'.format(position, normalized_num_steps)
             continue
         if note_num in PITCHES_MAP:
-            print("note_num"+str(position))
+            print("note_numdd"+str(position)+ " pitch " + str(PITCHES_MAP[note_num]))
             midi_array[int(position), PITCHES_MAP[note_num]] = velocity
 
     return midi_array
@@ -335,7 +341,7 @@ def array_to_midi(array,
     last_time = 0
     for msg in cumulative_events:
         note_track.append(Message(type=msg['type'],
-                                  channel=1,
+                                  channel=0,
                                   note=msg['pitch'],
                                   velocity=100,
                                   time=msg['time']-last_time))
