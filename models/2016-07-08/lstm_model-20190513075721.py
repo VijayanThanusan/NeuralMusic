@@ -58,7 +58,7 @@ MIDI_IN_DIR = os.path.join(BASE_DIR, 'array/')
 # MIDI_IN_DIR = os.path.join(BASE_DIR, 'midi_arrays/mega/Rock Essentials 2 Live 9 SD/Preview Files/Fills/4-4 Fills')
 
 MODEL_OUT_DIR = os.path.join(BASE_DIR, 'models')
-MODEL_NAME = '2016-07-08.hdf5'
+MODEL_NAME = '2016-07-08'
 TRIAL_DIR = os.path.join(MODEL_OUT_DIR, MODEL_NAME)
 
 MIDI_OUT_DIR = os.path.join(TRIAL_DIR, 'gen-midi')
@@ -302,36 +302,6 @@ def updateValue(midiFileInput):
             print("fekfdsf " + str(msg) )
     return midiFileToReturn
 
-def generateFromLoaded():
-    # Initialize the model.
-    model = init_model()
-    print
-    model.summary()
-    weights_path = os.path.join(TRIAL_DIR, MODEL_NAME)
-    if os.path.exists(weights_path):
-        model.load_weights("2016-07-08.hdf5")
-
-    config_sequences, train_generator, valid_generator = prepare_data()
-    sequence_indices = idx_seq_of_length(config_sequences, PHRASE_LEN)
-    seq_index, phrase_start_index = sequence_indices[
-        np.random.choice(len(sequence_indices))]
-    gen_length = 512
-    for temperature in [0.5, 0.75, 1.0]:
-        generated = []
-        phrase = list(
-            config_sequences[seq_index][
-            phrase_start_index: phrase_start_index + PHRASE_LEN])
-
-
-        print('----- Generating with temperature:', temperature)
-        #print("checkpoint 2 + " + str(i))
-        generate(model,
-                 phrase,
-                 'outTest_{}_{}.mid'.format(gen_length, temperature),
-                 temperature=temperature,
-                 length=gen_length)
-    return model
-
 def train(config_sequences, train_generator, valid_generator):
     '''Train model and save weights.'''
 
@@ -520,4 +490,4 @@ def run_generate():
     """
 
 
-generateFromLoaded()
+run_train()

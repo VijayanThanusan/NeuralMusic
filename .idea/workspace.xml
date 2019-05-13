@@ -4,16 +4,9 @@
     <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lstm_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/lstm_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/midi_util.py" beforeDir="false" afterPath="$PROJECT_DIR$/midi_util.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/2016-07-08/2016-07-08" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/2016-07-08/gen-midi/out_512_0.5_10.mid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/2016-07-08/gen-midi/out_512_0.75_10.mid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/2016-07-08/gen-midi/out_512_1.0_10.mid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/2016-07-08/history.jsonl" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/2016-07-08/lstm_model-20190512151506.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/2016-07-08/lstm_model-20190512152036.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pip-selfcheck.json" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pip-selfcheck.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/2016-07-08/2016-07-08" beforeDir="false" afterPath="$PROJECT_DIR$/models/2016-07-08/2016-07-08" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/2016-07-08/history.jsonl" beforeDir="false" afterPath="$PROJECT_DIR$/models/2016-07-08/history.jsonl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sound_flute.mid" beforeDir="false" afterPath="$PROJECT_DIR$/sound_flute.mid" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,17 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3931">
+            <state relative-caret-position="-2187">
               <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/venv/bin/activate.fish">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="360">
-              <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -44,20 +28,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/midi_util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="132">
-              <caret line="352" column="44" selection-start-line="352" selection-start-column="44" selection-end-line="352" selection-end-column="44" />
-              <folding>
-                <element signature="e#0#35#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/midiToWav.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="81" column="44" selection-start-line="81" selection-start-column="44" selection-end-line="81" selection-end-column="44" />
+            <state relative-caret-position="-101">
+              <caret line="370" column="19" selection-start-line="370" selection-start-column="19" selection-end-line="370" selection-end-column="19" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -79,16 +51,49 @@
           <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lstm_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-21">
-              <caret line="267" column="4" selection-start-line="267" selection-start-column="4" selection-end-line="267" selection-end-column="4" />
+            <state relative-caret-position="197">
+              <caret line="311" column="28" selection-start-line="311" selection-start-column="28" selection-end-line="311" selection-end-column="28" />
               <folding>
                 <element signature="e#162#191#0" expanded="true" />
               </folding>
             </state>
           </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/predict.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
+              <folding>
+                <element signature="e#28#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/keras/engine/network.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="293">
+              <caret line="1123" column="15" lean-forward="true" selection-start-line="1123" selection-start-column="15" selection-end-line="1123" selection-end-column="15" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/2016-07-08/lstm_model-20190512171535.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-4864" />
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/models/2016-07-08/history.jsonl">
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
@@ -125,6 +130,9 @@
       <find>fekfdsf</find>
       <find>elmentsdfdf</find>
       <find>updateV</find>
+      <find>lst</find>
+      <find>2016-07-08</find>
+      <find>model</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -136,9 +144,9 @@
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/data.py" />
         <option value="$PROJECT_DIR$/requirements.txt" />
-        <option value="$PROJECT_DIR$/lstm_model.py" />
-        <option value="$PROJECT_DIR$/midi_util.py" />
         <option value="$PROJECT_DIR$/midiToWav.py" />
+        <option value="$PROJECT_DIR$/midi_util.py" />
+        <option value="$PROJECT_DIR$/lstm_model.py" />
       </list>
     </option>
   </component>
@@ -152,7 +160,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,13 +187,7 @@
               <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
               <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="2016-07-08" type="462c0819:PsiDirectoryNode" />
-              <item name="gen-midi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
-              <item name="test_song2" type="462c0819:PsiDirectoryNode" />
+              <item name="2016-07-08.hdf5" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
@@ -196,6 +197,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -236,20 +238,20 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1024" height="640" extended-state="0" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28818738" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.36659878" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49185336" weight="0.32982457" />
+      <window_info anchor="bottom" id="Find" order="1" sideWeight="0.48676172" weight="0.32982457" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.7484725" visible="true" weight="0.3122807" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.7393075" visible="true" weight="0.15263158" />
       <window_info anchor="bottom" id="Python Console" order="9" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.2515275" side_tool="true" visible="true" weight="0.3122807" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.26069248" side_tool="true" visible="true" weight="0.15263158" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -268,16 +270,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/array/honeysuckle_on1653_fl.mid.npy" />
-    <entry file="file://$PROJECT_DIR$/venv/bin/activate.fish">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/array/10_little_indiansfl.mid.npy">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/venv/bin/mido-connect">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -285,12 +277,32 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data.py">
+    <entry file="file://$PROJECT_DIR$/lstmmmm.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/bin/activate.fish">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="930">
-          <caret line="62" selection-start-line="62" selection-end-line="62" />
+        <state relative-caret-position="360">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/midiToWav.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1185">
+          <caret line="79" column="43" selection-start-line="79" selection-start-column="43" selection-end-line="79" selection-end-column="43" />
           <folding>
-            <element signature="e#0#16#0" expanded="true" />
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/merge.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+          <folding>
+            <element signature="e#31#42#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -302,42 +314,75 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3931">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lstmmmm.txt">
+    <entry file="file://$PROJECT_DIR$/array/10_little_indiansfl.mid.npy">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/lstm_model.py">
+    <entry file="file://$PROJECT_DIR$/data.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21">
-          <caret line="267" column="4" selection-start-line="267" selection-start-column="4" selection-end-line="267" selection-end-column="4" />
+        <state relative-caret-position="930">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
           <folding>
-            <element signature="e#162#191#0" expanded="true" />
+            <element signature="e#0#16#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/midi_util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="132">
-          <caret line="352" column="44" selection-start-line="352" selection-start-column="44" selection-end-line="352" selection-end-column="44" />
+        <state relative-caret-position="-101">
+          <caret line="370" column="19" selection-start-line="370" selection-start-column="19" selection-end-line="370" selection-end-column="19" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/midiToWav.py">
+    <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="81" column="44" selection-start-line="81" selection-start-column="44" selection-end-line="81" selection-end-column="44" />
+        <state relative-caret-position="-2187">
+          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/2016-07-08/lstm_model-20190512171535.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-4864" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/2016-07-08/lstm_model-20190513080008.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-6722" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/2016-07-08/history.jsonl">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/models/2016-07-08/2016-07-08">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/venv/lib/python3.7/site-packages/keras/engine/network.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="293">
+          <caret line="1123" column="15" lean-forward="true" selection-start-line="1123" selection-start-column="15" selection-end-line="1123" selection-end-column="15" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/predict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#28#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lstm_model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="311" column="28" selection-start-line="311" selection-start-column="28" selection-end-line="311" selection-end-column="28" />
+          <folding>
+            <element signature="e#162#191#0" expanded="true" />
           </folding>
         </state>
       </provider>
