@@ -281,8 +281,73 @@ def midi_to_array(mid, quantization):
 
     return midi_array
 
-
 def array_to_midi(array,
+                  name,
+                  quantization=5,
+                  pitch_offset=0,
+                  midi_type=1,
+                  ticks_per_quarter=240):
+    '''Convert an array into a MIDI object.
+    When an MIDI object is converted to an array, information is
+    lost. That information needs to be provided to create a new MIDI
+    object from the array. For this application, we don't care about
+    this metadata, so we'll use some default values.
+    Arguments:
+    array -- An array A[time_step, note_number] = 1 if note on, 0 otherwise.
+    quantization -- The note duration, represented as 1/2**quantization.
+    pitch_offset -- Offset the pitch number relative to the array index.
+    midi_type -- Type of MIDI format.
+    ticks_per_quarter -- The number of MIDI timesteps per quarter note.'''
+
+    mid = MidiFile()
+    meta_track = MidiTrack()
+    note_track = MidiTrack()
+    mid.tracks.append(meta_track)
+    mid.tracks.append(note_track)
+
+    meta_track.append(MetaMessage('track_name', name=name, time=0))
+    meta_track.append(MetaMessage('time_signature',
+                                  numerator=4,
+                                  denominator=4,
+                                  clocks_per_click=24,
+                                  notated_32nd_notes_per_beat=8,
+                                  time=0))
+    meta_track.append(MetaMessage('set_tempo', tempo=500000, time=0))
+    meta_track.append(MetaMessage('end_of_track', time=0))
+
+    ticks_per_quantum = ticks_per_quarter * 4 / 2**quantization
+
+    note_track.append(MetaMessage('track_name', name=name, time=0))
+    cumulative_events = []
+    for t, time_slice in enumerate(array):
+        for i, pitch_on in enumerate(time_slice):
+            if pitch_on > 0:
+                cumulative_events.append(dict(
+                    type = 'note_on',
+                    pitch = i + pitch_offset,
+                    time = ticks_per_quantum * t
+                ))
+                cumulative_events.append(dict(
+                    type = 'note_off',
+                    pitch = i + pitch_offset,
+                    time = ticks_per_quantum * (t+1)
+                ))
+
+    cumulative_events.sort(
+        key=lambda msg: msg['time'] if msg['type']=='note_on' else msg['time'] + 0.5)
+    last_time = 0
+    for msg in cumulative_events:
+        note_track.append(Message(type=msg['type'],
+                                  channel=9,
+                                  note=msg['pitch'],
+                                  velocity=100,
+                                  time=msg['time']-last_time))
+        last_time = msg['time']
+    note_track.append(MetaMessage('end_of_track', time=0))
+    return mid
+
+
+def array_to_midi2(array,
                   name,
                   quantization=5,
                   pitch_offset=0,

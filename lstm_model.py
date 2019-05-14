@@ -44,7 +44,7 @@ NUM_HIDDEN_UNITS = 128
 PHRASE_LEN = 10
 # Dimensionality of the symbol space.
 SYMBOL_DIM = 2 ** len(IN_PITCHES)
-NUM_ITERATIONS = 11
+NUM_ITERATIONS = 101
 BATCH_SIZE = 64
 
 VALIDATION_PERCENT = 0.1
@@ -327,7 +327,7 @@ def generateFromLoaded():
         #print("checkpoint 2 + " + str(i))
         generate(model,
                  phrase,
-                 'outTest_{}_{}.mid'.format(gen_length, temperature),
+                 'outTest85_{}_{}.mid'.format(gen_length, temperature),
                  temperature=temperature,
                  length=gen_length)
     return model
@@ -389,7 +389,7 @@ def train(config_sequences, train_generator, valid_generator):
         val_loss = history.history['val_loss'][-1]
         if best_val_loss is None or val_loss < best_val_loss:
             print
-            'Best validation loss so far. Saving...'
+            ('Best validation loss so far. Saving...'+str(i))
             best_val_loss = val_loss
             model.save_weights(os.path.join(TRIAL_DIR, MODEL_NAME),
                                overwrite=True)
@@ -420,7 +420,7 @@ def train(config_sequences, train_generator, valid_generator):
             print("checkpoint 2 + " + str(i))
             generate(model,
                      phrase,
-                     'out_{}_{}_{}.mid'.format(gen_length, temperature, i),
+                     'chan0out_{}_{}_{}.mid'.format(gen_length, temperature, i),
                      temperature=temperature,
                      length=gen_length)
     return model
@@ -435,7 +435,7 @@ def run_generate():
     print
     'Loading model...'
     model = init_model()
-    model.load_weights(os.path.join(TRIAL_DIR, MODEL_NAME))
+    model.load_weights("2016-07-08.hdf5")
     seed = np.zeros((32, 6))
 
     config_sequences, train_generator, valid_generator = prepare_data()

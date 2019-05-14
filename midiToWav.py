@@ -21,6 +21,7 @@ from keras.callbacks import ModelCheckpoint
 from tqdm import tqdm
 import argparse
 import os
+import mergingMidis
 from mido import MidiFile,MidiTrack,MetaMessage
 from midi_util import midi_to_array, quantize
 
@@ -72,14 +73,26 @@ from midi_util import midi_to_array, quantize
 #
 # output.export("animal.wav", format="wav")
 
-if __name__ == '__main__':
 
-    s = converter.parse("./out_512_1.0_10.mid")
-    for i,p in enumerate(s.parts):
+def changeInstrument():
+    s = converter.parse("outTest85_512_1.0.mid")
+    for i, p in enumerate(s.parts):
         if i == 0:
-            p.insert(0,instrument.TenorDrum())
-        if i == 1:
-            p.insert(0, instrument.TenorDrum())
-        print("i is " + str(i) + "the parrrrts is " + str(p) + " instrument is " + str(instrument.partitionByInstrument(p)))
+            print("herrrrooooooo")
+            p.insert(i, instrument.TenorDrum())
+        print("i is " + str(i) + "the parrrrts is " + str(p) + " instrument is " + str(
+            instrument.partitionByInstrument(p)))
 
-    s.write('midi', 'sound_flute.mid')
+    s.write('midi', 'music/soundTennorDrum.mid')
+
+def readTempo():
+    readingMido = MidiFile("music/TotalSoundTe3A.mid")
+    for track in readingMido.tracks:
+        for msg in track:
+            print("the msg is " + str(msg))
+if __name__ == '__main__':
+   # mid = MidiFile('music/soundTest_pinano.mid')
+   # for i,track in enumerate(mid.tracks):
+   #     for msg in track:
+   #         print("the msg is " + str(msg) + " in track number " + str(i))
+   readTempo()

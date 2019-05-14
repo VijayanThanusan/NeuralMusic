@@ -44,7 +44,7 @@ NUM_HIDDEN_UNITS = 128
 PHRASE_LEN = 10
 # Dimensionality of the symbol space.
 SYMBOL_DIM = 2 ** len(IN_PITCHES)
-NUM_ITERATIONS = 11
+NUM_ITERATIONS = 101
 BATCH_SIZE = 64
 
 VALIDATION_PERCENT = 0.1
@@ -303,7 +303,34 @@ def updateValue(midiFileInput):
     return midiFileToReturn
 
 def generateFromLoaded():
-    pass
+    # Initialize the model.
+    model = init_model()
+    print
+    model.summary()
+    weights_path = os.path.join(TRIAL_DIR, MODEL_NAME)
+    if os.path.exists(weights_path):
+        model.load_weights("2016-07-08.hdf5")
+
+    config_sequences, train_generator, valid_generator = prepare_data()
+    sequence_indices = idx_seq_of_length(config_sequences, PHRASE_LEN)
+    seq_index, phrase_start_index = sequence_indices[
+        np.random.choice(len(sequence_indices))]
+    gen_length = 512
+    for temperature in [0.5, 0.75, 1.0]:
+        generated = []
+        phrase = list(
+            config_sequences[seq_index][
+            phrase_start_index: phrase_start_index + PHRASE_LEN])
+
+
+        print('----- Generating with temperature:', temperature)
+        #print("checkpoint 2 + " + str(i))
+        generate(model,
+                 phrase,
+                 'outTest2_{}_{}.mid'.format(gen_length, temperature),
+                 temperature=temperature,
+                 length=gen_length)
+    return model
 
 def train(config_sequences, train_generator, valid_generator):
     '''Train model and save weights.'''
@@ -362,7 +389,7 @@ def train(config_sequences, train_generator, valid_generator):
         val_loss = history.history['val_loss'][-1]
         if best_val_loss is None or val_loss < best_val_loss:
             print
-            'Best validation loss so far. Saving...'
+            ('Best validation loss so far. Saving...'+str(i))
             best_val_loss = val_loss
             model.save_weights(os.path.join(TRIAL_DIR, MODEL_NAME),
                                overwrite=True)
@@ -393,7 +420,7 @@ def train(config_sequences, train_generator, valid_generator):
             print("checkpoint 2 + " + str(i))
             generate(model,
                      phrase,
-                     'out_{}_{}_{}.mid'.format(gen_length, temperature, i),
+                     'chan0out_{}_{}_{}.mid'.format(gen_length, temperature, i),
                      temperature=temperature,
                      length=gen_length)
     return model
@@ -408,7 +435,7 @@ def run_generate():
     print
     'Loading model...'
     model = init_model()
-    model.load_weights(os.path.join(TRIAL_DIR, MODEL_NAME))
+    model.load_weights("2016-07-08.hdf5")
     seed = np.zeros((32, 6))
 
     config_sequences, train_generator, valid_generator = prepare_data()
