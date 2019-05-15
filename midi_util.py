@@ -319,6 +319,8 @@ def array_to_midi(array,
 
     note_track.append(MetaMessage('track_name', name=name, time=0))
     cumulative_events = []
+
+
     for t, time_slice in enumerate(array):
         for i, pitch_on in enumerate(time_slice):
             if pitch_on > 0:
@@ -336,9 +338,10 @@ def array_to_midi(array,
     cumulative_events.sort(
         key=lambda msg: msg['time'] if msg['type']=='note_on' else msg['time'] + 0.5)
     last_time = 0
+    note_track.append(Message('program_change', program=1, channel=0, time=0))
     for msg in cumulative_events:
         note_track.append(Message(type=msg['type'],
-                                  channel=9,
+                                  channel=0,
                                   note=msg['pitch'],
                                   velocity=100,
                                   time=msg['time']-last_time))

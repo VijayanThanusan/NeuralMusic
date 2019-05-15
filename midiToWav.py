@@ -21,8 +21,7 @@ from keras.callbacks import ModelCheckpoint
 from tqdm import tqdm
 import argparse
 import os
-import mergingMidis
-from mido import MidiFile,MidiTrack,MetaMessage
+from mido import MidiFile,MidiTrack,MetaMessage,Message
 from midi_util import midi_to_array, quantize
 
 # def note_to_freq(note, concert_A=440.0):
@@ -75,21 +74,43 @@ from midi_util import midi_to_array, quantize
 
 
 def changeInstrument():
-    s = converter.parse("outTest85_512_1.0.mid")
+    s = converter.parse("music/forGuitar.mid")
     for i, p in enumerate(s.parts):
         if i == 0:
             print("herrrrooooooo")
-            p.insert(i, instrument.TenorDrum())
+            p.insert(i, instrument.Guitar())
         print("i is " + str(i) + "the parrrrts is " + str(p) + " instrument is " + str(
             instrument.partitionByInstrument(p)))
 
-    s.write('midi', 'music/soundTennorDrum.mid')
+    s.write('midi', 'music/Guitar1.mid')
 
 def readTempo():
-    readingMido = MidiFile("music/TotalSoundTe3A.mid")
-    for track in readingMido.tracks:
-        for msg in track:
-            print("the msg is " + str(msg))
+    readingMido = MidiFile("music/forDrums.mid")
+    actualMidi = MidiFile()
+    for i,track in enumerate(readingMido.tracks):
+        actualTrack = MidiTrack()
+        actualMidi.add_track(actualTrack)
+
+        if i % 2 == 0:
+
+            for msg in track:
+               if msg.type == "note_on" or msg.type == "note_off":
+                    if msg.channel == 9:
+                         actualTrack.append(Message('program_change', program="10", time="0"))
+                         break
+    # for j,msg in enumerate(track):
+    #    if j == 1 :
+    #        track.append(Message('program_change', program=9, time=0))
+
+    for msg in track:
+      actualTrack.append(msg)
+      print("the msg in track " + str(i) + " is : " + str(msg))
+
+
+
+
+    #readingMido.save("TotalSoundNEWDGPTSound")
+
 if __name__ == '__main__':
    # mid = MidiFile('music/soundTest_pinano.mid')
    # for i,track in enumerate(mid.tracks):

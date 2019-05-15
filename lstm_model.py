@@ -316,20 +316,21 @@ def generateFromLoaded():
     seq_index, phrase_start_index = sequence_indices[
         np.random.choice(len(sequence_indices))]
     gen_length = 512
-    for temperature in [0.5, 0.75, 1.0]:
-        generated = []
-        phrase = list(
-            config_sequences[seq_index][
-            phrase_start_index: phrase_start_index + PHRASE_LEN])
+    #for temperature in [0.5, 0.75, 1.0]:
+    temperature = 2
+    generated = []
+    phrase = list(
+        config_sequences[seq_index][
+        phrase_start_index: phrase_start_index + PHRASE_LEN])
 
 
-        print('----- Generating with temperature:', temperature)
-        #print("checkpoint 2 + " + str(i))
-        generate(model,
-                 phrase,
-                 'outTest85_{}_{}.mid'.format(gen_length, temperature),
-                 temperature=temperature,
-                 length=gen_length)
+    print('----- Generating with temperature:', temperature)
+    #print("checkpoint 2 + " + str(i))
+    generate(model,
+             phrase,
+             'generateFromLoaded8_{}_{}.mid'.format(gen_length, temperature),
+             temperature=temperature,
+             length=gen_length)
     return model
 
 def train(config_sequences, train_generator, valid_generator):
