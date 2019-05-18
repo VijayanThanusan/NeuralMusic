@@ -18,6 +18,16 @@ PITCHES = [36, 37, 38, 40, 41, 42, 44, 45, 46, 47, 49, 50, 58, 59, 60, 61, 62, 6
 PITCHES_MAP = { p : i for i, p in enumerate(PITCHES) }
 PITCHES_VERSION = '0.1'
 
+
+def getAllNotesFromTrackWithoutOccur(MidoFile):
+    notesArray = []
+    #MidoFile = MidiFile(songName)
+    for track in MidoFile.tracks:
+        for msg in track:
+            if msg.type == "note_on" or msg.type == "note_off":
+                notesArray.append(msg.note)
+    return list(set(notesArray))
+
 def get_note_track(mid):
     '''Given a MIDI object, return the first track with note events.'''
 
@@ -217,6 +227,77 @@ def Sort_Tuple(tup):
     return tup
 
 
+
+def midi_to_arrayWithPitch(mid, quantization):
+    '''Return array representation of a 4/4 time signature, MIDI object.
+
+    Normalize the number of time steps in track to a power of 2. Then
+    construct a T x N array A (T = number of time steps, N = number of
+    MIDI note numbers) where A(t,n) is the velocity of the note number
+    n at time step t if the note is active, and 0 if it is not.
+
+    Arguments:
+    mid -- MIDI object with a 4/4 time signature
+    quantization -- The note duration, represented as 1/2**quantization.'''
+
+    print("the str of mid is " + str(mid))
+    PITCHES = getAllNotesFromTrackWithoutOccur(mid)
+    PITCHES_MAP = {p: i for i, p in enumerate(PITCHES)}
+    PITCHES_VERSION = '0.1'
+
+    for element in mid.tracks[0]:
+        print("fd,klscdks " + str(element.type))
+    for msg in mid.tracks[0]:
+        if msg.type == 'time_signature':
+            time_sig_msgs = [msg]
+            break
+    print("time_sig_msgs is " + str(time_sig_msgs))
+    print("thetime_sig_msgslen is " + str(len(time_sig_msgs)))
+    #time_sig_msgs = [ msg for msg in mid.tracks[0] if msg.type == 'time_signature' ]
+    assert len(time_sig_msgs) == 1, 'No time signature found'
+    time_sig = time_sig_msgs[0]
+    assert time_sig.numerator == 4 and time_sig.denominator == 4, 'Not 4/4 time.'
+
+    # Quantize the notes to a grid of time steps.
+    mid = quantize(mid, quantization=quantization)
+
+    # Convert the note timing and velocity to an array.
+    _, track = get_note_track(mid)
+    ticks_per_quarter = mid.ticks_per_beat
+
+    time_msgs = [msg for msg in track if hasattr(msg, 'time')]
+    cum_times = np.cumsum([msg.time for msg in time_msgs])
+    track_len_ticks = cum_times[-1]
+    if DEBUG:
+        print ('Track len in ticks:', track_len_ticks)
+    notes = [
+        (time * (2**quantization/4) / (ticks_per_quarter), msg.note, msg.velocity)
+        for (time, msg) in zip(cum_times, time_msgs)
+        if msg.type == 'note_on' ]
+    num_steps = int(round(track_len_ticks / float(ticks_per_quarter)*2**quantization/4))
+    normalized_num_steps = int(nearest_pow2(num_steps))
+
+    if DEBUG:
+        print (num_steps)
+        print (normalized_num_steps)
+
+    midi_array = np.zeros((normalized_num_steps, len(PITCHES)))
+    print("begining of big test")
+    for (position, note_num, velocity) in notes:
+        print("the notes : " + str(notes) + " position : " + str(position) + " note_num " + str(note_num) + " velocity " + str(velocity) + " note_num in pitches " + str(note_num in PITCHES_MAP))
+        if position == normalized_num_steps:
+            #print 'Warning: truncating from position {} to {}'.format(position, normalized_num_steps - 1)
+            continue
+            #position = normalized_num_steps - 1
+        if position > normalized_num_steps:
+            #print 'Warning: skipping note at position {} (greater than {})'.format(position, normalized_num_steps)
+            continue
+        if note_num in PITCHES_MAP:
+            print("note_numdd"+str(position)+ " pitch " + str(PITCHES_MAP[note_num]))
+            midi_array[int(position), PITCHES_MAP[note_num]] = velocity
+
+    return midi_array
+
 def midi_to_array(mid, quantization):
     '''Return array representation of a 4/4 time signature, MIDI object.
 
@@ -281,12 +362,12 @@ def midi_to_array(mid, quantization):
 
     return midi_array
 
-def array_to_midi(array,
+def array_to_midiWithProgramAndChannel(array,
                   name,
                   quantization=5,
                   pitch_offset=0,
                   midi_type=1,
-                  ticks_per_quarter=240):
+                  ticks_per_quarter=240,programInput=117,channelInput=14):
     '''Convert an array into a MIDI object.
     When an MIDI object is converted to an array, information is
     lost. That information needs to be provided to create a new MIDI
@@ -338,10 +419,78 @@ def array_to_midi(array,
     cumulative_events.sort(
         key=lambda msg: msg['time'] if msg['type']=='note_on' else msg['time'] + 0.5)
     last_time = 0
-    note_track.append(Message('program_change', program=1, channel=0, time=0))
+    note_track.append(Message('program_change', program=programInput, channel=channelInput, time=0))
     for msg in cumulative_events:
         note_track.append(Message(type=msg['type'],
-                                  channel=0,
+                                  channel=channelInput,
+                                  note=msg['pitch'],
+                                  velocity=100,
+                                  time=msg['time']-last_time))
+        last_time = msg['time']
+    note_track.append(MetaMessage('end_of_track', time=0))
+    return mid
+
+def array_to_midiN(array,
+                   name,
+                   quantization=5,
+                   pitch_offset=0,
+                   midi_type=1,
+                   ticks_per_quarter=240):
+    '''Convert an array into a MIDI object.
+    When an MIDI object is converted to an array, information is
+    lost. That information needs to be provided to create a new MIDI
+    object from the array. For this application, we don't care about
+    this metadata, so we'll use some default values.
+    Arguments:
+    array -- An array A[time_step, note_number] = 1 if note on, 0 otherwise.
+    quantization -- The note duration, represented as 1/2**quantization.
+    pitch_offset -- Offset the pitch number relative to the array index.
+    midi_type -- Type of MIDI format.
+    ticks_per_quarter -- The number of MIDI timesteps per quarter note.'''
+
+    mid = MidiFile()
+    meta_track = MidiTrack()
+    note_track = MidiTrack()
+    mid.tracks.append(meta_track)
+    mid.tracks.append(note_track)
+
+    meta_track.append(MetaMessage('track_name', name=name, time=0))
+    meta_track.append(MetaMessage('time_signature',
+                                  numerator=4,
+                                  denominator=4,
+                                  clocks_per_click=24,
+                                  notated_32nd_notes_per_beat=8,
+                                  time=0))
+    meta_track.append(MetaMessage('set_tempo', tempo=500000, time=0))
+    meta_track.append(MetaMessage('end_of_track', time=0))
+
+    ticks_per_quantum = ticks_per_quarter * 4 / 2**quantization
+
+    note_track.append(MetaMessage('track_name', name=name, time=0))
+    cumulative_events = []
+
+
+    for t, time_slice in enumerate(array):
+        for i, pitch_on in enumerate(time_slice):
+            if pitch_on > 0:
+                cumulative_events.append(dict(
+                    type = 'note_on',
+                    pitch = i + pitch_offset,
+                    time = ticks_per_quantum * t
+                ))
+                cumulative_events.append(dict(
+                    type = 'note_off',
+                    pitch = i + pitch_offset,
+                    time = ticks_per_quantum * (t+1)
+                ))
+
+    cumulative_events.sort(
+        key=lambda msg: msg['time'] if msg['type']=='note_on' else msg['time'] + 0.5)
+    last_time = 0
+    note_track.append(Message('program_change', program=117, channel=14, time=0))
+    for msg in cumulative_events:
+        note_track.append(Message(type=msg['type'],
+                                  channel=14,
                                   note=msg['pitch'],
                                   velocity=100,
                                   time=msg['time']-last_time))

@@ -116,7 +116,7 @@ import music21
 name = "test_SoundLikePro"
 ticks_per_quarter = 240
 quantization = 5
-instrument_type = ["generateFromLoaded8_512_2", "generateFromLoaded7_512_4", ]
+instrument_type = ["ringo_starr_feel", "10_little_indiansfl", ]
 pattern = [[]]
 array_notes = len(instrument_type)
 total = midi.Pattern()
@@ -148,4 +148,6 @@ for i in range(array_notes):
     else:
         print("the file " + str(instrument_type[i]) + "not exisit")
 #midi.write_midifile('music/TotalSound13.mid', total)
-newSong.save('music/bigTest1.mid')
+newSong.save('music/RingLittle.mid')
+
+

@@ -19,7 +19,7 @@ from tqdm import tqdm
 import argparse
 import os
 from mido import MidiFile,MidiTrack,MetaMessage
-from midi_util import midi_to_array, quantize
+from midi_util import midi_to_array, quantize,midi_to_arrayWithPitch
 
 
 def updateValue(midiFileInput):
@@ -126,7 +126,7 @@ if __name__ == "__main__":
                     print('No time signature. Skipping...')
                     continue
 
-                array = midi_to_array(mid, int(args.quantization))
+                array = midi_to_arrayWithPitch(mid, int(args.quantization))
                 for i, val in enumerate(array):
                     print("for i " + str(i) + " val : " + str(val))
                 print("len of array is "+ str(len(array)))
