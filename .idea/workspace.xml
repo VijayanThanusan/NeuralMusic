@@ -1,14 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/array/10_little_indiansfl.mid.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/array/beethoven_ode_to_joy-2.mid.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/2016-07-08.hdf5/2016-07-08.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/models/2016-07-08.hdf5/2016-07-08.hdf5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/2016-07-08.hdf5/history.jsonl" beforeDir="false" afterPath="$PROJECT_DIR$/models/2016-07-08.hdf5/history.jsonl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_song2/10_little_indiansfl.mid" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_song2/beethoven_ode_to_joy-2.mid" beforeDir="false" />
-    </list>
+    <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,11 +34,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/merge.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1875">
-              <caret line="127" column="28" selection-start-line="127" selection-start-column="28" selection-end-line="127" selection-end-column="28" />
+            <state relative-caret-position="177">
+              <caret line="150" column="42" selection-start-line="150" selection-start-column="42" selection-end-line="150" selection-end-column="42" />
               <folding>
                 <element signature="e#3967#3978#0" expanded="true" />
               </folding>
@@ -53,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lstm_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="780" selection-start-line="780" selection-end-line="781" selection-end-column="78" />
+            <state relative-caret-position="1091">
+              <caret line="781" column="42" selection-start-line="781" selection-start-column="42" selection-end-line="781" selection-end-column="42" />
               <folding>
                 <element signature="e#162#191#0" expanded="true" />
               </folding>
@@ -69,7 +62,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>midi_to</find>
       <find>quan</find>
       <find>Quantized messages:</find>
       <find>20</find>
@@ -99,6 +91,7 @@
       <find>prog</find>
       <find>updat</find>
       <find>program_change</find>
+      <find>time_slice</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -118,8 +111,8 @@
         <option value="$PROJECT_DIR$/mergingMidis.py" />
         <option value="$PROJECT_DIR$/midiToWav.py" />
         <option value="$PROJECT_DIR$/midi_util.py" />
-        <option value="$PROJECT_DIR$/merge.py" />
         <option value="$PROJECT_DIR$/lstm_model.py" />
+        <option value="$PROJECT_DIR$/merge.py" />
       </list>
     </option>
   </component>
@@ -139,24 +132,6 @@
             <path>
               <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
               <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="2016-07-08.hdf5" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="2016-07-08.hdf5" type="462c0819:PsiDirectoryNode" />
-              <item name="gen-midi" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
@@ -185,9 +160,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/music" />
       <recent name="$PROJECT_DIR$/test_song2" />
       <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/music" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/music" />
@@ -433,16 +408,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/merge.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1875">
-          <caret line="127" column="28" selection-start-line="127" selection-start-column="28" selection-end-line="127" selection-end-column="28" />
-          <folding>
-            <element signature="e#3967#3978#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2100">
@@ -455,10 +420,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lstm_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="780" selection-start-line="780" selection-end-line="781" selection-end-column="78" />
+        <state relative-caret-position="1091">
+          <caret line="781" column="42" selection-start-line="781" selection-start-column="42" selection-end-line="781" selection-end-column="42" />
           <folding>
             <element signature="e#162#191#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/merge.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="177">
+          <caret line="150" column="42" selection-start-line="150" selection-start-column="42" selection-end-line="150" selection-end-column="42" />
+          <folding>
+            <element signature="e#3967#3978#0" expanded="true" />
           </folding>
         </state>
       </provider>

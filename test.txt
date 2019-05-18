@@ -1,0 +1,1086 @@
+the full is [41, 41, 41, 41, 43, 43, 45, 45, 45, 45, 45, 44, 45, 44, 43, 43, 43, 43, 43, 36, 43, 37, 36, 37, 41, 41, 41, 41, 43, 43, 45, 45, 45, 45, 45, 45, 44, 44, 43, 43, 43, 43, 43, 42, 43, 42, 43, 43, 45, 45, 47, 47, 47, 47, 47, 45, 47, 45, 43, 43, 43, 43, 43, 42, 43, 42, 43, 43, 45, 45, 47, 47, 47, 47, 47, 45, 45, 45, 47, 43, 45, 43, 43, 43, 43, 41, 43, 41, 40, 40, 41, 41, 40, 40, 41, 41, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 41, 43, 41, 40, 40, 41, 41, 40, 40, 41, 41, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 36, 43, 36, 37, 37, 50, 50, 48, 45, 48, 45, 43, 43, 41, 41, 40, 40, 41, 41, 41, 41, 43, 43, 45, 45, 45, 45, 45, 44, 45, 44, 43, 43, 43, 43, 43, 36, 43, 37, 36, 37, 41, 41, 41, 41, 43, 43, 45, 45, 45, 45, 45, 45, 44, 44, 43, 43, 43, 43, 43, 42, 43, 42, 43, 43, 45, 45, 47, 47, 47, 47, 47, 45, 47, 45, 43, 43, 43, 43, 43, 42, 43, 42, 43, 43, 45, 45, 47, 47, 47, 47, 47, 45, 45, 45, 47, 43, 45, 43, 43, 43, 43, 41, 43, 41, 40, 40, 41, 41, 40, 40, 41, 41, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 41, 43, 41, 40, 40, 41, 41, 40, 40, 41, 41, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 36, 43, 36, 37, 37, 50, 50, 48, 45, 48, 45, 43, 43, 41, 41, 40, 40, 41, 41, 41, 41, 43, 43, 45, 45, 45, 45, 45, 44, 45, 44, 43, 43, 43, 43, 43, 36, 43, 37, 36, 37, 41, 41, 41, 41, 43, 43, 45, 45, 45, 45, 45, 45, 44, 44, 43, 43, 43, 43, 43, 42, 43, 42, 43, 43, 45, 45, 47, 47, 47, 47, 47, 45, 47, 45, 43, 43, 43, 43, 43, 42, 43, 42, 43, 43, 45, 45, 47, 47, 47, 47, 47, 45, 45, 45, 47, 43, 45, 43, 43, 43, 43, 41, 43, 41, 40, 40, 41, 41, 40, 40, 41, 41, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 41, 43, 41, 40, 40, 41, 41, 40, 40, 41, 41, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 43, 36, 43, 36, 37, 37, 50, 50, 48, 45, 48, 45, 43, 43, 41, 41, 40, 40]
+the most common is 38
+the full is [41, 41, 41, 41, 45, 45, 45, 45, 45, 44, 45, 44, 36, 37, 36, 37, 41, 41, 41, 41, 45, 45, 45, 45, 45, 45, 44, 44, 42, 42, 45, 45, 47, 47, 47, 47, 47, 45, 47, 45, 42, 42, 45, 45, 47, 47, 47, 47, 47, 45, 45, 45, 47, 45, 41, 41, 40, 40, 41, 41, 40, 40, 41, 41, 41, 41, 40, 40, 41, 41, 40, 40, 41, 41, 36, 36, 37, 37, 50, 50, 48, 45, 48, 45, 41, 41, 40, 40, 41, 41, 41, 41, 45, 45, 45, 45, 45, 44, 45, 44, 36, 37, 36, 37, 41, 41, 41, 41, 45, 45, 45, 45, 45, 45, 44, 44, 42, 42, 45, 45, 47, 47, 47, 47, 47, 45, 47, 45, 42, 42, 45, 45, 47, 47, 47, 47, 47, 45, 45, 45, 47, 45, 41, 41, 40, 40, 41, 41, 40, 40, 41, 41, 41, 41, 40, 40, 41, 41, 40, 40, 41, 41, 36, 36, 37, 37, 50, 50, 48, 45, 48, 45, 41, 41, 40, 40, 41, 41, 41, 41, 45, 45, 45, 45, 45, 44, 45, 44, 36, 37, 36, 37, 41, 41, 41, 41, 45, 45, 45, 45, 45, 45, 44, 44, 42, 42, 45, 45, 47, 47, 47, 47, 47, 45, 47, 45, 42, 42, 45, 45, 47, 47, 47, 47, 47, 45, 45, 45, 47, 45, 41, 41, 40, 40, 41, 41, 40, 40, 41, 41, 41, 41, 40, 40, 41, 41, 40, 40, 41, 41, 36, 36, 37, 37, 50, 50, 48, 45, 48, 45, 41, 41, 40, 40]
+the most common is 43
+the full is [41, 41, 41, 41, 44, 44, 36, 37, 36, 37, 41, 41, 41, 41, 44, 44, 42, 42, 47, 47, 47, 47, 47, 47, 42, 42, 47, 47, 47, 47, 47, 47, 41, 41, 40, 40, 41, 41, 40, 40, 41, 41, 41, 41, 40, 40, 41, 41, 40, 40, 41, 41, 36, 36, 37, 37, 50, 50, 48, 48, 41, 41, 40, 40, 41, 41, 41, 41, 44, 44, 36, 37, 36, 37, 41, 41, 41, 41, 44, 44, 42, 42, 47, 47, 47, 47, 47, 47, 42, 42, 47, 47, 47, 47, 47, 47, 41, 41, 40, 40, 41, 41, 40, 40, 41, 41, 41, 41, 40, 40, 41, 41, 40, 40, 41, 41, 36, 36, 37, 37, 50, 50, 48, 48, 41, 41, 40, 40, 41, 41, 41, 41, 44, 44, 36, 37, 36, 37, 41, 41, 41, 41, 44, 44, 42, 42, 47, 47, 47, 47, 47, 47, 42, 42, 47, 47, 47, 47, 47, 47, 41, 41, 40, 40, 41, 41, 40, 40, 41, 41, 41, 41, 40, 40, 41, 41, 40, 40, 41, 41, 36, 36, 37, 37, 50, 50, 48, 48, 41, 41, 40, 40]
+the most common is 45
+the full is [44, 44, 36, 37, 36, 37, 44, 44, 42, 42, 47, 47, 47, 47, 47, 47, 42, 42, 47, 47, 47, 47, 47, 47, 40, 40, 40, 40, 40, 40, 40, 40, 36, 36, 37, 37, 50, 50, 48, 48, 40, 40, 44, 44, 36, 37, 36, 37, 44, 44, 42, 42, 47, 47, 47, 47, 47, 47, 42, 42, 47, 47, 47, 47, 47, 47, 40, 40, 40, 40, 40, 40, 40, 40, 36, 36, 37, 37, 50, 50, 48, 48, 40, 40, 44, 44, 36, 37, 36, 37, 44, 44, 42, 42, 47, 47, 47, 47, 47, 47, 42, 42, 47, 47, 47, 47, 47, 47, 40, 40, 40, 40, 40, 40, 40, 40, 36, 36, 37, 37, 50, 50, 48, 48, 40, 40]
+the most common is 41
+the full is [44, 44, 36, 37, 36, 37, 44, 44, 42, 42, 42, 42, 40, 40, 40, 40, 40, 40, 40, 40, 36, 36, 37, 37, 50, 50, 48, 48, 40, 40, 44, 44, 36, 37, 36, 37, 44, 44, 42, 42, 42, 42, 40, 40, 40, 40, 40, 40, 40, 40, 36, 36, 37, 37, 50, 50, 48, 48, 40, 40, 44, 44, 36, 37, 36, 37, 44, 44, 42, 42, 42, 42, 40, 40, 40, 40, 40, 40, 40, 40, 36, 36, 37, 37, 50, 50, 48, 48, 40, 40]
+the most common is 47
+the full is [44, 44, 36, 37, 36, 37, 44, 44, 42, 42, 42, 42, 36, 36, 37, 37, 50, 50, 48, 48, 44, 44, 36, 37, 36, 37, 44, 44, 42, 42, 42, 42, 36, 36, 37, 37, 50, 50, 48, 48, 44, 44, 36, 37, 36, 37, 44, 44, 42, 42, 42, 42, 36, 36, 37, 37, 50, 50, 48, 48]
+the most common is 40
+typeOfInModify is <class 'list'> but [38, 43, 45, 41, 47, 40]
+filenameMarvin_Gaye_-_I_Heard_It_Through_the_GrapevineBass.mid.npy
+array is [[  0.   0.   0. ...   0.   0.   0.]
+ [  0.   0.   0. ...   0.   0.   0.]
+ [  0.   0.   0. ...   0.   0.   0.]
+ ...
+ [  0.   0.   0. ...   0.   0.   0.]
+ [  0.   0.   0. ...   0.   0.   0.]
+ [  0.   0. 127. ...   0.   0.   0.]]
+the type of array is <class 'numpy.ndarray'>
+the type of newArray is <class 'numpy.ndarray'>
+sizzzzzeOfArray is 3072
+in_pitch_indices [2, 6, 8, 4, 9, 3]
+the len of config_sequences are 1
+config_sequences[array([ 0,  0,  0, ...,  0,  0, 32])]
+seq[ 0  0  0 ...  0  0 32]
+len 11
+n_points [array([ 0,  0,  0, ...,  0,  0, 32])]
+seq[ 0  0  0 ...  0  0 32]
+len 11
+n_points [array([ 0,  0,  0, ...,  0,  0, 32])]
+_________________________________________________________________
+Layer (type)                 Output Shape              Param #   
+=================================================================
+lstm_1 (LSTM)                (None, 10, 128)           98816     
+_________________________________________________________________
+dropout_1 (Dropout)          (None, 10, 128)           0         
+_________________________________________________________________
+lstm_2 (LSTM)                (None, 128)               131584    
+_________________________________________________________________
+dropout_2 (Dropout)          (None, 128)               0         
+_________________________________________________________________
+dense_1 (Dense)              (None, 64)                8256      
+_________________________________________________________________
+activation_1 (Activation)    (None, 64)                0         
+=================================================================
+Total params: 238,656
+Trainable params: 238,656
+Non-trainable params: 0
+_________________________________________________________________
+Training the model...
+Attempting to load previous weights...
+seq[ 0  0  0 ...  0  0 32]
+len 11
+Number of training points: 3062
+Using 306.2 validation batches
+Iteration 0
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 1:17 - loss: 0.7035
+ 3/64 [>.............................] - ETA: 26s - loss: 0.8058 
+ 6/64 [=>............................] - ETA: 13s - loss: 0.7104
+ 8/64 [==>...........................] - ETA: 9s - loss: 0.6934 
+11/64 [====>.........................] - ETA: 7s - loss: 0.6167
+14/64 [=====>........................] - ETA: 5s - loss: 0.5603
+17/64 [======>.......................] - ETA: 4s - loss: 0.5299
+20/64 [========>.....................] - ETA: 3s - loss: 0.5473
+23/64 [=========>....................] - ETA: 3s - loss: 0.5146
+26/64 [===========>..................] - ETA: 2s - loss: 0.5101
+29/64 [============>.................] - ETA: 2s - loss: 0.5088
+32/64 [==============>...............] - ETA: 1s - loss: 0.5001
+35/64 [===============>..............] - ETA: 1s - loss: 0.5020
+38/64 [================>.............] - ETA: 1s - loss: 0.5062
+41/64 [==================>...........] - ETA: 1s - loss: 0.5086
+44/64 [===================>..........] - ETA: 1s - loss: 0.5114
+47/64 [=====================>........] - ETA: 0s - loss: 0.5066
+50/64 [======================>.......] - ETA: 0s - loss: 0.5104
+53/64 [=======================>......] - ETA: 0s - loss: 0.5099
+56/64 [=========================>....] - ETA: 0s - loss: 0.4972
+59/64 [==========================>...] - ETA: 0s - loss: 0.4958
+62/64 [============================>.] - ETA: 0s - loss: 0.4962
+64/64 [==============================] - 5s 76ms/step - loss: 0.4911 - val_loss: 0.4359
+seq[ 0  0  0 ...  0  0 32]
+len 10
+Iteration 1
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.6859
+ 4/64 [>.............................] - ETA: 1s - loss: 0.5457
+ 7/64 [==>...........................] - ETA: 1s - loss: 0.4567
+10/64 [===>..........................] - ETA: 1s - loss: 0.4175
+13/64 [=====>........................] - ETA: 1s - loss: 0.4169
+16/64 [======>.......................] - ETA: 1s - loss: 0.4195
+18/64 [=======>......................] - ETA: 1s - loss: 0.4101
+21/64 [========>.....................] - ETA: 1s - loss: 0.3845
+23/64 [=========>....................] - ETA: 0s - loss: 0.3893
+26/64 [===========>..................] - ETA: 0s - loss: 0.3883
+29/64 [============>.................] - ETA: 0s - loss: 0.3996
+32/64 [==============>...............] - ETA: 0s - loss: 0.3926
+35/64 [===============>..............] - ETA: 0s - loss: 0.4004
+38/64 [================>.............] - ETA: 0s - loss: 0.3998
+41/64 [==================>...........] - ETA: 0s - loss: 0.3998
+44/64 [===================>..........] - ETA: 0s - loss: 0.3986
+47/64 [=====================>........] - ETA: 0s - loss: 0.3968
+50/64 [======================>.......] - ETA: 0s - loss: 0.4001
+53/64 [=======================>......] - ETA: 0s - loss: 0.4012
+56/64 [=========================>....] - ETA: 0s - loss: 0.4060
+59/64 [==========================>...] - ETA: 0s - loss: 0.4092
+62/64 [============================>.] - ETA: 0s - loss: 0.4132
+64/64 [==============================] - 3s 55ms/step - loss: 0.4149 - val_loss: 0.4024
+seq[ 0  0  0 ...  0  0 32]
+len 10
+Iteration 2
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.5001
+ 4/64 [>.............................] - ETA: 1s - loss: 0.3798
+ 7/64 [==>...........................] - ETA: 1s - loss: 0.3457
+10/64 [===>..........................] - ETA: 1s - loss: 0.3119
+13/64 [=====>........................] - ETA: 1s - loss: 0.3242
+16/64 [======>.......................] - ETA: 1s - loss: 0.3357
+19/64 [=======>......................] - ETA: 1s - loss: 0.3274
+22/64 [=========>....................] - ETA: 1s - loss: 0.3180
+25/64 [==========>...................] - ETA: 0s - loss: 0.3186
+28/64 [============>.................] - ETA: 0s - loss: 0.3312
+31/64 [=============>................] - ETA: 0s - loss: 0.3360
+34/64 [==============>...............] - ETA: 0s - loss: 0.3390
+37/64 [================>.............] - ETA: 0s - loss: 0.3458
+40/64 [=================>............] - ETA: 0s - loss: 0.3475
+43/64 [===================>..........] - ETA: 0s - loss: 0.3465
+46/64 [====================>.........] - ETA: 0s - loss: 0.3469
+49/64 [=====================>........] - ETA: 0s - loss: 0.3589
+52/64 [=======================>......] - ETA: 0s - loss: 0.3574
+55/64 [========================>.....] - ETA: 0s - loss: 0.3609
+58/64 [==========================>...] - ETA: 0s - loss: 0.3670
+61/64 [===========================>..] - ETA: 0s - loss: 0.3738
+63/64 [============================>.] - ETA: 0s - loss: 0.3756
+64/64 [==============================] - 4s 55ms/step - loss: 0.3751 - val_loss: 0.3854
+seq[ 0  0  0 ...  0  0 32]
+len 10
+Iteration 3
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.2427
+ 3/64 [>.............................] - ETA: 2s - loss: 0.3418
+ 5/64 [=>............................] - ETA: 1s - loss: 0.2946
+ 8/64 [==>...........................] - ETA: 1s - loss: 0.2540
+11/64 [====>.........................] - ETA: 1s - loss: 0.2933
+14/64 [=====>........................] - ETA: 1s - loss: 0.2983
+17/64 [======>.......................] - ETA: 1s - loss: 0.3193
+20/64 [========>.....................] - ETA: 1s - loss: 0.3064
+23/64 [=========>....................] - ETA: 1s - loss: 0.3121
+26/64 [===========>..................] - ETA: 0s - loss: 0.3171
+28/64 [============>.................] - ETA: 0s - loss: 0.3233
+30/64 [=============>................] - ETA: 0s - loss: 0.3284
+32/64 [==============>...............] - ETA: 0s - loss: 0.3223
+35/64 [===============>..............] - ETA: 0s - loss: 0.3301
+38/64 [================>.............] - ETA: 0s - loss: 0.3370
+40/64 [=================>............] - ETA: 0s - loss: 0.3381
+42/64 [==================>...........] - ETA: 0s - loss: 0.3410
+44/64 [===================>..........] - ETA: 0s - loss: 0.3392
+46/64 [====================>.........] - ETA: 0s - loss: 0.3366
+48/64 [=====================>........] - ETA: 0s - loss: 0.3387
+50/64 [======================>.......] - ETA: 0s - loss: 0.3448
+51/64 [======================>.......] - ETA: 0s - loss: 0.3439
+52/64 [=======================>......] - ETA: 0s - loss: 0.3442
+54/64 [========================>.....] - ETA: 0s - loss: 0.3473
+55/64 [========================>.....] - ETA: 0s - loss: 0.3466
+57/64 [=========================>....] - ETA: 0s - loss: 0.3495
+59/64 [==========================>...] - ETA: 0s - loss: 0.3515
+61/64 [===========================>..] - ETA: 0s - loss: 0.3555
+63/64 [============================>.] - ETA: 0s - loss: 0.3575
+64/64 [==============================] - 5s 73ms/step - loss: 0.3576 - val_loss: 0.3793
+seq[ 0  0  0 ...  0  0 32]
+len 10
+Iteration 4
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 3s - loss: 0.2941
+ 3/64 [>.............................] - ETA: 2s - loss: 0.4511
+ 5/64 [=>............................] - ETA: 1s - loss: 0.4155
+ 8/64 [==>...........................] - ETA: 1s - loss: 0.3675
+10/64 [===>..........................] - ETA: 1s - loss: 0.3486
+12/64 [====>.........................] - ETA: 1s - loss: 0.3551
+14/64 [=====>........................] - ETA: 1s - loss: 0.3393
+16/64 [======>.......................] - ETA: 1s - loss: 0.3542
+18/64 [=======>......................] - ETA: 1s - loss: 0.3476
+20/64 [========>.....................] - ETA: 1s - loss: 0.3304
+22/64 [=========>....................] - ETA: 1s - loss: 0.3280
+24/64 [==========>...................] - ETA: 1s - loss: 0.3251
+26/64 [===========>..................] - ETA: 1s - loss: 0.3248
+28/64 [============>.................] - ETA: 0s - loss: 0.3314
+30/64 [=============>................] - ETA: 0s - loss: 0.3313
+32/64 [==============>...............] - ETA: 0s - loss: 0.3324
+34/64 [==============>...............] - ETA: 0s - loss: 0.3330
+37/64 [================>.............] - ETA: 0s - loss: 0.3365
+40/64 [=================>............] - ETA: 0s - loss: 0.3369
+42/64 [==================>...........] - ETA: 0s - loss: 0.3402
+44/64 [===================>..........] - ETA: 0s - loss: 0.3387
+46/64 [====================>.........] - ETA: 0s - loss: 0.3378
+48/64 [=====================>........] - ETA: 0s - loss: 0.3384
+50/64 [======================>.......] - ETA: 0s - loss: 0.3384
+53/64 [=======================>......] - ETA: 0s - loss: 0.3385
+56/64 [=========================>....] - ETA: 0s - loss: 0.3430
+59/64 [==========================>...] - ETA: 0s - loss: 0.3447
+61/64 [===========================>..] - ETA: 0s - loss: 0.3458
+64/64 [==============================] - 4s 62ms/step - loss: 0.3473 - val_loss: 0.3444
+seq[ 0  0  0 ...  0  0 32]
+len 10
+Iteration 5
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.1930
+ 3/64 [>.............................] - ETA: 2s - loss: 0.3581
+ 5/64 [=>............................] - ETA: 1s - loss: 0.3729
+ 7/64 [==>...........................] - ETA: 1s - loss: 0.3702
+ 9/64 [===>..........................] - ETA: 1s - loss: 0.3544
+11/64 [====>.........................] - ETA: 1s - loss: 0.3521
+13/64 [=====>........................] - ETA: 1s - loss: 0.3351
+15/64 [======>.......................] - ETA: 1s - loss: 0.3370
+17/64 [======>.......................] - ETA: 1s - loss: 0.3381
+19/64 [=======>......................] - ETA: 1s - loss: 0.3200
+21/64 [========>.....................] - ETA: 1s - loss: 0.3132
+23/64 [=========>....................] - ETA: 1s - loss: 0.3126
+25/64 [==========>...................] - ETA: 1s - loss: 0.3111
+27/64 [===========>..................] - ETA: 1s - loss: 0.3175
+30/64 [=============>................] - ETA: 0s - loss: 0.3205
+32/64 [==============>...............] - ETA: 0s - loss: 0.3189
+35/64 [===============>..............] - ETA: 0s - loss: 0.3198
+38/64 [================>.............] - ETA: 0s - loss: 0.3259
+41/64 [==================>...........] - ETA: 0s - loss: 0.3243
+43/64 [===================>..........] - ETA: 0s - loss: 0.3239
+45/64 [====================>.........] - ETA: 0s - loss: 0.3278
+47/64 [=====================>........] - ETA: 0s - loss: 0.3302
+50/64 [======================>.......] - ETA: 0s - loss: 0.3311
+52/64 [=======================>......] - ETA: 0s - loss: 0.3318
+54/64 [========================>.....] - ETA: 0s - loss: 0.3329
+57/64 [=========================>....] - ETA: 0s - loss: 0.3361
+60/64 [===========================>..] - ETA: 0s - loss: 0.3390
+62/64 [============================>.] - ETA: 0s - loss: 0.3400
+64/64 [==============================] - 4s 59ms/step - loss: 0.3411 - val_loss: 0.3237
+seq[ 0  0  0 ...  0  0 32]
+len 10
+Iteration 6
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.2771
+ 4/64 [>.............................] - ETA: 1s - loss: 0.3174
+ 7/64 [==>...........................] - ETA: 1s - loss: 0.2710
+10/64 [===>..........................] - ETA: 1s - loss: 0.2689
+13/64 [=====>........................] - ETA: 1s - loss: 0.2830
+16/64 [======>.......................] - ETA: 1s - loss: 0.2981
+19/64 [=======>......................] - ETA: 1s - loss: 0.2798
+22/64 [=========>....................] - ETA: 1s - loss: 0.2822
+25/64 [==========>...................] - ETA: 0s - loss: 0.2865
+28/64 [============>.................] - ETA: 0s - loss: 0.2947
+31/64 [=============>................] - ETA: 0s - loss: 0.2965
+34/64 [==============>...............] - ETA: 0s - loss: 0.3034
+37/64 [================>.............] - ETA: 0s - loss: 0.3041
+40/64 [=================>............] - ETA: 0s - loss: 0.3081
+43/64 [===================>..........] - ETA: 0s - loss: 0.3093
+46/64 [====================>.........] - ETA: 0s - loss: 0.3119
+49/64 [=====================>........] - ETA: 0s - loss: 0.3131
+52/64 [=======================>......] - ETA: 0s - loss: 0.3125
+55/64 [========================>.....] - ETA: 0s - loss: 0.3191
+58/64 [==========================>...] - ETA: 0s - loss: 0.3208
+61/64 [===========================>..] - ETA: 0s - loss: 0.3265
+64/64 [==============================] - 3s 54ms/step - loss: 0.3261 - val_loss: 0.3365
+seq[ 0  0  0 ...  0  0 32]
+len 10
+Iteration 7
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.1758
+ 4/64 [>.............................] - ETA: 1s - loss: 0.4187
+ 7/64 [==>...........................] - ETA: 1s - loss: 0.3187
+10/64 [===>..........................] - ETA: 1s - loss: 0.2897
+13/64 [=====>........................] - ETA: 1s - loss: 0.2844
+16/64 [======>.......................] - ETA: 1s - loss: 0.2933
+19/64 [=======>......................] - ETA: 1s - loss: 0.2822
+22/64 [=========>....................] - ETA: 0s - loss: 0.2825
+25/64 [==========>...................] - ETA: 0s - loss: 0.2880
+28/64 [============>.................] - ETA: 0s - loss: 0.2917
+31/64 [=============>................] - ETA: 0s - loss: 0.2967
+34/64 [==============>...............] - ETA: 0s - loss: 0.3021
+37/64 [================>.............] - ETA: 0s - loss: 0.3056
+40/64 [=================>............] - ETA: 0s - loss: 0.3080
+43/64 [===================>..........] - ETA: 0s - loss: 0.3080
+46/64 [====================>.........] - ETA: 0s - loss: 0.3121
+49/64 [=====================>........] - ETA: 0s - loss: 0.3164
+52/64 [=======================>......] - ETA: 0s - loss: 0.3147
+55/64 [========================>.....] - ETA: 0s - loss: 0.3168
+58/64 [==========================>...] - ETA: 0s - loss: 0.3202
+61/64 [===========================>..] - ETA: 0s - loss: 0.3232
+64/64 [==============================] - 3s 54ms/step - loss: 0.3250 - val_loss: 0.3046
+seq[ 0  0  0 ...  0  0 32]
+len 10
+Iteration 8
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.3067
+ 4/64 [>.............................] - ETA: 1s - loss: 0.3521
+ 7/64 [==>...........................] - ETA: 1s - loss: 0.3310
+10/64 [===>..........................] - ETA: 1s - loss: 0.3278
+13/64 [=====>........................] - ETA: 1s - loss: 0.3192
+16/64 [======>.......................] - ETA: 1s - loss: 0.3228
+19/64 [=======>......................] - ETA: 1s - loss: 0.2991
+22/64 [=========>....................] - ETA: 0s - loss: 0.2943
+25/64 [==========>...................] - ETA: 0s - loss: 0.2941
+28/64 [============>.................] - ETA: 0s - loss: 0.2934
+31/64 [=============>................] - ETA: 0s - loss: 0.2980
+34/64 [==============>...............] - ETA: 0s - loss: 0.3028
+37/64 [================>.............] - ETA: 0s - loss: 0.3071
+40/64 [=================>............] - ETA: 0s - loss: 0.3098
+43/64 [===================>..........] - ETA: 0s - loss: 0.3097
+46/64 [====================>.........] - ETA: 0s - loss: 0.3115
+49/64 [=====================>........] - ETA: 0s - loss: 0.3181
+52/64 [=======================>......] - ETA: 0s - loss: 0.3158
+55/64 [========================>.....] - ETA: 0s - loss: 0.3182
+58/64 [==========================>...] - ETA: 0s - loss: 0.3225
+61/64 [===========================>..] - ETA: 0s - loss: 0.3242
+64/64 [==============================] - 3s 54ms/step - loss: 0.3238 - val_loss: 0.3001
+seq[ 0  0  0 ...  0  0 32]
+len 10
+Iteration 9
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.5167
+ 4/64 [>.............................] - ETA: 1s - loss: 0.3242
+ 7/64 [==>...........................] - ETA: 1s - loss: 0.2754
+10/64 [===>..........................] - ETA: 1s - loss: 0.2725
+13/64 [=====>........................] - ETA: 1s - loss: 0.2800
+16/64 [======>.......................] - ETA: 1s - loss: 0.2785
+19/64 [=======>......................] - ETA: 1s - loss: 0.2683
+22/64 [=========>....................] - ETA: 0s - loss: 0.2682
+25/64 [==========>...................] - ETA: 0s - loss: 0.2714
+28/64 [============>.................] - ETA: 0s - loss: 0.2780
+31/64 [=============>................] - ETA: 0s - loss: 0.2836
+34/64 [==============>...............] - ETA: 0s - loss: 0.2878
+37/64 [================>.............] - ETA: 0s - loss: 0.2897
+40/64 [=================>............] - ETA: 0s - loss: 0.2918
+43/64 [===================>..........] - ETA: 0s - loss: 0.2918
+46/64 [====================>.........] - ETA: 0s - loss: 0.2953
+49/64 [=====================>........] - ETA: 0s - loss: 0.2986
+52/64 [=======================>......] - ETA: 0s - loss: 0.2999
+55/64 [========================>.....] - ETA: 0s - loss: 0.3006
+58/64 [==========================>...] - ETA: 0s - loss: 0.3070
+61/64 [===========================>..] - ETA: 0s - loss: 0.3099
+64/64 [==============================] - 3s 54ms/step - loss: 0.3122 - val_loss: 0.2926
+seq[ 0  0  0 ...  0  0 32]
+len 10
+Iteration 10
+Epoch 1/1
+
+ 1/64 [..............................] - ETA: 2s - loss: 0.1403
+ 4/64 [>.............................] - ETA: 1s - loss: 0.3553
+ 7/64 [==>...........................] - ETA: 1s - loss: 0.3078
+10/64 [===>..........................] - ETA: 1s - loss: 0.2799
+13/64 [=====>........................] - ETA: 1s - loss: 0.2565
+16/64 [======>.......................] - ETA: 1s - loss: 0.2735
+19/64 [=======>......................] - ETA: 1s - loss: 0.2603
+22/64 [=========>....................] - ETA: 0s - loss: 0.2654
+25/64 [==========>...................] - ETA: 0s - loss: 0.2663
+28/64 [============>.................] - ETA: 0s - loss: 0.2757
+31/64 [=============>................] - ETA: 0s - loss: 0.2793
+34/64 [==============>...............] - ETA: 0s - loss: 0.2814
+37/64 [================>.............] - ETA: 0s - loss: 0.2840
+40/64 [=================>............] - ETA: 0s - loss: 0.2855
+43/64 [===================>..........] - ETA: 0s - loss: 0.2870
+46/64 [====================>.........] - ETA: 0s - loss: 0.2914
+49/64 [=====================>........] - ETA: 0s - loss: 0.2959
+52/64 [=======================>......] - ETA: 0s - loss: 0.2934
+55/64 [========================>.....] - ETA: 0s - loss: 0.2952
+58/64 [==========================>...] - ETA: 0s - loss: 0.3005
+61/64 [===========================>..] - ETA: 0s - loss: 0.3032
+64/64 [==============================] - 3s 54ms/step - loss: 0.3048 - val_loss: 0.2758
+seq[ 0  0  0 ...  0  0 32]
+len 10
+checkpoint 1 + 10
+----- Generating with temperature: 0.5
+checkpoint 2 + 10
+the mid is + <class 'mido.midifiles.midifiles.MidiFile'>
+the intitial mid is <meta message track_name name='Marvin_Gaye1Out_512_0.5_10.mid' time=0>
+the intitial mid is <meta message time_signature numerator=4 denominator=4 clocks_per_click=24 notated_32nd_notes_per_beat=8 time=0>
+the intitial mid is <meta message set_tempo tempo=500000 time=0>
+the intitial mid is <meta message track_name name='Marvin_Gaye1Out_512_0.5_10.mid' time=0>
+the intitial mid is program_change channel=1 program=35 time=0
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.78125
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is <meta message end_of_track time=0>
+inFOrefe is <midi track 'Marvin_Gaye1Out_512_0.5_10.mid' 4 messages>
+track0
+track0
+track0
+track0
+inFOrefe is <midi track 'Marvin_Gaye1Out_512_0.5_10.mid' 19 messages>
+track0
+track0
+track30
+track30
+track210
+track30
+track90
+track30
+track90
+track30
+track210
+track30
+track90
+track30
+track750
+track30
+track90
+track30
+track0
+fekfdsf <meta message track_name name='Marvin_Gaye1Out_512_0.5_10.mid' time=0>
+fekfdsf <meta message time_signature numerator=4 denominator=4 clocks_per_click=24 notated_32nd_notes_per_beat=8 time=0>
+fekfdsf <meta message set_tempo tempo=500000 time=0>
+fekfdsf <meta message end_of_track time=0>
+fekfdsf <meta message track_name name='Marvin_Gaye1Out_512_0.5_10.mid' time=0>
+fekfdsf program_change channel=1 program=35 time=0
+fekfdsf note_on channel=1 note=41 velocity=100 time=30
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=210
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=41 velocity=100 time=90
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=210
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=750
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf <meta message end_of_track time=0>
+----- Generating with temperature: 0.75
+checkpoint 2 + 10
+the mid is + <class 'mido.midifiles.midifiles.MidiFile'>
+the intitial mid is <meta message track_name name='Marvin_Gaye1Out_512_0.75_10.mid' time=0>
+the intitial mid is <meta message time_signature numerator=4 denominator=4 clocks_per_click=24 notated_32nd_notes_per_beat=8 time=0>
+the intitial mid is <meta message set_tempo tempo=500000 time=0>
+the intitial mid is <meta message track_name name='Marvin_Gaye1Out_512_0.75_10.mid' time=0>
+the intitial mid is program_change channel=1 program=35 time=0
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.34375
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.5625
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=1.3125
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.46875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.34375
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.84375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=1.4375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.90625
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=2.03125
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.84375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.9375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.46875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.34375
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=1.1875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is <meta message end_of_track time=0>
+inFOrefe is <midi track 'Marvin_Gaye1Out_512_0.75_10.mid' 4 messages>
+track0
+track0
+track0
+track0
+inFOrefe is <midi track 'Marvin_Gaye1Out_512_0.75_10.mid' 75 messages>
+track0
+track0
+track30
+track30
+track210
+track30
+track330
+track30
+track540
+track30
+track90
+track30
+track1260
+track30
+track90
+track30
+track450
+track30
+track90
+track30
+track210
+track30
+track90
+track30
+track210
+track30
+track90
+track30
+track330
+track30
+track210
+track30
+track810
+track30
+track90
+track30
+track1380
+track30
+track90
+track30
+track870
+track30
+track90
+track30
+track1950
+track30
+track810
+track30
+track90
+track30
+track90
+track30
+track900
+track30
+track90
+track30
+track450
+track30
+track90
+track30
+track210
+track30
+track90
+track30
+track330
+track30
+track90
+track30
+track210
+track30
+track1140
+track30
+track90
+track30
+track0
+fekfdsf <meta message track_name name='Marvin_Gaye1Out_512_0.75_10.mid' time=0>
+fekfdsf <meta message time_signature numerator=4 denominator=4 clocks_per_click=24 notated_32nd_notes_per_beat=8 time=0>
+fekfdsf <meta message set_tempo tempo=500000 time=0>
+fekfdsf <meta message end_of_track time=0>
+fekfdsf <meta message track_name name='Marvin_Gaye1Out_512_0.75_10.mid' time=0>
+fekfdsf program_change channel=1 program=35 time=0
+fekfdsf note_on channel=1 note=41 velocity=100 time=30
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=210
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=330
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=540
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=1260
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=90
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=450
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=41 velocity=100 time=90
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=210
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=41 velocity=100 time=90
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=210
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=330
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=210
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=810
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=1380
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=870
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=1950
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=810
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=41 velocity=100 time=90
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=90
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=900
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=450
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=41 velocity=100 time=90
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=210
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=330
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=90
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=210
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=1140
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf <meta message end_of_track time=0>
+----- Generating with temperature: 1.0
+checkpoint 2 + 10
+the mid is + <class 'mido.midifiles.midifiles.MidiFile'>
+the intitial mid is <meta message track_name name='Marvin_Gaye1Out_512_1.0_10.mid' time=0>
+the intitial mid is <meta message time_signature numerator=4 denominator=4 clocks_per_click=24 notated_32nd_notes_per_beat=8 time=0>
+the intitial mid is <meta message set_tempo tempo=500000 time=0>
+the intitial mid is <meta message track_name name='Marvin_Gaye1Out_512_1.0_10.mid' time=0>
+the intitial mid is program_change channel=1 program=35 time=0
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.3125
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.5625
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.4375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.90625
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=41 velocity=100 time=1.1875
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.4375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.3125
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.09375
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=47 velocity=100 time=0.34375
+the intitial mid is note_off channel=1 note=47 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.71875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=47 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=47 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=45 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=45 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=45 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=45 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=47 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=47 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=45 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=45 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=45 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=45 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=45 velocity=100 time=0.4375
+the intitial mid is note_off channel=1 note=45 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.4375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.34375
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.59375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.5625
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.0625
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=41 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=41 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=38 velocity=100 time=0.09375
+the intitial mid is note_off channel=1 note=38 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.53125
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is note_on channel=1 note=43 velocity=100 time=0.21875
+the intitial mid is note_off channel=1 note=43 velocity=100 time=0.03125
+the intitial mid is <meta message end_of_track time=0>
+inFOrefe is <midi track 'Marvin_Gaye1Out_512_1.0_10.mid' 4 messages>
+track0
+track0
+track0
+track0
+inFOrefe is <midi track 'Marvin_Gaye1Out_512_1.0_10.mid' 125 messages>
+track0
+track0
+track30
+track30
+track210
+track30
+track90
+track30
+track210
+track30
+track300
+track30
+track210
+track30
+track540
+track30
+track90
+track30
+track90
+track30
+track420
+track30
+track90
+track30
+track870
+track30
+track90
+track30
+track210
+track30
+track90
+track30
+track90
+track30
+track210
+track30
+track90
+track30
+track1140
+track30
+track210
+track30
+track90
+track30
+track210
+track30
+track420
+track30
+track90
+track30
+track300
+track30
+track30
+track30
+track30
+track30
+track90
+track30
+track0
+track30
+track330
+track30
+track90
+track30
+track210
+track30
+track90
+track30
+track690
+track30
+track90
+track30
+track90
+track30
+track210
+track30
+track210
+track30
+track90
+track30
+track90
+track30
+track210
+track30
+track90
+track30
+track210
+track30
+track90
+track30
+track420
+track30
+track210
+track30
+track420
+track30
+track90
+track30
+track90
+track30
+track330
+track30
+track570
+track30
+track90
+track30
+track210
+track30
+track540
+track30
+track60
+track30
+track0
+track30
+track90
+track30
+track210
+track30
+track90
+track30
+track510
+track30
+track210
+track30
+track0
+fekfdsf <meta message track_name name='Marvin_Gaye1Out_512_1.0_10.mid' time=0>
+fekfdsf <meta message time_signature numerator=4 denominator=4 clocks_per_click=24 notated_32nd_notes_per_beat=8 time=0>
+fekfdsf <meta message set_tempo tempo=500000 time=0>
+fekfdsf <meta message end_of_track time=0>
+fekfdsf <meta message track_name name='Marvin_Gaye1Out_512_1.0_10.mid' time=0>
+fekfdsf program_change channel=1 program=35 time=0
+fekfdsf note_on channel=1 note=41 velocity=100 time=30
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=210
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=41 velocity=100 time=90
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=210
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=300
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=210
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=540
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=90
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=420
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=870
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=41 velocity=100 time=90
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=210
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=41 velocity=100 time=90
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=210
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=41 velocity=100 time=1140
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=210
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=41 velocity=100 time=90
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=210
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=420
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=300
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=30
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=30
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=90
+fekfdsf note_on channel=1 note=41 velocity=100 time=30
+fekfdsf note_off channel=1 note=43 velocity=100 time=0
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=47 velocity=100 time=330
+fekfdsf note_off channel=1 note=47 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=90
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=210
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=90
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=690
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=47 velocity=100 time=90
+fekfdsf note_off channel=1 note=47 velocity=100 time=30
+fekfdsf note_on channel=1 note=45 velocity=100 time=210
+fekfdsf note_off channel=1 note=45 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=210
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=45 velocity=100 time=90
+fekfdsf note_off channel=1 note=45 velocity=100 time=30
+fekfdsf note_on channel=1 note=47 velocity=100 time=90
+fekfdsf note_off channel=1 note=47 velocity=100 time=30
+fekfdsf note_on channel=1 note=45 velocity=100 time=210
+fekfdsf note_off channel=1 note=45 velocity=100 time=30
+fekfdsf note_on channel=1 note=45 velocity=100 time=90
+fekfdsf note_off channel=1 note=45 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=210
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=90
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=45 velocity=100 time=420
+fekfdsf note_off channel=1 note=45 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=210
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=420
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=41 velocity=100 time=90
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=90
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=330
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=570
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=41 velocity=100 time=90
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=210
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=540
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=41 velocity=100 time=60
+fekfdsf note_on channel=1 note=38 velocity=100 time=30
+fekfdsf note_off channel=1 note=41 velocity=100 time=0
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=41 velocity=100 time=90
+fekfdsf note_off channel=1 note=41 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=210
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=38 velocity=100 time=90
+fekfdsf note_off channel=1 note=38 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=510
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf note_on channel=1 note=43 velocity=100 time=210
+fekfdsf note_off channel=1 note=43 velocity=100 time=30
+fekfdsf <meta message end_of_track time=0>
