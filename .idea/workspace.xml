@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="" />
+    <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/array/10_little_indiansfl.mid.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/array/beethoven_ode_to_joy-2.mid.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/2016-07-08.hdf5/2016-07-08.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/models/2016-07-08.hdf5/2016-07-08.hdf5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/2016-07-08.hdf5/history.jsonl" beforeDir="false" afterPath="$PROJECT_DIR$/models/2016-07-08.hdf5/history.jsonl" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_song2/10_little_indiansfl.mid" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_song2/beethoven_ode_to_joy-2.mid" beforeDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +20,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1635">
-              <caret line="128" column="24" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
+            <state relative-caret-position="-2100">
+              <caret line="128" column="32" selection-start-line="128" selection-start-column="32" selection-end-line="128" selection-end-column="32" />
               <folding>
                 <element signature="e#19#30#0" expanded="true" />
               </folding>
@@ -25,8 +32,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/midi_util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+            <state relative-caret-position="150">
+              <caret line="364" column="10" selection-start-line="364" selection-start-column="10" selection-end-line="364" selection-end-column="10" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -49,8 +56,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lstm_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="80" selection-start-line="80" selection-end-line="80" />
+            <state relative-caret-position="182">
+              <caret line="780" selection-start-line="780" selection-end-line="781" selection-end-column="78" />
               <folding>
                 <element signature="e#162#191#0" expanded="true" />
               </folding>
@@ -110,9 +117,9 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/mergingMidis.py" />
         <option value="$PROJECT_DIR$/midiToWav.py" />
-        <option value="$PROJECT_DIR$/lstm_model.py" />
         <option value="$PROJECT_DIR$/midi_util.py" />
         <option value="$PROJECT_DIR$/merge.py" />
+        <option value="$PROJECT_DIR$/lstm_model.py" />
       </list>
     </option>
   </component>
@@ -136,7 +143,30 @@
             <path>
               <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
               <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="2016-07-08.hdf5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="2016-07-08.hdf5" type="462c0819:PsiDirectoryNode" />
+              <item name="gen-midi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
               <item name="test_song2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
+              <item name="venv" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
@@ -154,13 +184,13 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test_song2" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/music" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/music" />
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/test_song2" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -202,7 +232,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.73625255" visible="true" weight="0.05263158" />
+      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.73625255" visible="true" weight="0.37017545" />
       <window_info anchor="bottom" id="Python Console" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.26374745" side_tool="true" weight="0.05263158" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -395,8 +425,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/midi_util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
+        <state relative-caret-position="150">
+          <caret line="364" column="10" selection-start-line="364" selection-start-column="10" selection-end-line="364" selection-end-column="10" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -415,8 +445,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1635">
-          <caret line="128" column="24" selection-start-line="128" selection-start-column="24" selection-end-line="128" selection-end-column="24" />
+        <state relative-caret-position="-2100">
+          <caret line="128" column="32" selection-start-line="128" selection-start-column="32" selection-end-line="128" selection-end-column="32" />
           <folding>
             <element signature="e#19#30#0" expanded="true" />
           </folding>
@@ -425,8 +455,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lstm_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="80" selection-start-line="80" selection-end-line="80" />
+        <state relative-caret-position="182">
+          <caret line="780" selection-start-line="780" selection-end-line="781" selection-end-column="78" />
           <folding>
             <element signature="e#162#191#0" expanded="true" />
           </folding>
