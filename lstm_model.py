@@ -18,7 +18,7 @@ import numpy as np
 from numpy import array
 
 from data import *
-from midi_util import array_to_midi, print_array
+from midi_util import array_to_midiN, print_array,array_to_midiWithProgramAndChannel
 from mido import Message,MidiFile,MidiTrack
 np.random.seed(10)
 
@@ -27,8 +27,8 @@ np.random.seed(10)
 # directory.
 PITCHES = [36, 37, 38, 40, 41, 42, 44, 45, 46, 47, 49, 50, 58, 59, 60, 61, 62, 63, 64, 66,72,76,79,74,71,69,67,77]
 # The subset of pitches we'll actually use.
-#IN_PITCHES = [36, 38, 42, 58, 59, 61]  # [36, 38, 41, 42, 47, 58, 59, 61]
-IN_PITCHES = [72,76,79,74,71,69]
+IN_PITCHES = [36, 38, 42, 58, 59, 61]  # [36, 38, 41, 42, 47, 58, 59, 61]
+#IN_PITCHES = [72,76,79,74,71,69]
 # The pitches we want to generate (potentially for different drum kit)
 OUT_PITCHES = IN_PITCHES  # [54, 56, 58, 60, 61, 62, 63, 64]
 # The minimum number of hits to keep a drum loop after the types of
@@ -44,7 +44,7 @@ NUM_HIDDEN_UNITS = 128
 PHRASE_LEN = 10
 # Dimensionality of the symbol space.
 SYMBOL_DIM = 2 ** len(IN_PITCHES)
-NUM_ITERATIONS = 101
+NUM_ITERATIONS = 11
 BATCH_SIZE = 64
 
 VALIDATION_PERCENT = 0.1
@@ -78,6 +78,17 @@ decodings = {
     for i, config in enumerate(itertools.product([0, 1], repeat=len(IN_PITCHES)))
 }
 
+
+def modifyPITCHES(songName):
+    global PITCHES
+    PITCHES = getAllNotesFromTrackWithoutOccur(songName)
+    global IN_PITCHES
+    IN_PITCHES = getTheMostUsedNElement(6,songName)
+    global OUT_PITCHES
+    OUT_PITCHES = IN_PITCHES
+    global SYMBOL_DIM
+    print("typeOfInModify is " + str(type(IN_PITCHES)) + " but " + str(IN_PITCHES))
+    SYMBOL_DIM = 2 ** len(IN_PITCHES)
 
 def sample(a, temperature=1.0):
     # helper function to sample an index from a probability array
@@ -120,6 +131,7 @@ def crop_center(img,cropx,cropy):
     starty = y//2-(cropy//2)
     return img[starty:starty+cropy,startx:startx+cropx]
 
+
 def prepare_data():
     # Load the data.
     # Concatenate all the vectorized midi files.
@@ -152,7 +164,7 @@ def prepare_data():
             print("the type of newArray is " + str(type(newArray)))
             #array = newArray
             print("sizzzzzeOfArray is " + str(len(array)))
-            print("what I want to know is " + str(np.sum(np.sum(array[:, in_pitch_indices] > 0))))
+            #print("what I want to know is " + str(np.sum(np.sum(array[:, in_pitch_indices] > 0))))
             if np.sum(np.sum(array[:, in_pitch_indices] > 0)) < MIN_HITS:
                 continue
             print("in_pitch_indices "+ str(in_pitch_indices))
@@ -181,6 +193,62 @@ def prepare_data():
     return config_sequences, train_generator, valid_generator
 
 
+def generateWithCAndP(model, seed, mid_name, temperature=1.0, length=512,channelInput = 14, programInput = 117):
+    '''Generate sequence using model, seed, and temperature.'''
+
+    generated = []
+    phrase = seed
+
+    if not hasattr(temperature, '__len__'):
+        temperature = [temperature for _ in range(length)]
+
+    for temp in temperature:
+        x = np.zeros((1, PHRASE_LEN, SYMBOL_DIM))
+        for t, config_id in enumerate(phrase):
+            x[0, t, config_id] = 1
+        preds = model.predict(x, verbose=0)[0]
+        next_id = sample(preds, temp)
+
+        generated += [next_id]
+        phrase = phrase[1:] + [next_id]
+
+    mid = array_to_midiWithProgramAndChannel(unfold(decode(generated), OUT_PITCHES), mid_name,channelInput=channelInput,programInput=programInput)
+    print("the mid is + " + str(type(mid)))
+    for element in mid:
+        print("the intitial mid is " + str(element))
+        #element = updateValue(element)
+        #element.time = int(element.time)
+        #print("theChecko " + str(type(element)))
+    mid = updateValue(mid)
+    # for element in mid.tracks:
+    #     for msg in element:
+    #         print("elmentsdfdf s " + str(msg))
+    #
+    # print("the mid_name is + " + str(mid_name))
+    # midiFileToReturn = MidiFile()
+    # # track = []
+    # # midiFileToReturn.tracks.append(track)
+    # tmpTime = 0
+    # # for element in midiFileInput:
+    # #    print("notrack: "+ str(element))
+    # for i, element in enumerate(mid.tracks):
+    #     tmpTrack = MidiTrack()
+    #     midiFileToReturn.tracks.append(tmpTrack)
+    #     print("inFOrefe is " + str(element))
+    #     # if(element.type == "note_on" or element.type == "note_off"):
+    #     # print("timoIs " + str(element.time))
+    #     ##element.time = int(element.time*480)
+    #     # element.time = int(element.time*480)
+    #     # tmpTime+=1
+    #     # track.append(element)
+    #     for msg in element:
+    #         msg.time = int(msg.time)
+    #         print("track" + str(msg.time))
+    #         tmpTrack.append(msg)
+
+    mid.save(os.path.join(MIDI_OUT_DIR, mid_name))
+    return mid
+
 def generate(model, seed, mid_name, temperature=1.0, length=512):
     '''Generate sequence using model, seed, and temperature.'''
 
@@ -200,7 +268,7 @@ def generate(model, seed, mid_name, temperature=1.0, length=512):
         generated += [next_id]
         phrase = phrase[1:] + [next_id]
 
-    mid = array_to_midi(unfold(decode(generated), OUT_PITCHES), mid_name)
+    mid = array_to_midiN(unfold(decode(generated), OUT_PITCHES), mid_name)
     print("the mid is + " + str(type(mid)))
     for element in mid:
         print("the intitial mid is " + str(element))
@@ -302,6 +370,7 @@ def updateValue(midiFileInput):
             print("fekfdsf " + str(msg) )
     return midiFileToReturn
 
+
 def generateFromLoaded():
     # Initialize the model.
     model = init_model()
@@ -317,7 +386,7 @@ def generateFromLoaded():
         np.random.choice(len(sequence_indices))]
     gen_length = 512
     #for temperature in [0.5, 0.75, 1.0]:
-    temperature = 2
+    temperature = 1
     generated = []
     phrase = list(
         config_sequences[seq_index][
@@ -328,7 +397,7 @@ def generateFromLoaded():
     #print("checkpoint 2 + " + str(i))
     generate(model,
              phrase,
-             'generateFromLoaded8_{}_{}.mid'.format(gen_length, temperature),
+             'Sameddi2DrumDrumGenerate_{}_{}.mid'.format(gen_length, temperature),
              temperature=temperature,
              length=gen_length)
     return model
@@ -421,16 +490,121 @@ def train(config_sequences, train_generator, valid_generator):
             print("checkpoint 2 + " + str(i))
             generate(model,
                      phrase,
-                     'chan0out_{}_{}_{}.mid'.format(gen_length, temperature, i),
+                     'Samedi1Out_{}_{}_{}.mid'.format(gen_length, temperature, i),
                      temperature=temperature,
                      length=gen_length)
     return model
+
+
+def trainWithCAndP(config_sequences, train_generator, valid_generator,channelInput=14,programInput=117):
+    '''Train model and save weights.'''
+
+    # Create the trial directory.
+    if not os.path.exists(TRIAL_DIR):
+        os.makedirs(TRIAL_DIR)
+    # Copy the source file, with a version number, to the trial directory.
+    source_filename = __file__
+    versioned_source_filename = ''.join([
+        ''.join(source_filename.split('.')[:-1]),
+        '-' + datetime.strftime(datetime.now(), '%Y%m%d%H%M%S') + '.',
+        source_filename.split('.')[-1]
+    ])
+    shutil.copyfile(
+        source_filename,
+        os.path.join(TRIAL_DIR, versioned_source_filename))
+
+    # Initialize the model.
+    model = init_model()
+    print
+    model.summary()
+
+    # Train the model
+    if not os.path.exists(MIDI_OUT_DIR):
+        os.makedirs(MIDI_OUT_DIR)
+    if not os.path.exists(MODEL_OUT_DIR):
+        os.makedirs(MODEL_OUT_DIR)
+    print('Training the model...')
+
+    if LOAD_WEIGHTS:
+        print('Attempting to load previous weights...')
+        weights_path = os.path.join(TRIAL_DIR, MODEL_NAME)
+        if os.path.exists(weights_path):
+            model.load_weights(weights_path)
+
+    best_val_loss = None
+
+    sequence_indices = idx_seq_of_length(config_sequences, PHRASE_LEN + 1)
+    n_points = len(sequence_indices)
+
+    nb_val_samples = n_points * VALIDATION_PERCENT
+    print('Number of training points: {}'.format(n_points))
+    print('Using {} validation batches'.format(nb_val_samples))
+
+    for i in range(NUM_ITERATIONS):
+        print('Iteration {}'.format(i))
+
+        history = model.fit_generator(
+            train_generator.gen(),
+            samples_per_epoch=BATCH_SIZE,
+            nb_epoch=1,
+            validation_data=valid_generator.gen(),
+            nb_val_samples=nb_val_samples)
+
+        val_loss = history.history['val_loss'][-1]
+        if best_val_loss is None or val_loss < best_val_loss:
+            print
+            ('Best validation loss so far. Saving...'+str(i))
+            best_val_loss = val_loss
+            model.save_weights(os.path.join(TRIAL_DIR, MODEL_NAME),
+                               overwrite=True)
+        # Write history.
+        with open(os.path.join(TRIAL_DIR, 'history.jsonl'), 'a') as fp:
+            json.dump(history.history, fp)
+            fp.write('\n')
+
+        # Reset seed so we can compare generated patterns across iterations.
+        np.random.seed(0)
+
+        sequence_indices = idx_seq_of_length(config_sequences, PHRASE_LEN)
+        seq_index, phrase_start_index = sequence_indices[
+            np.random.choice(len(sequence_indices))]
+        gen_length = 512
+
+        # Generate samples.
+        if not (i > 9 and i % 10 == 0):
+            continue
+        print("checkpoint 1 + " + str(i))
+        for temperature in [0.5, 0.75, 1.0]:
+            generated = []
+            phrase = list(
+                config_sequences[seq_index][
+                phrase_start_index: phrase_start_index + PHRASE_LEN])
+
+            print('----- Generating with temperature:', temperature)
+            print("checkpoint 2 + " + str(i))
+            generateWithCAndP(model,
+                     phrase,
+                     'Marvin_Gaye1Out_{}_{}_{}.mid'.format(gen_length, temperature, i),
+                     temperature=temperature,
+                     length=gen_length,channelInput=channelInput,programInput=programInput)
+    return model
+
+def run_trainWithSongName(songName):
+    modifyPITCHES(songName)
+    channelToInput,programToInput = getChannelAndProgam(songName)
+    config_sequences, train_generator, valid_generator = prepare_data()
+    trainWithCAndP(config_sequences, train_generator, valid_generator,channelInput=channelToInput,programInput=programToInput)
 
 
 def run_train():
     config_sequences, train_generator, valid_generator = prepare_data()
     train(config_sequences, train_generator, valid_generator)
 
+def readInforMationFromAMidi(midiFileName):
+    MidoFile = MidiFile(midiFileName)
+    for i,track in enumerate(MidoFile.tracks):
+        for msg in track:
+            print(" i : " + str(i) + "the msg is " + str(msg))
 
 def run_generate():
     print
@@ -521,4 +695,88 @@ def run_generate():
     """
 
 
-generateFromLoaded()
+def songDiviser(songName):
+    MidoFile = MidiFile(songName)
+    MetaTrack = MidiTrack()
+
+    for i,track in enumerate(MidoFile.tracks):
+        if i < 1:
+            for msg in track:
+                MetaTrack.append(msg)
+
+
+    for i,track in enumerate(MidoFile.tracks):
+        if i > 0:
+            fileName = ""
+            songNameSplited = songName.split('.')
+            print(str(songNameSplited[0]))
+            mid = MidiFile()
+            noteTrack = MidiTrack()
+            mid.tracks.append(noteTrack)
+            for metaMsg in MetaTrack:
+                noteTrack.append(metaMsg)
+            #mid.add_track(noteTrack)
+            for msg in track:
+                 noteTrack.append(msg)
+                 if str(msg.type) == "track_name":
+                    fileName = msg.name
+
+            mid.save(songNameSplited[0]+fileName+".mid")
+
+def getAllNotesFromTrackWithoutOccur(songName):
+    notesArray = []
+    MidoFile = MidiFile(songName)
+    for track in MidoFile.tracks:
+        for msg in track:
+            if msg.type == "note_on" or msg.type == "note_off":
+                notesArray.append(msg.note)
+    return list(set(notesArray))
+
+def getAllNotesFromTrackWithOccur(songName):
+    notesArray = []
+    MidoFile = MidiFile(songName)
+    for track in MidoFile.tracks:
+        for msg in track:
+            if msg.type == "note_on" or msg.type == "note_off":
+                notesArray.append(msg.note)
+    return notesArray
+
+
+def most_common(lst):
+    return max(set(lst), key=lst.count)
+
+def getTheMostUsedNElement(n,songName):
+    notesArray = getAllNotesFromTrackWithOccur(songName)
+    mostRepresentedNNotes = []
+    for i in range(n):
+        mostCommon = most_common(notesArray)
+        mostRepresentedNNotes.append(mostCommon)
+        # for i,element in enumerate(notesArray):
+        #     if element == mostCommon:
+        #         notesArray.remove(element)
+        notesArray = [x for x in notesArray if x != mostCommon]
+
+        print("the full is " + str(notesArray))
+        print("the most common is " + str(mostCommon))
+    #print(str(mostRepresentedNNotes))
+    return mostRepresentedNNotes
+
+def getAllPitchesFromTrack(songName):
+    pitchesAttay = []
+    MidoFile = MidiFile(songName)
+    for track in MidoFile.tracks:
+        for msg in track:
+            if msg.type == "pitchwheel":
+                pitchesAttay.append(msg.pitch)
+
+    print(str(pitchesAttay))
+    print(str(list(set(pitchesAttay))))
+
+def getChannelAndProgam(songName):
+    MidoFile = MidiFile(songName)
+    for track in MidoFile.tracks:
+        for msg in track:
+            if msg.type == "program_change":
+                return msg.channel,msg.program
+
+run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid")

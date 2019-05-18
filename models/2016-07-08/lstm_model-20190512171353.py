@@ -18,7 +18,7 @@ import numpy as np
 from numpy import array
 
 from data import *
-from midi_util import array_to_midi, print_array
+from midi_util import array_to_midiN, print_array
 from mido import Message,MidiFile,MidiTrack
 np.random.seed(10)
 
@@ -200,7 +200,7 @@ def generate(model, seed, mid_name, temperature=1.0, length=512):
         generated += [next_id]
         phrase = phrase[1:] + [next_id]
 
-    mid = array_to_midi(unfold(decode(generated), OUT_PITCHES), mid_name)
+    mid = array_to_midiN(unfold(decode(generated), OUT_PITCHES), mid_name)
     print("the mid is + " + str(type(mid)))
     for element in mid:
         print("the intitial mid is " + str(element))

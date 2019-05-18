@@ -129,6 +129,6 @@ print (out_pattern)
 
 combined_pattern = np.vstack([in_pattern, out_pattern])
 print (combined_pattern)
-mid = midi_util.array_to_midi(combined_pattern.transpose(),
+mid = midi_util.array_to_midiN(combined_pattern.transpose(),
                               'test', quantization=5)
 mid.save('beatzzz.mid')
