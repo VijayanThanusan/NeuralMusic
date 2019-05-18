@@ -24,7 +24,7 @@ def getAllNotesFromTrackWithoutOccur(MidoFile):
     #MidoFile = MidiFile(songName)
     for track in MidoFile.tracks:
         for msg in track:
-            if msg.type == "note_on" or msg.type == "note_off":
+            if msg.type == "note_on":
                 notesArray.append(msg.note)
     return list(set(notesArray))
 
@@ -241,8 +241,11 @@ def midi_to_arrayWithPitch(mid, quantization):
     quantization -- The note duration, represented as 1/2**quantization.'''
 
     print("the str of mid is " + str(mid))
+    global PITCHES
     PITCHES = getAllNotesFromTrackWithoutOccur(mid)
+    global PITCHES_MAP
     PITCHES_MAP = {p: i for i, p in enumerate(PITCHES)}
+    global PITCHES_VERSION
     PITCHES_VERSION = '0.1'
 
     for element in mid.tracks[0]:

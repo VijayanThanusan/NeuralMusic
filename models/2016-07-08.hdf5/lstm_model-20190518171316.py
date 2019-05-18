@@ -780,4 +780,4 @@ def getChannelAndProgam(songName):
             if msg.type == "program_change":
                 return msg.channel,msg.program
 
-run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevinePiano.mid")
+run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid")
