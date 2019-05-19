@@ -27,13 +27,13 @@ np.random.seed(10)
 # directory.
 PITCHES = [36, 37, 38, 40, 41, 42, 44, 45, 46, 47, 49, 50, 58, 59, 60, 61, 62, 63, 64, 66,72,76,79,74,71,69,67,77]
 # The subset of pitches we'll actually use.
-IN_PITCHES = [36, 38, 42, 58, 59, 61]  # [36, 38, 41, 42, 47, 58, 59, 61]
+IN_PITCHES = [36, 38, 42, 58, 59, 61,44]  # [36, 38, 41, 42, 47, 58, 59, 61]
 #IN_PITCHES = [72,76,79,74,71,69]
 # The pitches we want to generate (potentially for different drum kit)
 OUT_PITCHES = IN_PITCHES  # [54, 56, 58, 60, 61, 62, 63, 64]
 # The minimum number of hits to keep a drum loop after the types of
 # hits have been filtered by IN_PITCHES.
-MIN_HITS = 8
+MIN_HITS = 12
 
 ########################################################################
 # Network architecture parameters.
@@ -41,10 +41,10 @@ MIN_HITS = 8
 NUM_HIDDEN_UNITS = 128
 # The length of the phrase from which the predict the next symbol.
 #PHRASE_LEN = 64
-PHRASE_LEN = 10
+PHRASE_LEN = 12
 # Dimensionality of the symbol space.
 SYMBOL_DIM = 2 ** len(IN_PITCHES)
-NUM_ITERATIONS = 11
+NUM_ITERATIONS = 31
 BATCH_SIZE = 64
 
 VALIDATION_PERCENT = 0.1
@@ -63,7 +63,7 @@ TRIAL_DIR = os.path.join(MODEL_OUT_DIR, MODEL_NAME)
 
 MIDI_OUT_DIR = os.path.join(TRIAL_DIR, 'gen-midi')
 
-LOAD_WEIGHTS = True
+LOAD_WEIGHTS = False
 
 # Encode each configuration of p pitches, each on or off, as a
 # number between 0 and 2**p-1.
@@ -82,13 +82,28 @@ decodings = {
 def modifyPITCHES(songName):
     global PITCHES
     PITCHES = getAllNotesFromTrackWithoutOccur(songName)
+    global MIN_HITS
+    MIN_HITS = len(PITCHES)
+    print("FROMMODIFYPITCHES " + str(PITCHES))
     global IN_PITCHES
-    IN_PITCHES = getTheMostUsedNElement(6,songName)
+    IN_PITCHES = getTheMostUsedNElement(MIN_HITS,songName)
     global OUT_PITCHES
     OUT_PITCHES = IN_PITCHES
     global SYMBOL_DIM
     print("typeOfInModify is " + str(type(IN_PITCHES)) + " but " + str(IN_PITCHES))
+    print("SYMBOL_DIM: " +str(SYMBOL_DIM))
     SYMBOL_DIM = 2 ** len(IN_PITCHES)
+    global encodings
+    encodings = {
+        config: i
+        for i, config in enumerate(itertools.product([0, 1], repeat=len(IN_PITCHES)))
+    }
+    global decodings
+    decodings = {
+        i: config
+        for i, config in enumerate(itertools.product([0, 1], repeat=len(IN_PITCHES)))
+    }
+
 
 def sample(a, temperature=1.0):
     # helper function to sample an index from a probability array
@@ -102,6 +117,9 @@ def sample(a, temperature=1.0):
 
 def encode(midi_array):
     '''Encode a folded MIDI array into a sequence of integers.'''
+    print("the midi array is " + str(midi_array))
+    for time_slice in midi_array:
+        print(tuple((time_slice > 0).astype(float)))
     return [
         encodings[tuple((time_slice > 0).astype(int))]
         for time_slice in midi_array
@@ -142,8 +160,12 @@ def prepare_data():
     config_sequences = []
     num_dirs = len([x for x in os.walk(MIDI_IN_DIR)])
     assert num_dirs > 0, 'No data found at {}'.format(MIDI_IN_DIR)
-
+    print("TESSSSTTTTTTN"+ str(PITCHES))
+    print("TESSSST + " + str(IN_PITCHES))
+    for p in IN_PITCHES:
+        print("TESSSTTTTTTT " + str(p))
     in_pitch_indices = [PITCHES.index(p) for p in IN_PITCHES]
+    print("TESSSSST2" + str(in_pitch_indices))
     for dir_idx, (root, dirs, files) in enumerate(os.walk(MIDI_IN_DIR)):
         for filename in files:
             print("filename"+filename)
@@ -167,8 +189,13 @@ def prepare_data():
             #print("what I want to know is " + str(np.sum(np.sum(array[:, in_pitch_indices] > 0))))
             if np.sum(np.sum(array[:, in_pitch_indices] > 0)) < MIN_HITS:
                 continue
-            print("in_pitch_indices "+ str(in_pitch_indices))
+
+            print("in_pitch_indices "+ str(in_pitch_indices) + " : " + str(array[:,in_pitch_indices]))
+            testArray = array[:,in_pitch_indices]
+            for i,val in enumerate(testArray):
+                print("for i " + str(i) + " it is " + str(val))
             config_sequences.append(np.array(encode(array[:, in_pitch_indices])))
+            print("encoding is " + str(encodings))
             print("the len of config_sequences are "  + str(len(config_sequences)))
         print
         'Loaded {}/{} directories'.format(dir_idx + 1, num_dirs)
@@ -728,7 +755,7 @@ def getAllNotesFromTrackWithoutOccur(songName):
     MidoFile = MidiFile(songName)
     for track in MidoFile.tracks:
         for msg in track:
-            if msg.type == "note_on" or msg.type == "note_off":
+            if msg.type == "note_on":
                 notesArray.append(msg.note)
     return list(set(notesArray))
 
@@ -750,6 +777,7 @@ def getTheMostUsedNElement(n,songName):
     mostRepresentedNNotes = []
     for i in range(n):
         mostCommon = most_common(notesArray)
+
         mostRepresentedNNotes.append(mostCommon)
         # for i,element in enumerate(notesArray):
         #     if element == mostCommon:

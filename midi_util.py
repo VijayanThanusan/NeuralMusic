@@ -24,7 +24,7 @@ def getAllNotesFromTrackWithoutOccur(MidoFile):
     #MidoFile = MidiFile(songName)
     for track in MidoFile.tracks:
         for msg in track:
-            if msg.type == "note_on" or msg.type == "note_off":
+            if msg.type == "note_on":
                 notesArray.append(msg.note)
     return list(set(notesArray))
 
