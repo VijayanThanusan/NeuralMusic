@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drumshiphop.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/drumshiphop.hdf5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drumshiphop.hdf5" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lstm_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/lstm_model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/models/drumshiphop.hdf5/gen-midi/DimMarvin_Gaye1Out_512_1.mid" beforeDir="false" afterPath="$PROJECT_DIR$/models/drumshiphop.hdf5/gen-midi/DimMarvin_Gaye1Out_512_1.mid" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -53,8 +54,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lstm_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="817" lean-forward="true" selection-start-line="817" selection-end-line="817" />
+            <state relative-caret-position="15">
+              <caret line="43" column="15" lean-forward="true" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
               <folding>
                 <element signature="e#162#191#0" expanded="true" />
               </folding>
@@ -94,8 +95,8 @@
       <find>loaded</find>
       <find>CuDNNLSTM</find>
       <find>load</find>
-      <find>lstm</find>
       <find>array_to_midi</find>
+      <find>lstm</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -492,8 +493,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lstm_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="258">
-          <caret line="817" lean-forward="true" selection-start-line="817" selection-end-line="817" />
+        <state relative-caret-position="15">
+          <caret line="43" column="15" lean-forward="true" selection-start-line="43" selection-start-column="15" selection-end-line="43" selection-end-column="15" />
           <folding>
             <element signature="e#162#191#0" expanded="true" />
           </folding>

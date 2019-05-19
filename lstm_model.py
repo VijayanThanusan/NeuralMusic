@@ -41,11 +41,11 @@ MIN_HITS = 12
 NUM_HIDDEN_UNITS = 128
 # The length of the phrase from which the predict the next symbol.
 #PHRASE_LEN = 64
-PHRASE_LEN = 30
+PHRASE_LEN = 50
 # Dimensionality of the symbol space.
 SYMBOL_DIM = 2 ** len(IN_PITCHES)
 NUM_ITERATIONS = 31
-BATCH_SIZE = 64
+BATCH_SIZE = 101
 
 VALIDATION_PERCENT = 0.1
 #0.1
