@@ -50,6 +50,8 @@ BATCH_SIZE = 64
 VALIDATION_PERCENT = 0.1
 #0.1
 BASE_DIR = '/home/thanusan/NeuralMusic'
+#BASE_DIR = '/Users/vijayakulanathanthanushan/Downloads/NeuralMuusic'
+
 # BASE_DIR = '/home/ubuntu/neural-beats'
 
 # MIDI_IN_DIR = os.path.join(BASE_DIR, 'midi_arrays/mega/')
@@ -338,7 +340,7 @@ def generate(model, seed, mid_name, temperature=1.0, length=512):
 def init_model():
     # Build the model.
     model = Sequential()
-    model.add(CuDNNLSTM(
+    model.add(LSTM(
         NUM_HIDDEN_UNITS,
         return_sequences=True,
         input_shape=(PHRASE_LEN, SYMBOL_DIM)))
@@ -350,7 +352,7 @@ def init_model():
         input_shape=(SYMBOL_DIM, SYMBOL_DIM)))
     model.add(Dropout(0.2))
     '''
-    model.add(CuDNNLSTM(NUM_HIDDEN_UNITS, return_sequences=False))
+    model.add(LSTM(NUM_HIDDEN_UNITS, return_sequences=False))
     model.add(Dropout(0.3))
     model.add(Dense(SYMBOL_DIM))
     model.add(Activation('softmax'))
@@ -398,22 +400,27 @@ def updateValue(midiFileInput):
     return midiFileToReturn
 
 
-def generateFromLoaded():
+def generateFromLoaded(hdf5Name,songRelatedToTheHdf5,temperature=1):
     # Initialize the model.
+    modifyPITCHES(songRelatedToTheHdf5)
     model = init_model()
     print
     model.summary()
     weights_path = os.path.join(TRIAL_DIR, MODEL_NAME)
-    if os.path.exists(weights_path):
-        model.load_weights("2016-07-08.hdf5")
-
+    #if os.path.exists(weights_path):
+    model.load_weights(hdf5Name)
+    #modifyPITCHES(songRelatedToTheHdf5)
+    channelToInput, programToInput = getChannelAndProgam(songRelatedToTheHdf5)
     config_sequences, train_generator, valid_generator = prepare_data()
+    #trainWithCAndP(config_sequences, train_generator, valid_generator, channelInput=channelToInput,
+    #               programInput=programToInput)
+
     sequence_indices = idx_seq_of_length(config_sequences, PHRASE_LEN)
     seq_index, phrase_start_index = sequence_indices[
         np.random.choice(len(sequence_indices))]
     gen_length = 512
     #for temperature in [0.5, 0.75, 1.0]:
-    temperature = 1
+    #temperature = 1
     generated = []
     phrase = list(
         config_sequences[seq_index][
@@ -422,11 +429,12 @@ def generateFromLoaded():
 
     print('----- Generating with temperature:', temperature)
     #print("checkpoint 2 + " + str(i))
-    generate(model,
-             phrase,
-             'Sameddi2DrumDrumGenerate_{}_{}.mid'.format(gen_length, temperature),
-             temperature=temperature,
-             length=gen_length)
+
+    generateWithCAndP(model,
+                      phrase,
+                      'DimMarvin_Gaye1Out_{}_{}.mid'.format(gen_length, temperature),
+                      temperature=temperature,
+                      length=gen_length, channelInput=channelToInput, programInput=programToInput)
     return model
 
 def train(config_sequences, train_generator, valid_generator):
@@ -578,12 +586,12 @@ def trainWithCAndP(config_sequences, train_generator, valid_generator,channelInp
             nb_val_samples=nb_val_samples)
 
         val_loss = history.history['val_loss'][-1]
-        if best_val_loss is None or val_loss < best_val_loss:
-            print
-            ('Best validation loss so far. Saving...'+str(i))
-            best_val_loss = val_loss
-            model.save_weights(os.path.join(TRIAL_DIR, MODEL_NAME),
-                               overwrite=True)
+        #if best_val_loss is None or val_loss < best_val_loss:
+        print
+        ('Best validation loss so far. Saving...'+str(i))
+        best_val_loss = val_loss
+        model.save_weights(os.path.join(TRIAL_DIR, MODEL_NAME),
+                           overwrite=True)
         # Write history.
         with open(os.path.join(TRIAL_DIR, 'history.jsonl'), 'a') as fp:
             json.dump(history.history, fp)
@@ -808,3 +816,4 @@ def getChannelAndProgam(songName):
                 return msg.channel,msg.program
 
 run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid")
+#generateFromLoaded("drumshiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid")
