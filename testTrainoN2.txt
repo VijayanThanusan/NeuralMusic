@@ -1,6 +1,0 @@
-Namespace(path='test_song2', quantization=5, use_cached=False)
-the path prefix is 
-the path suffix is test_song2
-out is array
-true Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid
-out_dir : array/ outfile array/Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid.npy
