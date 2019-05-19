@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="" />
+    <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/drumshiphop.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/drumshiphop.hdf5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/models/drumshiphop.hdf5/gen-midi/DimMarvin_Gaye1Out_512_1.mid" beforeDir="false" afterPath="$PROJECT_DIR$/models/drumshiphop.hdf5/gen-midi/DimMarvin_Gaye1Out_512_1.mid" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/midi_util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="591">
-              <caret line="395" column="54" selection-start-line="395" selection-start-column="54" selection-end-line="395" selection-end-column="54" />
+            <state relative-caret-position="-27">
+              <caret line="364" column="17" selection-start-line="364" selection-start-column="4" selection-end-line="364" selection-end-column="17" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
               </folding>
@@ -49,7 +53,7 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lstm_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="233">
+            <state relative-caret-position="258">
               <caret line="817" lean-forward="true" selection-start-line="817" selection-end-line="817" />
               <folding>
                 <element signature="e#162#191#0" expanded="true" />
@@ -62,7 +66,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>cha</find>
       <find>prog</find>
       <find>updat</find>
       <find>program_change</find>
@@ -90,8 +93,9 @@
       <find>64</find>
       <find>loaded</find>
       <find>CuDNNLSTM</find>
-      <find>array_to_midi</find>
       <find>load</find>
+      <find>lstm</find>
+      <find>array_to_midi</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -142,6 +146,32 @@
               <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
               <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="2016-07-08.hdf5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="2016-07-08.hdf5" type="462c0819:PsiDirectoryNode" />
+              <item name="gen-midi" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="drumshiphop.hdf5" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="drumshiphop.hdf5" type="462c0819:PsiDirectoryNode" />
+              <item name="gen-midi" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
@@ -223,7 +253,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.73625255" visible="true" weight="0.4473684" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.73625255" visible="true" weight="0.33684212" />
       <window_info anchor="bottom" id="Python Console" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.26374745" side_tool="true" weight="0.05263158" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -452,8 +482,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/midi_util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="591">
-          <caret line="395" column="54" selection-start-line="395" selection-start-column="54" selection-end-line="395" selection-end-column="54" />
+        <state relative-caret-position="-27">
+          <caret line="364" column="17" selection-start-line="364" selection-start-column="4" selection-end-line="364" selection-end-column="17" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
           </folding>
@@ -462,7 +492,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lstm_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="233">
+        <state relative-caret-position="258">
           <caret line="817" lean-forward="true" selection-start-line="817" selection-end-line="817" />
           <folding>
             <element signature="e#162#191#0" expanded="true" />
