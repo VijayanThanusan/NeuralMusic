@@ -41,7 +41,7 @@ MIN_HITS = 12
 NUM_HIDDEN_UNITS = 128
 # The length of the phrase from which the predict the next symbol.
 #PHRASE_LEN = 64
-PHRASE_LEN = 12
+PHRASE_LEN = 50
 # Dimensionality of the symbol space.
 SYMBOL_DIM = 2 ** len(IN_PITCHES)
 NUM_ITERATIONS = 31
@@ -611,7 +611,7 @@ def trainWithCAndP(config_sequences, train_generator, valid_generator,channelInp
             print("checkpoint 2 + " + str(i))
             generateWithCAndP(model,
                      phrase,
-                     'Marvin_Gaye1Out_{}_{}_{}.mid'.format(gen_length, temperature, i),
+                     'DimMarvin_Gaye1Out_{}_{}_{}.mid'.format(gen_length, temperature, i),
                      temperature=temperature,
                      length=gen_length,channelInput=channelInput,programInput=programInput)
     return model
@@ -807,4 +807,4 @@ def getChannelAndProgam(songName):
             if msg.type == "program_change":
                 return msg.channel,msg.program
 
-run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineBass.mid")
+run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevinePiano.mid")

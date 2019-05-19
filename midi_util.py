@@ -47,8 +47,8 @@ def quantize_tick(tick, ticks_per_quarter, quantization):
     ticks_per_quarter -- The number of ticks per quarter note
     quantization -- The note duration, represented as 1/2**quantization
     '''
-    assert (ticks_per_quarter * 4) % 2 ** quantization == 0, \
-        'Quantization too fine. Ticks per quantum must be an integer.'
+    #assert (ticks_per_quarter * 4) % 2 ** quantization == 0, \
+    #    'Quantization too fine. Ticks per quantum must be an integer.'
     ticks_per_quantum = (ticks_per_quarter * 4) / float(2 ** quantization)
     quantized_ticks = int(
         round(tick / float(ticks_per_quantum)) * ticks_per_quantum)
