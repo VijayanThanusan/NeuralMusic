@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,30 +170,7 @@
             <path>
               <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
               <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="2016-07-08.hdf5" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-              <item name="2016-07-08.hdf5" type="462c0819:PsiDirectoryNode" />
-              <item name="gen-midi" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
-              <item name="test_song2" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
-              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
-              <item name="venv" type="462c0819:PsiDirectoryNode" />
+              <item name="array" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
@@ -252,7 +227,14 @@
       <option name="project" value="LOCAL" />
       <updated>1558258271874</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="cudalstm">
+      <created>1558258614780</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1558258614780</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">

@@ -49,7 +49,7 @@ BATCH_SIZE = 64
 
 VALIDATION_PERCENT = 0.1
 #0.1
-BASE_DIR = '/Users/vijayakulanathanthanushan/Downloads/NeuralMuusic'
+BASE_DIR = '/home/thanusan/NeuralMuusic'
 # BASE_DIR = '/home/ubuntu/neural-beats'
 
 # MIDI_IN_DIR = os.path.join(BASE_DIR, 'midi_arrays/mega/')
