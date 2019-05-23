@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/lstm_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/lstm_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/models/drumshiphop.hdf5/gen-midi/DimMarvin_Gaye1Out_512_2.mid" beforeDir="false" afterPath="$PROJECT_DIR$/models/drumshiphop.hdf5/gen-midi/DimMarvin_Gaye1Out_512_2.mid" afterDir="false" />
-    </list>
+    <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,8 +49,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/lstm_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="818" column="97" selection-start-line="818" selection-start-column="97" selection-end-line="818" selection-end-column="97" />
+            <state relative-caret-position="-11232">
+              <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
               <folding>
                 <element signature="e#162#191#0" expanded="true" />
               </folding>
@@ -831,8 +828,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/lstm_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="818" column="97" selection-start-line="818" selection-start-column="97" selection-end-line="818" selection-end-column="97" />
+        <state relative-caret-position="-11232">
+          <caret line="62" column="19" selection-start-line="62" selection-start-column="19" selection-end-line="62" selection-end-column="19" />
           <folding>
             <element signature="e#162#191#0" expanded="true" />
           </folding>

@@ -60,7 +60,7 @@ MIDI_IN_DIR = os.path.join(BASE_DIR, 'array/')
 # MIDI_IN_DIR = os.path.join(BASE_DIR, 'midi_arrays/mega/Rock Essentials 2 Live 9 SD/Preview Files/Fills/4-4 Fills')
 
 MODEL_OUT_DIR = os.path.join(BASE_DIR, 'models')
-MODEL_NAME = 'pianohiphop.hdf5'
+MODEL_NAME = 'guitarhiphop.hdf5'
 TRIAL_DIR = os.path.join(MODEL_OUT_DIR, MODEL_NAME)
 
 MIDI_OUT_DIR = os.path.join(TRIAL_DIR, 'gen-midi')
@@ -815,5 +815,5 @@ def getChannelAndProgam(songName):
             if msg.type == "program_change":
                 return msg.channel,msg.program
 
-run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevinePiano.mid")
+run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
 #generateFromLoaded("drumshiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid",1)
