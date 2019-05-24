@@ -45,13 +45,13 @@ NUM_HIDDEN_UNITS = 128
 PHRASE_LEN = 64
 # Dimensionality of the symbol space.
 SYMBOL_DIM = 2 ** len(IN_PITCHES)
-NUM_ITERATIONS = 501
+NUM_ITERATIONS = 701
 BATCH_SIZE = 64
 
 VALIDATION_PERCENT = 0.1
 #0.1
-#BASE_DIR = '/home/thanusan/NeuralMusic'
-BASE_DIR = '/Users/vijayakulanathanthanushan/Downloads/NeuralMuusic'
+BASE_DIR = '/home/thanusan/NeuralMusic'
+#BASE_DIR = '/Users/vijayakulanathanthanushan/Downloads/NeuralMuusic'
 
 # BASE_DIR = '/home/ubuntu/neural-beats'
 
@@ -61,7 +61,7 @@ MIDI_IN_DIR = os.path.join(BASE_DIR, 'array/')
 # MIDI_IN_DIR = os.path.join(BASE_DIR, 'midi_arrays/mega/Rock Essentials 2 Live 9 SD/Preview Files/Fills/4-4 Fills')
 
 MODEL_OUT_DIR = os.path.join(BASE_DIR, 'models')
-MODEL_NAME = 'drumshiphop.hdf5'
+MODEL_NAME = 'guitarhiphop.hdf5'
 TRIAL_DIR = os.path.join(MODEL_OUT_DIR, MODEL_NAME)
 
 MIDI_OUT_DIR = os.path.join(TRIAL_DIR, 'gen-midi')
@@ -410,7 +410,7 @@ def generate(model, seed, mid_name, temperature=1.0, length=512):
 def init_model():
     # Build the model.
     model = Sequential()
-    model.add(LSTM(
+    model.add(CuDNNLSTM(
         NUM_HIDDEN_UNITS,
         return_sequences=True,
         input_shape=(PHRASE_LEN, SYMBOL_DIM)))
@@ -422,7 +422,7 @@ def init_model():
         input_shape=(SYMBOL_DIM, SYMBOL_DIM)))
     model.add(Dropout(0.2))
     '''
-    model.add(LSTM(NUM_HIDDEN_UNITS, return_sequences=False))
+    model.add(CuDNNLSTM(NUM_HIDDEN_UNITS, return_sequences=False))
     model.add(Dropout(0.3))
     model.add(Dense(SYMBOL_DIM))
     model.add(Activation('softmax'))
@@ -687,17 +687,17 @@ def trainWithCAndP(config_sequences, train_generator, valid_generator,channelInp
 
             print('----- Generating with temperature:', temperature)
             print("checkpoint 2 + " + str(i))
-            generateWithCAndP(model,
-                     phrase,
-                     'DimMarvin_Gaye1Out_{}_{}_{}.mid'.format(gen_length, temperature, i),
-                     temperature=temperature,
-                     length=gen_length,channelInput=channelInput,programInput=programInput)
+            #generateWithCAndP(model,
+            #         phrase,
+            #         'DimMarvin_Gaye1Out_{}_{}_{}.mid'.format(gen_length, temperature, i),
+            #         temperature=temperature,
+            #         length=gen_length,channelInput=channelInput,programInput=programInput)
     return model
 
 def run_trainWithSongName(songName):
     modifyPITCHES(songName)
     channelToInput,programToInput = getChannelAndProgam(songName)
-    config_sequences, train_generator, valid_generator = prepare_data()
+    config_sequences, train_generator, valid_generator = prepare_dataForASpecificFileAndRandomly(songName)
     trainWithCAndP(config_sequences, train_generator, valid_generator,channelInput=channelToInput,programInput=programToInput)
 
 
@@ -927,5 +927,5 @@ def generateFromLoaded2(hdf5Name,songRelatedToTheHdf5,temperature=1):
                       length=gen_length, channelInput=channelToInput, programInput=programToInput)
     return model
 
-#run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
-generateFromLoaded2("drumshiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid",1)
+run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
+#generateFromLoaded2("drumshiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid",1)
