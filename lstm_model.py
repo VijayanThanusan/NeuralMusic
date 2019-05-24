@@ -50,8 +50,8 @@ BATCH_SIZE = 64
 
 VALIDATION_PERCENT = 0.1
 #0.1
-BASE_DIR = '/home/thanusan/NeuralMusic'
-#BASE_DIR = '/Users/vijayakulanathanthanushan/Downloads/NeuralMuusic'
+#BASE_DIR = '/home/thanusan/NeuralMusic'
+BASE_DIR = '/Users/vijayakulanathanthanushan/Downloads/NeuralMuusic'
 
 # BASE_DIR = '/home/ubuntu/neural-beats'
 
@@ -61,7 +61,7 @@ MIDI_IN_DIR = os.path.join(BASE_DIR, 'array/')
 # MIDI_IN_DIR = os.path.join(BASE_DIR, 'midi_arrays/mega/Rock Essentials 2 Live 9 SD/Preview Files/Fills/4-4 Fills')
 
 MODEL_OUT_DIR = os.path.join(BASE_DIR, 'models')
-MODEL_NAME = 'guitarhiphop.hdf5'
+MODEL_NAME = 'drumshiphop.hdf5'
 TRIAL_DIR = os.path.join(MODEL_OUT_DIR, MODEL_NAME)
 
 MIDI_OUT_DIR = os.path.join(TRIAL_DIR, 'gen-midi')
@@ -152,6 +152,75 @@ def crop_center(img,cropx,cropy):
     starty = y//2-(cropy//2)
     return img[starty:starty+cropy,startx:startx+cropx]
 
+
+def prepare_dataForASpecificFileAndRandomly(fileName):
+    # Load the data.
+    # Concatenate all the vectorized midi files.
+    num_steps = 0
+
+    # Sequence of configuration numbers representing combinations of
+    # active pitches.
+    config_sequences = []
+    num_dirs = len([x for x in os.walk(MIDI_IN_DIR)])
+    assert num_dirs > 0, 'No data found at {}'.format(MIDI_IN_DIR)
+    print("TESSSSTTTTTTN"+ str(PITCHES))
+    print("TESSSST + " + str(IN_PITCHES))
+    for p in IN_PITCHES:
+        print("TESSSTTTTTTT " + str(p))
+    in_pitch_indices = [PITCHES.index(p) for p in IN_PITCHES]
+    print("TESSSSST2" + str(in_pitch_indices))
+    #for dir_idx, (root, dirs, files) in enumerate(os.walk(MIDI_IN_DIR)):
+    #    for filename in files:
+    filename = fileName+".npy"
+    print("filename"+filename)
+    if filename.split('.')[-1] != 'npy':
+        return
+    array = np.load(os.path.join("array/"+filename))
+    newArray = []
+    #array = crop_center(array,)
+    print("array is " + str(array))
+    for i,val in enumerate(array):
+        for j, valJ in enumerate(val):
+            #print(" for i " + str(i) + " val : " + str(val) + " j = " + str(j) + " valj : " + str(valJ))
+            if(valJ > 0):
+                newArray.append(val)
+                break
+    newArray = np.asarray(newArray,dtype=np.float32)
+    print("the type of array is " + str(type(array)))
+    print("the type of newArray is " + str(type(newArray)))
+    #array = newArray
+    print("sizzzzzeOfArray is " + str(len(array)))
+    #print("what I want to know is " + str(np.sum(np.sum(array[:, in_pitch_indices] > 0))))
+    if np.sum(np.sum(array[:, in_pitch_indices] > 0)) < MIN_HITS:
+        return
+
+    print("in_pitch_indices "+ str(in_pitch_indices) + " : " + str(array[:,in_pitch_indices]))
+    testArray = array[:,in_pitch_indices]
+    for i,val in enumerate(testArray):
+        print("for i " + str(i) + " it is " + str(val))
+    config_sequences.append(np.array(encode(array[:, in_pitch_indices])))
+    print("encoding is " + str(encodings))
+    #print("the len of config_sequences are "  + str(len(config_sequences)))
+    #print    'Loaded {}/{} directories'.format(dir_idx + 1, num_dirs)
+    #print("config_sequences"+str(config_sequences))
+    # Construct labeled examples.
+    # Use a generator for X and y as the whole dataset may not fit in
+    # memory.
+    train_generator = SequenceDataGenerator(config_sequences,
+                                            phrase_length=PHRASE_LEN,
+                                            dim=SYMBOL_DIM,
+                                            batch_size=BATCH_SIZE,
+                                            is_validation=False,
+                                            validation_percent=VALIDATION_PERCENT)
+
+    valid_generator = SequenceDataGenerator(config_sequences,
+                                            phrase_length=PHRASE_LEN,
+                                            dim=SYMBOL_DIM,
+                                            batch_size=BATCH_SIZE,
+                                            is_validation=True,
+                                            validation_percent=VALIDATION_PERCENT)
+
+    return config_sequences, train_generator, valid_generator
 
 def prepare_data():
     # Load the data.
@@ -276,7 +345,7 @@ def generateWithCAndP(model, seed, mid_name, temperature=1.0, length=512,channel
     #         print("track" + str(msg.time))
     #         tmpTrack.append(msg)
 
-    mid.save(os.path.join(MIDI_OUT_DIR, mid_name))
+    mid.save(os.path.join(mid_name))
     return mid
 
 def generate(model, seed, mid_name, temperature=1.0, length=512):
@@ -341,7 +410,7 @@ def generate(model, seed, mid_name, temperature=1.0, length=512):
 def init_model():
     # Build the model.
     model = Sequential()
-    model.add(CuDNNLSTM(
+    model.add(LSTM(
         NUM_HIDDEN_UNITS,
         return_sequences=True,
         input_shape=(PHRASE_LEN, SYMBOL_DIM)))
@@ -353,7 +422,7 @@ def init_model():
         input_shape=(SYMBOL_DIM, SYMBOL_DIM)))
     model.add(Dropout(0.2))
     '''
-    model.add(CuDNNLSTM(NUM_HIDDEN_UNITS, return_sequences=False))
+    model.add(LSTM(NUM_HIDDEN_UNITS, return_sequences=False))
     model.add(Dropout(0.3))
     model.add(Dense(SYMBOL_DIM))
     model.add(Activation('softmax'))
@@ -858,5 +927,5 @@ def generateFromLoaded2(hdf5Name,songRelatedToTheHdf5,temperature=1):
                       length=gen_length, channelInput=channelToInput, programInput=programToInput)
     return model
 
-run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
-#generateFromLoaded("drumshiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid",1)
+#run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
+generateFromLoaded2("drumshiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid",1)
