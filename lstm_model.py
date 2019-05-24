@@ -14,6 +14,7 @@ from keras.layers.recurrent import LSTM
 from keras.layers import CuDNNLSTM
 from keras.models import Sequential
 from keras.optimizers import RMSprop
+from random import  randint
 import numpy as np
 from numpy import array
 
@@ -814,6 +815,48 @@ def getChannelAndProgam(songName):
         for msg in track:
             if msg.type == "program_change":
                 return msg.channel,msg.program
+
+
+
+def generateFromLoaded2(hdf5Name,songRelatedToTheHdf5,temperature=1):
+    # Initialize the model.
+    modifyPITCHES(songRelatedToTheHdf5)
+    model = init_model()
+    print
+    model.summary()
+    weights_path = os.path.join(TRIAL_DIR, MODEL_NAME)
+    #if os.path.exists(weights_path):
+    model.load_weights(hdf5Name)
+    #modifyPITCHES(songRelatedToTheHdf5)
+    channelToInput, programToInput = getChannelAndProgam(songRelatedToTheHdf5)
+    config_sequences, train_generator, valid_generator = prepare_dataForASpecificFileAndRandomly(songRelatedToTheHdf5)
+    #trainWithCAndP(config_sequences, train_generator, valid_generator, channelInput=channelToInput,
+    #               programInput=programToInput)
+
+    sequence_indices = idx_seq_of_length(config_sequences, PHRASE_LEN)
+    seq_index, phrase_start_index = sequence_indices[
+        np.random.choice(len(sequence_indices))]
+
+    phrase_start_index = randint(0,len(sequence_indices))
+    print("seq_index is " + str(seq_index) + " phrase_start_index is " + str(phrase_start_index))
+    gen_length = 1024
+    #for temperature in [0.5, 0.75, 1.0]:
+    #temperature = 1
+    generated = []
+    phrase = list(
+        config_sequences[seq_index][
+        phrase_start_index: phrase_start_index + PHRASE_LEN])
+
+
+    print('----- Generating with temperature:', temperature)
+    #print("checkpoint 2 + " + str(i))
+
+    generateWithCAndP(model,
+                      phrase,
+                      'DimMarvin_Gaye1Out_{}_{}.mid'.format(gen_length, temperature),
+                      temperature=temperature,
+                      length=gen_length, channelInput=channelToInput, programInput=programToInput)
+    return model
 
 run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
 #generateFromLoaded("drumshiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid",1)
