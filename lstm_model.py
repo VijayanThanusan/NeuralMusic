@@ -695,7 +695,7 @@ def trainWithCAndP(config_sequences, train_generator, valid_generator,channelInp
     return model
 
 def run_trainWithSongName():
-    train_song_name_array = ["Bye bye Blackbird1.mid","Bye bye Blackbird2.mid","Bye bye Blackbird3.mid","Bye bye Blackbird4.mid","Bye bye Blackbird5.mid","Bye bye Blackbird6.mid","Bye bye Blackbird7.mid","Bye bye Blackbird8.mid","Bye bye Blackbird9.mid","Bye bye Blackbird10.mid","Bye bye Blackbird11.mid","Bye bye Blackbird12.mid","Bye bye Blackbird13.mid","Bye bye Blackbird14.mid","Bye bye Blackbird15.mid","Bye bye Blackbird16.mid"]
+    train_song_name_array = ["Bye_bye_Blackbird1.mid","Bye_bye_Blackbird2.mid","Bye_bye_Blackbird3.mid","Bye_bye_Blackbird4.mid","Bye_bye_Blackbird5.mid","Bye_bye_Blackbird6.mid","Bye_bye_Blackbird7.mid","Bye_bye_Blackbird8.mid","Bye_bye_Blackbird9.mid","Bye_bye_Blackbird10.mid","Bye_bye_Blackbird11.mid","Bye_bye_Blackbird12.mid","Bye_bye_Blackbird13.mid","Bye_bye_Blackbird14.mid","Bye_bye_Blackbird15.mid","Bye_bye_Blackbird16.mid"]
     for n in train_song_name_array:
         songName = n
         songNameSplited = songName.split('.')
