@@ -42,10 +42,10 @@ MIN_HITS = 12
 NUM_HIDDEN_UNITS = 128
 # The length of the phrase from which the predict the next symbol.
 #PHRASE_LEN = 64
-PHRASE_LEN = 64
+PHRASE_LEN = 100
 # Dimensionality of the symbol space.
 SYMBOL_DIM = 2 ** len(IN_PITCHES)
-NUM_ITERATIONS = 701
+NUM_ITERATIONS = 901
 BATCH_SIZE = 64
 
 VALIDATION_PERCENT = 0.1
@@ -61,7 +61,7 @@ MIDI_IN_DIR = os.path.join(BASE_DIR, 'array/')
 # MIDI_IN_DIR = os.path.join(BASE_DIR, 'midi_arrays/mega/Rock Essentials 2 Live 9 SD/Preview Files/Fills/4-4 Fills')
 
 MODEL_OUT_DIR = os.path.join(BASE_DIR, 'models')
-MODEL_NAME = 'guitarhiphop.hdf5'
+MODEL_NAME = 'jazzSong.hdf5'
 TRIAL_DIR = os.path.join(MODEL_OUT_DIR, MODEL_NAME)
 
 MIDI_OUT_DIR = os.path.join(TRIAL_DIR, 'gen-midi')
@@ -694,11 +694,18 @@ def trainWithCAndP(config_sequences, train_generator, valid_generator,channelInp
             #         length=gen_length,channelInput=channelInput,programInput=programInput)
     return model
 
-def run_trainWithSongName(songName):
-    modifyPITCHES(songName)
-    channelToInput,programToInput = getChannelAndProgam(songName)
-    config_sequences, train_generator, valid_generator = prepare_dataForASpecificFileAndRandomly(songName)
-    trainWithCAndP(config_sequences, train_generator, valid_generator,channelInput=channelToInput,programInput=programToInput)
+def run_trainWithSongName():
+    train_song_name_array = ["Bye bye Blackbird1.mid","Bye bye Blackbird2.mid","Bye bye Blackbird3.mid","Bye bye Blackbird4.mid","Bye bye Blackbird5.mid","Bye bye Blackbird6.mid","Bye bye Blackbird7.mid","Bye bye Blackbird8.mid","Bye bye Blackbird9.mid","Bye bye Blackbird10.mid","Bye bye Blackbird11.mid","Bye bye Blackbird12.mid","Bye bye Blackbird13.mid","Bye bye Blackbird14.mid","Bye bye Blackbird15.mid","Bye bye Blackbird16.mid"]
+    for n in train_song_name_array:
+        songName = n
+        songNameSplited = songName.split('.')
+        #print(str(songNameSplited[0]))
+        global MODEL_NAME
+        MODEL_NAME = songNameSplited[0] + ".hdf5"
+        modifyPITCHES(songName)
+        channelToInput,programToInput = getChannelAndProgam(songName)
+        config_sequences, train_generator, valid_generator = prepare_dataForASpecificFileAndRandomly(songName)
+        trainWithCAndP(config_sequences, train_generator, valid_generator,channelInput=channelToInput,programInput=programToInput)
 
 
 def run_train():
@@ -821,6 +828,7 @@ def songDiviser(songName):
             for metaMsg in MetaTrack:
                 noteTrack.append(metaMsg)
             #mid.add_track(noteTrack)
+            fileName = fileName+str(i)
             for msg in track:
                  noteTrack.append(msg)
                  if str(msg.type) == "track_name":
@@ -885,7 +893,46 @@ def getChannelAndProgam(songName):
             if msg.type == "program_change":
                 return msg.channel,msg.program
 
+def getTimeSignature(songName):
+    #def updateValue(midiFileInput):
+       # midiFileToReturn = MidiFile()
+        # track = MidiTrack()
+        # midiFileToReturn.tracks.append(track)
+        tmpTime = 0
+        # for element in midiFileInput:
+        #    print("notrack: "+ str(element))
+        midiFileInput = MidiFile(songName)
 
+        for element in midiFileInput.tracks:
+            tmpTrack = MidiTrack()
+            #midiFileToReturn.tracks.append(tmpTrack)
+            for msg in element:
+                if (msg.type == 'time_signature'):
+                    print("the predzddd is " + str(msg))
+                    #msg.numerator = 4
+                    #msg.denominator = 4
+                #msg.time = msg.time
+                #print("the postdzddd is " + str(msg.time))
+                #tmpTrack.append(msg)
+            # track.append(element)
+        # for element in midiFileInput.tracks:
+        # if(element.type == "note_on" or element.type == "note_off"):
+        # print("timoIs " + str(element.time))
+        ##element.time = int(element.time*480)
+        # element.time = int(element.time*480)
+        # tmpTime+=1
+        # track.append(element)
+
+        # else:
+        #    track.append(element)
+        # print("for message + " + str(messageInput) + " type " + str(messageInput.type))
+        # print("from updatevalue " + str(message.channel))
+        # print("from uV2 " + str(Message(message.type, message.channel, message.note, message.velocity, int(message.time))))
+        # message.time = int(message.time)
+        # return Message(message.type,message.channel,message.note,message.velocity,int(message.time))
+        # if(messageInput.type == "note_on" or messageInput.type == "note_off"):
+        #    message =
+        return midiFileInput
 
 def generateFromLoaded2(hdf5Name,songRelatedToTheHdf5,temperature=1):
     # Initialize the model.
@@ -901,7 +948,8 @@ def generateFromLoaded2(hdf5Name,songRelatedToTheHdf5,temperature=1):
     config_sequences, train_generator, valid_generator = prepare_dataForASpecificFileAndRandomly(songRelatedToTheHdf5)
     #trainWithCAndP(config_sequences, train_generator, valid_generator, channelInput=channelToInput,
     #               programInput=programToInput)
-
+    channelToInput = 2
+    programToInput = 23
     sequence_indices = idx_seq_of_length(config_sequences, PHRASE_LEN)
     seq_index, phrase_start_index = sequence_indices[
         np.random.choice(len(sequence_indices))]
@@ -927,5 +975,8 @@ def generateFromLoaded2(hdf5Name,songRelatedToTheHdf5,temperature=1):
                       length=gen_length, channelInput=channelToInput, programInput=programToInput)
     return model
 
-run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
-#generateFromLoaded2("drumshiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid",1)
+#run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
+#generateFromLoaded2("guitar2hiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid",1)
+#songDiviser("Jazz drops - Free demo Copyright Yamaha - XG.mid")
+#getTimeSignature("Bye bye Blackbird - Ray Henderson et Mort Dixon2.mid")
+run_trainWithSongName()
