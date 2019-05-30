@@ -50,8 +50,8 @@ BATCH_SIZE = 64
 
 VALIDATION_PERCENT = 0.1
 #0.1
-BASE_DIR = '/home/thanusan/NeuralMusic'
-#BASE_DIR = '/Users/vijayakulanathanthanushan/Downloads/NeuralMuusic'
+#BASE_DIR = '/home/thanusan/NeuralMusic'
+BASE_DIR = '/Users/vijayakulanathanthanushan/Downloads/NeuralMuusic'
 
 # BASE_DIR = '/home/ubuntu/neural-beats'
 
@@ -61,7 +61,7 @@ MIDI_IN_DIR = os.path.join(BASE_DIR, 'array/')
 # MIDI_IN_DIR = os.path.join(BASE_DIR, 'midi_arrays/mega/Rock Essentials 2 Live 9 SD/Preview Files/Fills/4-4 Fills')
 
 MODEL_OUT_DIR = os.path.join(BASE_DIR, 'models')
-MODEL_NAME = 'classicalSong.hdf5'
+MODEL_NAME = 'jazzSong.hdf5'
 TRIAL_DIR = os.path.join(MODEL_OUT_DIR, MODEL_NAME)
 
 MIDI_OUT_DIR = os.path.join(TRIAL_DIR, 'gen-midi')
@@ -178,7 +178,7 @@ def prepare_dataForASpecificFileAndRandomly(fileName):
     array = np.load(os.path.join("array/"+filename))
     newArray = []
     #array = crop_center(array,)
-    print("array is " + str(array))
+    print("array is " + str(len(array)))
     for i,val in enumerate(array):
         for j, valJ in enumerate(val):
             #print(" for i " + str(i) + " val : " + str(val) + " j = " + str(j) + " valj : " + str(valJ))
@@ -199,8 +199,20 @@ def prepare_dataForASpecificFileAndRandomly(fileName):
     for i,val in enumerate(testArray):
         print("for i " + str(i) + " it is " + str(val))
     config_sequences.append(np.array(encode(array[:, in_pitch_indices])))
-    print("encoding is " + str(encodings))
-    #print("the len of config_sequences are "  + str(len(config_sequences)))
+    #print("encodingsd is " + str(len(encode(array[:, in_pitch_indices]))))
+    bigTest = encode(array[:, in_pitch_indices])
+    bitTest2 = array[:,in_pitch_indices]
+    bigTest3 = np.array(encode(array[:, in_pitch_indices]))
+    print("bigTest3 is " + str(bigTest3))
+    global encodings
+    for numE,dsdsd in enumerate(bigTest):
+        print("the dsdsds is " + str(dsdsd) + " array is " + str(bitTest2[numE]))
+        #print("encodddsdsds" + str(encodings[numE]))
+    for n,fsdf in enumerate(encodings):
+        print("the fsdf is for n " + str(n) + " is " +str(fsdf))
+    for n,fdsfds in enumerate(bigTest3):
+        print("fdsfds is fpr n " + str(n) + " is " + str(fdsfds))
+    print("the len of config_sequences are "  + str(len(np.array(encode(array[:, in_pitch_indices])))))
     #print    'Loaded {}/{} directories'.format(dir_idx + 1, num_dirs)
     #print("config_sequences"+str(config_sequences))
     # Construct labeled examples.
@@ -410,7 +422,7 @@ def generate(model, seed, mid_name, temperature=1.0, length=512):
 def init_model():
     # Build the model.
     model = Sequential()
-    model.add(CuDNNLSTM(
+    model.add(LSTM(
         NUM_HIDDEN_UNITS,
         return_sequences=True,
         input_shape=(PHRASE_LEN, SYMBOL_DIM)))
@@ -422,7 +434,7 @@ def init_model():
         input_shape=(SYMBOL_DIM, SYMBOL_DIM)))
     model.add(Dropout(0.2))
     '''
-    model.add(CuDNNLSTM(NUM_HIDDEN_UNITS, return_sequences=False))
+    model.add(LSTM(NUM_HIDDEN_UNITS, return_sequences=False))
     model.add(Dropout(0.3))
     model.add(Dense(SYMBOL_DIM))
     model.add(Activation('softmax'))
@@ -647,12 +659,19 @@ def trainWithCAndP(config_sequences, train_generator, valid_generator,channelInp
 
     for i in range(NUM_ITERATIONS):
         print('Iteration {}'.format(i))
-
+        train_generated = train_generator.gen()
+        valid_generated = valid_generator.gen()
+        for n in train_generated:
+            print('the trainGen is ' + str(n))
+            #print("the shape of train is " + str())
+        for n in valid_generated:
+            print('the validGen is ' + str(n))
+            #print("the shape of valid is " + str(n.shape))
         history = model.fit_generator(
-            train_generator.gen(),
+            train_generated,
             samples_per_epoch=BATCH_SIZE,
             nb_epoch=1,
-            validation_data=valid_generator.gen(),
+            validation_data=valid_generated,
             nb_val_samples=nb_val_samples)
 
         val_loss = history.history['val_loss'][-1]
@@ -695,7 +714,7 @@ def trainWithCAndP(config_sequences, train_generator, valid_generator,channelInp
     return model
 
 def run_trainWithSongName():
-    train_song_name_array = ["10_little_indians.mid","10_little_indiansvln.mid","london_bridge.mid"]
+    train_song_name_array = ["Bye_bye_Blackbird1.mid"]
     for n in train_song_name_array:
         songName = n
         songNameSplited = songName.split('.')

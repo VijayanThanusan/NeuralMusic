@@ -50,8 +50,8 @@ BATCH_SIZE = 64
 
 VALIDATION_PERCENT = 0.1
 #0.1
-BASE_DIR = '/home/thanusan/NeuralMusic'
-#BASE_DIR = '/Users/vijayakulanathanthanushan/Downloads/NeuralMuusic'
+#BASE_DIR = '/home/thanusan/NeuralMusic'
+BASE_DIR = '/Users/vijayakulanathanthanushan/Downloads/NeuralMuusic'
 
 # BASE_DIR = '/home/ubuntu/neural-beats'
 
@@ -61,7 +61,7 @@ MIDI_IN_DIR = os.path.join(BASE_DIR, 'array/')
 # MIDI_IN_DIR = os.path.join(BASE_DIR, 'midi_arrays/mega/Rock Essentials 2 Live 9 SD/Preview Files/Fills/4-4 Fills')
 
 MODEL_OUT_DIR = os.path.join(BASE_DIR, 'models')
-MODEL_NAME = 'classicalSong.hdf5'
+MODEL_NAME = 'jazzSong.hdf5'
 TRIAL_DIR = os.path.join(MODEL_OUT_DIR, MODEL_NAME)
 
 MIDI_OUT_DIR = os.path.join(TRIAL_DIR, 'gen-midi')
@@ -410,7 +410,7 @@ def generate(model, seed, mid_name, temperature=1.0, length=512):
 def init_model():
     # Build the model.
     model = Sequential()
-    model.add(CuDNNLSTM(
+    model.add(LSTM(
         NUM_HIDDEN_UNITS,
         return_sequences=True,
         input_shape=(PHRASE_LEN, SYMBOL_DIM)))
@@ -422,7 +422,7 @@ def init_model():
         input_shape=(SYMBOL_DIM, SYMBOL_DIM)))
     model.add(Dropout(0.2))
     '''
-    model.add(CuDNNLSTM(NUM_HIDDEN_UNITS, return_sequences=False))
+    model.add(LSTM(NUM_HIDDEN_UNITS, return_sequences=False))
     model.add(Dropout(0.3))
     model.add(Dense(SYMBOL_DIM))
     model.add(Activation('softmax'))
@@ -695,7 +695,7 @@ def trainWithCAndP(config_sequences, train_generator, valid_generator,channelInp
     return model
 
 def run_trainWithSongName():
-    train_song_name_array = ["10_little_indians.mid","10_little_indiansvln.mid","london_bridge.mid"]
+    train_song_name_array = ["Bye_bye_Blackbird1.mid","Bye_bye_Blackbird2.mid","Bye_bye_Blackbird3.mid","Bye_bye_Blackbird4.mid","Bye_bye_Blackbird5.mid","Bye_bye_Blackbird6.mid","Bye_bye_Blackbird7.mid","Bye_bye_Blackbird8.mid","Bye_bye_Blackbird9.mid","Bye_bye_Blackbird10.mid","Bye_bye_Blackbird11.mid","Bye_bye_Blackbird12.mid","Bye_bye_Blackbird13.mid","Bye_bye_Blackbird14.mid","Bye_bye_Blackbird15.mid","Bye_bye_Blackbird16.mid"]
     for n in train_song_name_array:
         songName = n
         songNameSplited = songName.split('.')
