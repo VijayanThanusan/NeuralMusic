@@ -116,7 +116,7 @@ import music21
 name = "test_SoundLikePro"
 ticks_per_quarter = 240
 quantization = 5
-instrument_type = ["DimMarvinDRUM3","DMGPIANO", ]
+instrument_type = ["drumsForMid_name","DimMarvin_Gaye1Out_1024_1", ]
 pattern = [[]]
 array_notes = len(instrument_type)
 total = midi.Pattern()
@@ -148,6 +148,6 @@ for i in range(array_notes):
     else:
         print("the file " + str(instrument_type[i]) + "not exisit")
 #midi.write_midifile('music/TotalSound13.mid', total)
-newSong.save('music/DMGPIANODRUMS3.mid')
+newSong.save('music/DMGPIANODRUMSdfsdsd3.mid')
 
 

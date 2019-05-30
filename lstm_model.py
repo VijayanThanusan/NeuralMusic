@@ -50,8 +50,8 @@ BATCH_SIZE = 64
 
 VALIDATION_PERCENT = 0.1
 #0.1
-BASE_DIR = '/home/thanusan/NeuralMusic'
-#BASE_DIR = '/Users/vijayakulanathanthanushan/Downloads/NeuralMuusic'
+#BASE_DIR = '/home/thanusan/NeuralMusic'
+BASE_DIR = '/Users/vijayakulanathanthanushan/Downloads/NeuralMuusic'
 
 # BASE_DIR = '/home/ubuntu/neural-beats'
 
@@ -311,7 +311,24 @@ def generateWithCAndP(model, seed, mid_name, temperature=1.0, length=512,channel
         generated += [next_id]
         phrase = phrase[1:] + [next_id]
 
+    for n,element in enumerate(generated):
+        print("for i is " + str(n) + " element is " + str(element))
+
+    generatedForDrums=[]
+    for x in range(4,len(generated),4):
+        tmpGen = generated[x-4:x]
+        for index,tmpX in enumerate(tmpGen):
+            if(tmpX > 0):
+                break
+            else:
+                if(index == len(tmpGen)-1):
+                    tmpGen[index] = 1792
+        generatedForDrums+=tmpGen
+
+    print("the typedsdsq are " + str(type(generatedForDrums)) + " instead of " + str(type(generated)))
+    print(generatedForDrums)
     mid = array_to_midiWithProgramAndChannel(unfold(decode(generated), OUT_PITCHES), mid_name,channelInput=channelInput,programInput=programInput)
+    mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums), OUT_PITCHES), "drumsForMid_name.mid",channelInput=14,programInput=117)
     print("the mid is + " + str(type(mid)))
     for element in mid:
         print("the intitial mid is " + str(element))
@@ -319,6 +336,7 @@ def generateWithCAndP(model, seed, mid_name, temperature=1.0, length=512,channel
         #element.time = int(element.time)
         #print("theChecko " + str(type(element)))
     mid = updateValue(mid)
+    mid2 = updateValue(mid2)
     # for element in mid.tracks:
     #     for msg in element:
     #         print("elmentsdfdf s " + str(msg))
@@ -344,9 +362,10 @@ def generateWithCAndP(model, seed, mid_name, temperature=1.0, length=512,channel
     #         msg.time = int(msg.time)
     #         print("track" + str(msg.time))
     #         tmpTrack.append(msg)
-
+    mid2.save(os.path.join("drumsForMid_name.mid"))
     mid.save(os.path.join(mid_name))
     return mid
+
 
 def generate(model, seed, mid_name, temperature=1.0, length=512):
     '''Generate sequence using model, seed, and temperature.'''
@@ -410,7 +429,7 @@ def generate(model, seed, mid_name, temperature=1.0, length=512):
 def init_model():
     # Build the model.
     model = Sequential()
-    model.add(CuDNNLSTM(
+    model.add(LSTM(
         NUM_HIDDEN_UNITS,
         return_sequences=True,
         input_shape=(PHRASE_LEN, SYMBOL_DIM)))
@@ -422,7 +441,7 @@ def init_model():
         input_shape=(SYMBOL_DIM, SYMBOL_DIM)))
     model.add(Dropout(0.2))
     '''
-    model.add(CuDNNLSTM(NUM_HIDDEN_UNITS, return_sequences=False))
+    model.add(LSTM(NUM_HIDDEN_UNITS, return_sequences=False))
     model.add(Dropout(0.3))
     model.add(Dense(SYMBOL_DIM))
     model.add(Activation('softmax'))
@@ -976,7 +995,7 @@ def generateFromLoaded2(hdf5Name,songRelatedToTheHdf5,temperature=1):
     return model
 
 #run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
-#generateFromLoaded2("guitar2hiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid",1)
+generateFromLoaded2("piano3hiphop"".hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevinePiano.mid",1)
 #songDiviser("Jazz drops - Free demo Copyright Yamaha - XG.mid")
 #getTimeSignature("Bye bye Blackbird - Ray Henderson et Mort Dixon2.mid")
-run_trainWithSongName()
+#run_trainWithSongName()
