@@ -326,9 +326,10 @@ def generateWithCAndP(model, seed, mid_name, temperature=1.0, length=512,channel
         generatedForDrums+=tmpGen
 
     print("the typedsdsq are " + str(type(generatedForDrums)) + " instead of " + str(type(generated)))
-    print(generatedForDrums)
+    generatedForDrums2 = forpercussion(generated)
+    print(generatedForDrums2)
     mid = array_to_midiWithProgramAndChannel(unfold(decode(generated), OUT_PITCHES), mid_name,channelInput=channelInput,programInput=programInput)
-    mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums), OUT_PITCHES), "drumsForMid_name.mid",channelInput=14,programInput=117)
+    mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums2), OUT_PITCHES), "drumsForMid_name.mid",channelInput=14,programInput=117)
     print("the mid is + " + str(type(mid)))
     for element in mid:
         print("the intitial mid is " + str(element))
@@ -362,11 +363,43 @@ def generateWithCAndP(model, seed, mid_name, temperature=1.0, length=512,channel
     #         msg.time = int(msg.time)
     #         print("track" + str(msg.time))
     #         tmpTrack.append(msg)
-    mid2.save(os.path.join("drumsForMid_name.mid"))
+    mid2.save(os.path.join("drumsformid_name.mid"))
     mid.save(os.path.join(mid_name))
     return mid
 
+def forpercussion(generatedarray):
 
+    num = 16
+    nb = 1
+    getpercussionnote = generatedarray[0:num]
+    getnbfullbar = int(len(generatedarray)/num)
+    print("it is " +str(getnbfullbar))
+    finalarray = []
+
+    generatenewarray,isfounded = loopPercussion(getpercussionnote)
+    while(isfounded == 0):
+        nb += 1
+        getpercussionnote = generatedarray[num*nb:num*nb+num]
+        generatenewarray, isfounded = loopPercussion(getpercussionnote)
+
+    print("generatedNewArrays is " + str(generatenewarray))
+    for n in range(getnbfullbar):
+        finalarray += generatenewarray
+    return finalarray
+
+
+def loopPercussion(arrayGeneratedInLoop):
+    generateNewArray = []
+    isFounded = 0
+    for x in arrayGeneratedInLoop:
+        # tmpGen = generatedArray[x-4:x]
+        # for index,tmpX in enumerate(x):
+        # if(tmpX > 0):
+        if (x > 0):
+            isFounded = 1
+        print("inforpecussion " + str(x))
+        generateNewArray.append(x)
+    return generateNewArray,isFounded
 def generate(model, seed, mid_name, temperature=1.0, length=512):
     '''Generate sequence using model, seed, and temperature.'''
 
@@ -995,7 +1028,7 @@ def generateFromLoaded2(hdf5Name,songRelatedToTheHdf5,temperature=1):
     return model
 
 #run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
-generateFromLoaded2("piano3hiphop"".hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevinePiano.mid",1)
+generateFromLoaded2("piano3hiphop2.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevinePiano.mid",1)
 #songDiviser("Jazz drops - Free demo Copyright Yamaha - XG.mid")
 #getTimeSignature("Bye bye Blackbird - Ray Henderson et Mort Dixon2.mid")
 #run_trainWithSongName()
