@@ -322,14 +322,14 @@ def generateWithCAndP(model, seed, mid_name, temperature=1.0, length=512,channel
                 break
             else:
                 if(index == len(tmpGen)-1):
-                    tmpGen[index] = 1792
+                    tmpGen[index] = 1002
         generatedForDrums+=tmpGen
 
     print("the typedsdsq are " + str(type(generatedForDrums)) + " instead of " + str(type(generated)))
     generatedForDrums2 = forpercussion(generated)
     print(generatedForDrums2)
     mid = array_to_midiWithProgramAndChannel(unfold(decode(generated), OUT_PITCHES), mid_name,channelInput=channelInput,programInput=programInput)
-    mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums2), OUT_PITCHES), "drumsForMid_name.mid",channelInput=14,programInput=117)
+    mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums2), OUT_PITCHES), "drumsForMid_name.mid",channelInput=14,programInput=118)
     print("the mid is + " + str(type(mid)))
     for element in mid:
         print("the intitial mid is " + str(element))
@@ -400,6 +400,54 @@ def loopPercussion(arrayGeneratedInLoop):
         print("inforpecussion " + str(x))
         generateNewArray.append(x)
     return generateNewArray,isFounded
+
+
+def harmonicLoopPercussion(arrayMain):
+    generateNewArray = []
+    isFounded = 0
+    print("harmonicPercussion " + str(len(arrayMain)))
+    for x in arrayMain:
+        # tmpGen = generatedArray[x-4:x]
+        # for index,tmpX in enumerate(x):
+        # if(tmpX > 0):
+        if (x > 0):
+            isFounded = 1
+        print("inforpecussion " + str(x))
+    if (isFounded == 0):
+        return [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], isFounded
+    else:
+        return arrayMain, isFounded
+    #print("harmonicLoopPercussion + " + str(len(generateNewArray)))
+    #return generateNewArray, isFounded
+
+
+def PercussionHarmonizer(arrayOfMain,arrayOfDrum):
+    num  = 16
+    getnbfullbar = int(len(arrayOfMain) / num)
+    print("it is " + str(getnbfullbar))
+    finalarray = []
+    finalArrayOfDrum = arrayOfDrum
+    i = 0
+    while (i < getnbfullbar):
+        i += 1
+        getpercussionnote = arrayOfMain[num * i:num * i + num]
+        print("lenofgetPercussionNote " + str(len(getpercussionnote)))
+        generatenewarray, isfounded = harmonicLoopPercussion(getpercussionnote)
+        print("generatenewarray is " + str(len(generatenewarray)))
+        if (isfounded == 1):
+            print("dfsfsdfsfsdfdsf " + str(isfounded) + " : " + str(len(generatenewarray)))
+            finalarray += getpercussionnote
+        else:
+            print("dfsfsdfsfsdfdsf " + str(isfounded) + " : " + str(len(getpercussionnote)))
+            finalarray += [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+
+    print("dfsfsdfsfsdfdsf length of finalArray is " + str(len(finalarray)) + " length of arrayOfDrum " + str(len(arrayOfDrum)))
+    for index,n in enumerate(arrayOfDrum):
+        if (n > 0 and finalarray[index] == 0):
+            finalArrayOfDrum[index] = 0
+
+    return  finalArrayOfDrum
+
 def generate(model, seed, mid_name, temperature=1.0, length=512):
     '''Generate sequence using model, seed, and temperature.'''
 
@@ -1028,7 +1076,7 @@ def generateFromLoaded2(hdf5Name,songRelatedToTheHdf5,temperature=1):
     return model
 
 #run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
-generateFromLoaded2("piano3hiphop2.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevinePiano.mid",1)
-#songDiviser("Jazz drops - Free demo Copyright Yamaha - XG.mid")
+#generateFromLoaded2("drumshiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid",1)
+songDiviser("the_entertainer-3.mid")
 #getTimeSignature("Bye bye Blackbird - Ray Henderson et Mort Dixon2.mid")
 #run_trainWithSongName()
