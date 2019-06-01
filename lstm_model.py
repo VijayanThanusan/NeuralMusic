@@ -326,11 +326,13 @@ def generateWithCAndP(model, seed, mid_name, temperature=1.0, length=512,channel
         generatedForDrums+=tmpGen
 
     print("the typedsdsq are " + str(type(generatedForDrums)) + " instead of " + str(type(generated)))
-    generatedForDrums2 = forpercussion(generated)
+    generatedForDrums2 = harMonize(generated,3)
     print(generatedForDrums2)
     mid = array_to_midiWithProgramAndChannel(unfold(decode(generated), OUT_PITCHES), mid_name,channelInput=channelInput,programInput=programInput)
-    mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums2), OUT_PITCHES), "drumsForMid_name.mid",channelInput=14,programInput=118)
+    mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums2), OUT_PITCHES), "drumsForMid_name.mid",channelInput=channelInput,programInput=programInput)
     print("the mid is + " + str(type(mid)))
+    print("the channel is " + str(channelInput) + " and the program is " + str(programInput))
+    print("the moyeennnnne is " + str(moyenneNotePlayedByBigBar(generated)))
     for element in mid:
         print("the intitial mid is " + str(element))
         #element = updateValue(element)
@@ -367,6 +369,37 @@ def generateWithCAndP(model, seed, mid_name, temperature=1.0, length=512,channel
     mid.save(os.path.join(mid_name))
     return mid
 
+def moyenneNotePlayedByBigBar(generatedarray):
+    num = 16
+    nb = 1
+    getpercussionnote = generatedarray[0:num]
+    getnbfullbar = int(len(generatedarray) / num)
+    nbOfActivatedNotes = findNumberOfActivatedNotes(getpercussionnote)
+    while (nb < getnbfullbar):
+        nb += 1
+        getpercussionnote = generatedarray[num * nb:num * nb + num]
+        nbOfActivatedNotes += findNumberOfActivatedNotes(getpercussionnote)
+
+    return int(nbOfActivatedNotes/getnbfullbar)
+
+def harMonize(arrayToHarmonize,nbOfMaxActivatedNotes):
+    num = 16
+    nb = 1
+    getpercussionnote = arrayToHarmonize[0:num]
+    getnbfullbar = int(len(arrayToHarmonize) / num)
+    print("it is " + str(getnbfullbar))
+    finalarray = []
+    generatenewarray = harmonizerLoop(getpercussionnote,nbOfMaxActivatedNotes)
+    finalarray += generatenewarray
+    while (nb < getnbfullbar):
+        nb += 1
+        getpercussionnote = arrayToHarmonize[num * nb:num * nb + num]
+        generatenewarray = harmonizerLoop(getpercussionnote, nbOfMaxActivatedNotes)
+        finalarray += generatenewarray
+
+    return finalarray
+
+
 def forpercussion(generatedarray):
 
     num = 16
@@ -401,6 +434,28 @@ def loopPercussion(arrayGeneratedInLoop):
         generateNewArray.append(x)
     return generateNewArray,isFounded
 
+def findNumberOfActivatedNotes(arrayGeneratedInLoop):
+    nbOfActivatedNotes = 0
+    for x in arrayGeneratedInLoop:
+        # tmpGen = generatedArray[x-4:x]
+        # for index,tmpX in enumerate(x):
+        # if(tmpX > 0):
+        if (x > 0):
+            nbOfActivatedNotes += 1
+        print("inforpecussion " + str(x))
+        #generateNewArray.append(x)
+    return nbOfActivatedNotes
+
+def harmonizerLoop(arrayToHarmonize,NbOfMaxActivatedNotes):
+    NbOfMaxActivatedNotesToDecrease = NbOfMaxActivatedNotes
+    generateNewArray = []
+    for x in arrayToHarmonize:
+        if (x > 0 and NbOfMaxActivatedNotesToDecrease > 0):
+            generateNewArray.append(x)
+            NbOfMaxActivatedNotesToDecrease -= 1
+        else:
+            generateNewArray.append(0)
+    return generateNewArray
 
 def harmonicLoopPercussion(arrayMain):
     generateNewArray = []
@@ -568,6 +623,9 @@ def updateValue(midiFileInput):
         for msg in element:
             print("fekfdsf " + str(msg) )
     return midiFileToReturn
+
+
+
 
 
 def generateFromLoaded(hdf5Name,songRelatedToTheHdf5,temperature=1):
@@ -1048,8 +1106,8 @@ def generateFromLoaded2(hdf5Name,songRelatedToTheHdf5,temperature=1):
     config_sequences, train_generator, valid_generator = prepare_dataForASpecificFileAndRandomly(songRelatedToTheHdf5)
     #trainWithCAndP(config_sequences, train_generator, valid_generator, channelInput=channelToInput,
     #               programInput=programToInput)
-    channelToInput = 2
-    programToInput = 23
+    #channelToInput = 2
+    #programToInput = 23
     sequence_indices = idx_seq_of_length(config_sequences, PHRASE_LEN)
     seq_index, phrase_start_index = sequence_indices[
         np.random.choice(len(sequence_indices))]
@@ -1075,8 +1133,10 @@ def generateFromLoaded2(hdf5Name,songRelatedToTheHdf5,temperature=1):
                       length=gen_length, channelInput=channelToInput, programInput=programToInput)
     return model
 
+
+
 #run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
-#generateFromLoaded2("drumshiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid",1)
-songDiviser("the_entertainer-3.mid")
+generateFromLoaded2("drumshiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid",1)
+#songDiviser("the_entertainer-3.mid")
 #getTimeSignature("Bye bye Blackbird - Ray Henderson et Mort Dixon2.mid")
 #run_trainWithSongName()
