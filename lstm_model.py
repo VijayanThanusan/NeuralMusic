@@ -7,6 +7,7 @@ import itertools
 import json
 import os
 import shutil
+import tkinter
 
 from keras import backend as K
 from keras.layers.core import Dense, Activation, Dropout
@@ -18,6 +19,7 @@ from random import  randint
 import numpy as np
 from numpy import array
 
+from merge import merger
 from data import *
 from midi_util import array_to_midiN, print_array,array_to_midiWithProgramAndChannel
 from mido import Message,MidiFile,MidiTrack
@@ -292,12 +294,12 @@ def prepare_data():
     return config_sequences, train_generator, valid_generator
 
 
-def generateWithCAndP(model, seed, mid_name, temperature=1.0, length=512,channelInput = 14, programInput = 117):
+def generateWithCAndPHipHop(model, seed, mid_name, temperature=1.0, length=512,channelInput = 14, programInput = 117,getArray=False,percussion=0,basse=0,guitare=0,violon=0,musicType=0):
     '''Generate sequence using model, seed, and temperature.'''
 
     generated = []
     phrase = seed
-
+    print("infiniteLoopCheck22222222")
     if not hasattr(temperature, '__len__'):
         temperature = [temperature for _ in range(length)]
 
@@ -313,61 +315,286 @@ def generateWithCAndP(model, seed, mid_name, temperature=1.0, length=512,channel
 
     for n,element in enumerate(generated):
         print("for i is " + str(n) + " element is " + str(element))
+    if(getArray == True):
+        return generated
+    if (musicType == 0):
+            generatedForDrums=[]
+            for x in range(4,len(generated),4):
+                tmpGen = generated[x-4:x]
+                for index,tmpX in enumerate(tmpGen):
+                    if(tmpX > 0):
+                        break
+                    else:
+                        if(index == len(tmpGen)-1):
+                            tmpGen[index] = 1002
+                generatedForDrums+=tmpGen
+            print("infiniteLoopCheck")
+            print("the typedsdsq are " + str(type(generatedForDrums)) + " instead of " + str(type(generated)))
+            numberOfActivatedNotes = findNumberOfActivatedNotes(generated)
+            generatedForDrums2 = harMonize(generated,3)
+            print(generatedForDrums2)
+            mid = array_to_midiWithProgramAndChannel(unfold(decode(generated), OUT_PITCHES), mid_name,channelInput=channelInput,programInput=programInput)
 
-    generatedForDrums=[]
-    for x in range(4,len(generated),4):
-        tmpGen = generated[x-4:x]
-        for index,tmpX in enumerate(tmpGen):
-            if(tmpX > 0):
-                break
+
+
+            print("the mid is + " + str(type(mid)))
+            print("the channel is " + str(channelInput) + " and the program is " + str(programInput))
+            print("the moyeennnnne is " + str(moyenneNotePlayedByBigBar(generated)))
+            for element in mid:
+                print("the intitial mid is " + str(element))
+                #element = updateValue(element)
+                #element.time = int(element.time)
+                #print("theChecko " + str(type(element)))
+            mid = updateValue(mid)
+            #mid2 = updateValue(mid2)
+            # for element in mid.tracks:
+            #     for msg in element:
+            #         print("elmentsdfdf s " + str(msg))
+            #
+            # print("the mid_name is + " + str(mid_name))
+            # midiFileToReturn = MidiFile()
+            # # track = []
+            # # midiFileToReturn.tracks.append(track)
+            # tmpTime = 0
+            # # for element in midiFileInput:
+            # #    print("notrack: "+ str(element))
+            # for i, element in enumerate(mid.tracks):
+            #     tmpTrack = MidiTrack()
+            #     midiFileToReturn.tracks.append(tmpTrack)
+            #     print("inFOrefe is " + str(element))
+            #     # if(element.type == "note_on" or element.type == "note_off"):
+            #     # print("timoIs " + str(element.time))
+            #     ##element.time = int(element.time*480)
+            #     # element.time = int(element.time*480)
+            #     # tmpTime+=1
+            #     # track.append(element)
+            #     for msg in element:
+            #         msg.time = int(msg.time)
+            #         print("track" + str(msg.time))
+            #         tmpTrack.append(msg)
+            #mid2.save(os.path.join("drumsformid_name.mid"))
+            mid.save(os.path.join("music/pianoHiphop.mid"))
+            if (percussion == 1):
+                generatedForDrums3 = generateFromLoaded2HipHop("drumshiphop.hdf5",
+                                                     "Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid", "Drums", 1,
+                                                     True)
+                print("type of generated is " + str(type(generatedForDrums3)))
+                generatedForDrums4 = harMonize(generatedForDrums3,numberOfActivatedNotes)
+                tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid")
+                mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums4), OUT_PITCHES), "drumsForMid_name.mid",
+                                                      channelInput=tmpChan, programInput=tmpProgram)
+                mid2 = updateValue(mid2)
+                mid2.save(os.path.join("music/drumsHiphop.mid"))
+            else :
+                generatedForDrums4 = [0]
+                tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid")
+                mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums4), OUT_PITCHES),
+                                                          "drumsForMid_name.mid",
+                                                          channelInput=tmpChan, programInput=tmpProgram)
+                mid2 = updateValue(mid2)
+                mid2.save(os.path.join("music/drumsHiphop.mid"))
+
+            #GUITAR
+            if (guitare == 1):
+                generatedForGuitar = generateFromLoaded2HipHop("guitar2hiphop.hdf5",
+                                                     "Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid", "Guitar", 1,
+                                                     True)
+                #tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
+                print("type of generated is " + str(type(generatedForDrums3)))
+                generatedForGuitar2 = harMonize(generatedForGuitar, numberOfActivatedNotes)
+                tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
+                mid3 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForGuitar2), OUT_PITCHES), "guitarForMid_name.mid",
+                                                      channelInput=tmpChan, programInput=tmpProgram)
+                mid3 = updateValue(mid3)
+                mid3.save(os.path.join("music/guitareHiphop.mid"))
             else:
-                if(index == len(tmpGen)-1):
-                    tmpGen[index] = 1002
-        generatedForDrums+=tmpGen
+                generatedForGuitar2 = [0]
+                tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
+                mid3 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForGuitar2), OUT_PITCHES),
+                                                          "guitarForMid_name.mid",
+                                                          channelInput=tmpChan, programInput=tmpProgram)
+                mid3 = updateValue(mid3)
+                mid3.save(os.path.join("music/guitareHiphop.mid"))
 
-    print("the typedsdsq are " + str(type(generatedForDrums)) + " instead of " + str(type(generated)))
-    generatedForDrums2 = harMonize(generated,3)
-    print(generatedForDrums2)
-    mid = array_to_midiWithProgramAndChannel(unfold(decode(generated), OUT_PITCHES), mid_name,channelInput=channelInput,programInput=programInput)
-    mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums2), OUT_PITCHES), "drumsForMid_name.mid",channelInput=channelInput,programInput=programInput)
-    print("the mid is + " + str(type(mid)))
-    print("the channel is " + str(channelInput) + " and the program is " + str(programInput))
-    print("the moyeennnnne is " + str(moyenneNotePlayedByBigBar(generated)))
-    for element in mid:
-        print("the intitial mid is " + str(element))
-        #element = updateValue(element)
-        #element.time = int(element.time)
-        #print("theChecko " + str(type(element)))
-    mid = updateValue(mid)
-    mid2 = updateValue(mid2)
-    # for element in mid.tracks:
-    #     for msg in element:
-    #         print("elmentsdfdf s " + str(msg))
-    #
-    # print("the mid_name is + " + str(mid_name))
-    # midiFileToReturn = MidiFile()
-    # # track = []
-    # # midiFileToReturn.tracks.append(track)
-    # tmpTime = 0
-    # # for element in midiFileInput:
-    # #    print("notrack: "+ str(element))
-    # for i, element in enumerate(mid.tracks):
-    #     tmpTrack = MidiTrack()
-    #     midiFileToReturn.tracks.append(tmpTrack)
-    #     print("inFOrefe is " + str(element))
-    #     # if(element.type == "note_on" or element.type == "note_off"):
-    #     # print("timoIs " + str(element.time))
-    #     ##element.time = int(element.time*480)
-    #     # element.time = int(element.time*480)
-    #     # tmpTime+=1
-    #     # track.append(element)
-    #     for msg in element:
-    #         msg.time = int(msg.time)
-    #         print("track" + str(msg.time))
-    #         tmpTrack.append(msg)
-    mid2.save(os.path.join("drumsformid_name.mid"))
-    mid.save(os.path.join(mid_name))
-    return mid
+            # Bass
+            if (basse == 1):
+                generatedForBass = generateFromLoaded2HipHop("basshiphop.hdf5",
+                                                     "Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineBass.mid", "Bass", 1,
+                                                     True)
+                # tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
+                print("type of generated is " + str(type(generatedForDrums3)))
+                generatedForBass2 = harMonize(generatedForBass, numberOfActivatedNotes)
+                tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineBass.mid")
+                mid4 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForBass2), OUT_PITCHES), "bassForMid_name.mid",
+                                                      channelInput=tmpChan, programInput=tmpProgram)
+                mid4 = updateValue(mid4)
+                mid4.save(os.path.join("music/bassHiphop.mid"))
+
+            else:
+                generatedForBass2 = [0]
+                tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineBass.mid")
+                mid4 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForBass2), OUT_PITCHES), "bassForMid_name.mid",
+                                                          channelInput=tmpChan, programInput=tmpProgram)
+                mid4 = updateValue(mid4)
+                mid4.save(os.path.join("music/bassHiphop.mid"))
+
+            merger(["pianoHiphop","drumsHiphop","bassHiphop","guitareHiphop",],"HipHop.mid")
+            return mid
+
+    elif (musicType == 1):
+        numberOfActivatedNotes = findNumberOfActivatedNotes(generated)
+        mid = array_to_midiWithProgramAndChannel(unfold(decode(generated), OUT_PITCHES), mid_name,
+                                                 channelInput=channelInput, programInput=programInput)
+
+        print("the mid is + " + str(type(mid)))
+        print("the channel is " + str(channelInput) + " and the program is " + str(programInput))
+        print("the moyeennnnne is " + str(moyenneNotePlayedByBigBar(generated)))
+        for element in mid:
+            print("the intitial mid is " + str(element))
+            # element = updateValue(element)
+            # element.time = int(element.time)
+            # print("theChecko " + str(type(element)))
+        mid = updateValue(mid)
+        # mid2 = updateValue(mid2)
+        # for element in mid.tracks:
+        #     for msg in element:
+        #         print("elmentsdfdf s " + str(msg))
+        #
+        # print("the mid_name is + " + str(mid_name))
+        # midiFileToReturn = MidiFile()
+        # # track = []
+        # # midiFileToReturn.tracks.append(track)
+        # tmpTime = 0
+        # # for element in midiFileInput:
+        # #    print("notrack: "+ str(element))
+        # for i, element in enumerate(mid.tracks):
+        #     tmpTrack = MidiTrack()
+        #     midiFileToReturn.tracks.append(tmpTrack)
+        #     print("inFOrefe is " + str(element))
+        #     # if(element.type == "note_on" or element.type == "note_off"):
+        #     # print("timoIs " + str(element.time))
+        #     ##element.time = int(element.time*480)
+        #     # element.time = int(element.time*480)
+        #     # tmpTime+=1
+        #     # track.append(element)
+        #     for msg in element:
+        #         msg.time = int(msg.time)
+        #         print("track" + str(msg.time))
+        #         tmpTrack.append(msg)
+        # mid2.save(os.path.join("drumsformid_name.mid"))
+        mid.save(os.path.join("music/pianoClassic.mid"))
+        if (guitare == 1):
+            generatedForGuitare3 = generateFromLoaded2HipHop("london_bridge.hdf5",
+                                                           "london_bridge.mid",
+                                                           "Guitare", 1,
+                                                           True)
+            #print("type of generated is " + str(type(generatedForDrums3)))
+            generatedForGuitare4 = harMonize(generatedForGuitare3, numberOfActivatedNotes)
+            tmpChan, tmpProgram = getChannelAndProgam("london_bridge.mid")
+            mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForGuitare4), OUT_PITCHES),
+                                                      "london_bridge.mid",
+                                                      channelInput=tmpChan, programInput=tmpProgram)
+            mid2 = updateValue(mid2)
+            mid2.save(os.path.join("music/guitareClassic.mid"))
+        else:
+            generatedForGuitare4 = [0]
+            tmpChan, tmpProgram = getChannelAndProgam("london_bridge.mid")
+            mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForGuitare4), OUT_PITCHES),
+                                                      "london_bridge.mid",
+                                                      channelInput=tmpChan, programInput=tmpProgram)
+            mid2 = updateValue(mid2)
+            mid2.save(os.path.join("music/guitareClassic.mid"))
+
+
+        if (violon == 1):
+            generatedForViolin = generateFromLoaded2HipHop("10_little_indiansvln.hdf5",
+                                                           "10_little_indiansvln.mid",
+                                                           "Violin", 1,
+                                                           True)
+            # tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
+            generatedForViolin2 = harMonize(generatedForViolin, numberOfActivatedNotes)
+            tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
+            mid3 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForViolin2), OUT_PITCHES),
+                                                      "guitarForMid_name.mid",
+                                                      channelInput=tmpChan, programInput=tmpProgram)
+            mid3 = updateValue(mid3)
+            mid3.save(os.path.join("music/violinClassic.mid"))
+        else:
+            generatedForViolin2 = [0]
+            tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
+            mid3 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForViolin2), OUT_PITCHES),
+                                                      "guitarForMid_name.mid",
+                                                      channelInput=tmpChan, programInput=tmpProgram)
+            mid3 = updateValue(mid3)
+            mid3.save(os.path.join("music/violinClassic.mid"))
+
+        merger(["pianoClassic", "guitareClassic", "violinClassic", ], "Classic.mid")
+        return mid
+
+
+    elif (musicType == 2):
+        numberOfActivatedNotes = findNumberOfActivatedNotes(generated)
+        mid = array_to_midiWithProgramAndChannel(unfold(decode(generated), OUT_PITCHES), mid_name,
+                                                 channelInput=channelInput, programInput=programInput)
+
+        print("the mid is + " + str(type(mid)))
+        print("the channel is " + str(channelInput) + " and the program is " + str(programInput))
+        print("the moyeennnnne is " + str(moyenneNotePlayedByBigBar(generated)))
+        for element in mid:
+            print("the intitial mid is " + str(element))
+            # element = updateValue(element)
+            # element.time = int(element.time)
+            # print("theChecko " + str(type(element)))
+        mid = updateValue(mid)
+        # mid2 = updateValue(mid2)
+        # for element in mid.tracks:
+        #     for msg in element:
+        #         print("elmentsdfdf s " + str(msg))
+        #
+        # print("the mid_name is + " + str(mid_name))
+        # midiFileToReturn = MidiFile()
+        # # track = []
+        # # midiFileToReturn.tracks.append(track)
+        # tmpTime = 0
+        # # for element in midiFileInput:
+        # #    print("notrack: "+ str(element))
+        # for i, element in enumerate(mid.tracks):
+        #     tmpTrack = MidiTrack()
+        #     midiFileToReturn.tracks.append(tmpTrack)
+        #     print("inFOrefe is " + str(element))
+        #     # if(element.type == "note_on" or element.type == "note_off"):
+        #     # print("timoIs " + str(element.time))
+        #     ##element.time = int(element.time*480)
+        #     # element.time = int(element.time*480)
+        #     # tmpTime+=1
+        #     # track.append(element)
+        #     for msg in element:
+        #         msg.time = int(msg.time)
+        #         print("track" + str(msg.time))
+        #         tmpTrack.append(msg)
+        # mid2.save(os.path.join("drumsformid_name.mid"))
+        mid.save(os.path.join("music/saxoJazz.mid"))
+        if (percussion == 1):
+            generatedForDrums3 = generateFromLoaded2HipHop("drumshiphop.hdf5",
+                                                           "Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid",
+                                                           "Drums", 1,
+                                                           True)
+            print("type of generated is " + str(type(generatedForDrums3)))
+            generatedForDrums4 = harMonize(generatedForDrums3, numberOfActivatedNotes)
+            tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid")
+            mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums4), OUT_PITCHES),
+                                                      "drumsForMid_name.mid",
+                                                      channelInput=tmpChan, programInput=tmpProgram)
+            mid2 = updateValue(mid2)
+            mid2.save(os.path.join("music/drumsHiphop.mid"))
+        else:
+            generatedForDrums4 = [0]
+            tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid")
+            mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums4), OUT_PITCHES),
+                                                      "drumsForMid_name.mid",
+                                                      channelInput=tmpChan, programInput=tmpProgram)
+            mid2 = updateValue(mid2)
+            mid2.save(os.path.join("music/drumsHiphop.mid"))
 
 def moyenneNotePlayedByBigBar(generatedarray):
     num = 16
@@ -1092,7 +1319,7 @@ def getTimeSignature(songName):
         #    message =
         return midiFileInput
 
-def generateFromLoaded2(hdf5Name,songRelatedToTheHdf5,temperature=1):
+def generateFromLoaded2HipHop(hdf5Name,songRelatedToTheHdf5,type,temperature=1,getArray=False,percussion=0,basse=0,guitare=0,musicType=0):
     # Initialize the model.
     modifyPITCHES(songRelatedToTheHdf5)
     model = init_model()
@@ -1126,17 +1353,26 @@ def generateFromLoaded2(hdf5Name,songRelatedToTheHdf5,temperature=1):
     print('----- Generating with temperature:', temperature)
     #print("checkpoint 2 + " + str(i))
 
-    generateWithCAndP(model,
+    arrayGenerated = generateWithCAndPHipHop(model,
                       phrase,
-                      'DimMarvin_Gaye1Out_{}_{}.mid'.format(gen_length, temperature),
+                      'DimMarvin_Gaye1Out_{}_{}_{}.mid'.format(gen_length, temperature,type),
                       temperature=temperature,
-                      length=gen_length, channelInput=channelToInput, programInput=programToInput)
-    return model
+                      length=gen_length, channelInput=channelToInput, programInput=programToInput,getArray=getArray,percussion=percussion,basse=basse,guitare=guitare,musicType=musicType)
+    if(getArray == True):
+        return arrayGenerated
+    else:
+        return model
 
 
 
 #run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
-generateFromLoaded2("drumshiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid",1)
+#generateFromLoaded2("piano3hiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevinePiano.mid","Piano",1)
 #songDiviser("the_entertainer-3.mid")
 #getTimeSignature("Bye bye Blackbird - Ray Henderson et Mort Dixon2.mid")
 #run_trainWithSongName()
+#
+# top = tkinter.Tk()
+# top.title('generate music')
+# button = tkinter.Button(top, text='Stop', width=25, command=print("hello"))
+# button.pack()
+# top.mainloop()
