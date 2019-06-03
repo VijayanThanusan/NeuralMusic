@@ -61,7 +61,7 @@ MIDI_IN_DIR = os.path.join(BASE_DIR, 'array/')
 # MIDI_IN_DIR = os.path.join(BASE_DIR, 'midi_arrays/mega/Rock Essentials 2 Live 9 SD/Preview Files/Fills/4-4 Fills')
 
 MODEL_OUT_DIR = os.path.join(BASE_DIR, 'models')
-MODEL_NAME = 'saxoJazzSong2.hdf5'
+MODEL_NAME = 'saxoJazzSong3.hdf5'
 TRIAL_DIR = os.path.join(MODEL_OUT_DIR, MODEL_NAME)
 
 MIDI_OUT_DIR = os.path.join(TRIAL_DIR, 'gen-midi')
@@ -695,7 +695,7 @@ def trainWithCAndP(config_sequences, train_generator, valid_generator,channelInp
     return model
 
 def run_trainWithSongName():
-    train_song_name_array = ["bob_catTenor_Saxophone.mid"]
+    train_song_name_array = ["maple_leaf_ragAltoSaxophone.mid"]
     for n in train_song_name_array:
         songName = n
         songNameSplited = songName.split('.')
