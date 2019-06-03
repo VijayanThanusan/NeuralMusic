@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="cudalstm">
+    <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/drumsForMid_name.mid" beforeDir="false" afterPath="$PROJECT_DIR$/drumsForMid_name.mid" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dssdsd.txt" beforeDir="false" afterPath="$PROJECT_DIR$/dssdsd.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lstm_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/lstm_model.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/merge.py" beforeDir="false" afterPath="$PROJECT_DIR$/merge.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/music/DMGPIANODRUMSdfsdsd3.mid" beforeDir="false" afterPath="$PROJECT_DIR$/music/DMGPIANODRUMSdfsdsd3.mid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/HipHop.mid" beforeDir="false" afterPath="$PROJECT_DIR$/music/HipHop.mid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/bassHiphop.mid" beforeDir="false" afterPath="$PROJECT_DIR$/music/bassHiphop.mid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/drumsHiphop.mid" beforeDir="false" afterPath="$PROJECT_DIR$/music/drumsHiphop.mid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/pianoHiphop.mid" beforeDir="false" afterPath="$PROJECT_DIR$/music/pianoHiphop.mid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tkinterdisplayer.py" beforeDir="false" afterPath="$PROJECT_DIR$/tkinterdisplayer.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -20,7 +21,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/midi_util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3559">
+            <state relative-caret-position="5325">
               <caret line="364" column="4" selection-start-line="364" selection-start-column="4" selection-end-line="364" selection-end-column="4" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -29,11 +30,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lstm_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="298">
-              <caret line="1371" column="1" lean-forward="true" selection-start-line="1371" selection-start-column="1" selection-end-line="1371" selection-end-column="1" />
+            <state relative-caret-position="-303">
+              <caret line="590" column="30" selection-start-line="590" selection-start-column="30" selection-end-line="590" selection-end-column="30" />
               <folding>
                 <element signature="e#162#191#0" expanded="true" />
               </folding>
@@ -41,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tkinterdisplayer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="95" column="11" selection-start-line="95" selection-start-column="11" selection-end-line="95" selection-end-column="11" />
+            <state relative-caret-position="139">
+              <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -55,15 +56,13 @@
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/dssdsd.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-145" />
-          </provider>
+          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/merge.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="206">
+            <state relative-caret-position="2235">
               <caret line="151" column="40" selection-start-line="151" selection-start-column="40" selection-end-line="151" selection-end-column="40" />
               <folding>
                 <element signature="e#3967#3978#0" expanded="true" />
@@ -92,7 +91,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="900">
               <caret line="79" selection-start-line="79" selection-end-line="79" />
               <folding>
                 <element signature="e#19#30#0" expanded="true" />
@@ -141,7 +140,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="workingwithmultiSizedNotes" />
+        <entry key="$PROJECT_DIR$" value="differentMultiInstrumIdea" />
       </map>
     </option>
   </component>
@@ -155,8 +154,8 @@
         <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/midi_util.py" />
         <option value="$PROJECT_DIR$/merge.py" />
-        <option value="$PROJECT_DIR$/tkinterdisplayer.py" />
         <option value="$PROJECT_DIR$/lstm_model.py" />
+        <option value="$PROJECT_DIR$/tkinterdisplayer.py" />
       </list>
     </option>
   </component>
@@ -183,6 +182,11 @@
               <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
               <item name="array" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="NeuralMuusic" type="b2602c69:ProjectViewProjectNode" />
+              <item name="NeuralMuusic" type="462c0819:PsiDirectoryNode" />
+              <item name="test_song2" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -194,12 +198,12 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-      <recent name="$PROJECT_DIR$/test_song2" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/music" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/test_song2" />
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/music" />
     </key>
   </component>
@@ -245,9 +249,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1024" height="640" extended-state="0" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.3879837" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.3879837" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -258,7 +261,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.73625255" visible="true" weight="0.05263158" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.73625255" visible="true" weight="0.25964913" />
       <window_info anchor="bottom" id="Python Console" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.26374745" side_tool="true" weight="0.05263158" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -383,6 +386,29 @@
         <state relative-caret-position="-118" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/midi_util.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5325">
+          <caret line="364" column="4" selection-start-line="364" selection-start-column="4" selection-end-line="364" selection-end-column="4" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dssdsd.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/merge.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2235">
+          <caret line="151" column="40" selection-start-line="151" selection-start-column="40" selection-end-line="151" selection-end-column="40" />
+          <folding>
+            <element signature="e#3967#3978#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/models/2016-07-08/history.jsonl">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -396,24 +422,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dssdsd.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-145" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/midi_util.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3559">
-          <caret line="364" column="4" selection-start-line="364" selection-start-column="4" selection-end-line="364" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="900">
           <caret line="79" selection-start-line="79" selection-end-line="79" />
           <folding>
             <element signature="e#19#30#0" expanded="true" />
@@ -421,32 +432,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/merge.py">
+    <entry file="file://$PROJECT_DIR$/lstm_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="206">
-          <caret line="151" column="40" selection-start-line="151" selection-start-column="40" selection-end-line="151" selection-end-column="40" />
+        <state relative-caret-position="-303">
+          <caret line="590" column="30" selection-start-line="590" selection-start-column="30" selection-end-line="590" selection-end-column="30" />
           <folding>
-            <element signature="e#3967#3978#0" expanded="true" />
+            <element signature="e#162#191#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tkinterdisplayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="95" column="11" selection-start-line="95" selection-start-column="11" selection-end-line="95" selection-end-column="11" />
+        <state relative-caret-position="139">
+          <caret line="22" column="55" selection-start-line="22" selection-start-column="55" selection-end-line="22" selection-end-column="55" />
           <folding>
             <element signature="e#0#46#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lstm_model.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="298">
-          <caret line="1371" column="1" lean-forward="true" selection-start-line="1371" selection-start-column="1" selection-end-line="1371" selection-end-column="1" />
-          <folding>
-            <element signature="e#162#191#0" expanded="true" />
           </folding>
         </state>
       </provider>

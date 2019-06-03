@@ -20,7 +20,7 @@ class SampleApp(tk.Tk):
         container.grid_columnconfigure(0, weight=1)
 
         self.frames = {}
-        for F in (StartPage, PageOne, PageTwo):
+        for F in (StartPage, PageOne, PageTwo,PageThree):
             page_name = F.__name__
             frame = F(parent=container, controller=self)
             self.frames[page_name] = frame
@@ -52,7 +52,7 @@ class StartPage(tk.Frame):
                             command=lambda: controller.show_frame("PageTwo"))
 
         button3 = tk.Button(self, text="Jazz (instrument de base : saxophone)",
-                            command=lambda: controller.show_frame("PageTwo"))
+                            command=lambda: controller.show_frame("PageThree"))
         button1.pack()
         button2.pack()
         button3.pack()
@@ -100,22 +100,20 @@ class PageTwo(tk.Frame):
     def __init__(self, parent, controller):
         tk.Frame.__init__(self, parent)
         self.controller = controller
-        label = tk.Label(self, text="Hip Hop (avec instrument de base : Piano)", font=controller.title_font)
+        label = tk.Label(self, text="Classic (avec instrument de base : Piano)", font=controller.title_font)
         label.pack(side="top", fill="x", pady=10)
         frame1 = tk.Frame(self, bg='white')
         frame1.pack(expand=True, fill=tk.BOTH)
 
         button = tk.Button(self, text="Générer",
-                           command=lambda: controller.show_frame("StartPage"))
+                           command=lambda: self.classicalGenerator(guitare=varGuitare.get(), violin=varViolon.get()))
         buttonExit = tk.Button(self, text="<--",
                                command=lambda: controller.show_frame("StartPage"))
 
-        varDrums = tk.IntVar()
-        tk.Checkbutton(frame1, text='Percussion', variable=varDrums).grid(row=0, sticky=tk.W)
-        varBasse = tk.IntVar()
-        tk.Checkbutton(frame1, text='Basse', variable=varBasse).grid(row=1, sticky=tk.W)
         varGuitare = tk.IntVar()
-        tk.Checkbutton(frame1, text='Guitare', variable=varGuitare).grid(row=2, sticky=tk.W)
+        varViolon = tk.IntVar()
+        tk.Checkbutton(frame1, text='Guitare', variable=varGuitare).grid(row=1, sticky=tk.W)
+        tk.Checkbutton(frame1, text='Violon', variable=varViolon).grid(row=2, sticky=tk.W)
 
         button.pack(side=tk.RIGHT)
         buttonExit.pack(side=tk.LEFT)
@@ -126,6 +124,47 @@ class PageTwo(tk.Frame):
         # varGuitare = tk.IntVar()
         # tk.Checkbutton(self, text='Guitare', variable=varGuitare).grid(row=2, sticky=tk.W)
 
+
+
+    def classicalGenerator(self,guitare=0,violin=0):
+        #print("percussion is " + str(percussion) + str(basse) + str(guitare))
+        generateFromLoaded2HipHop("piano3hiphop.hdf5","10_little_indians.mid","Piano",1,guitare=guitare,violon=violin,musicType=1)
+
+
+class PageThree(tk.Frame):
+
+    def __init__(self, parent, controller):
+        tk.Frame.__init__(self, parent)
+        self.controller = controller
+        label = tk.Label(self, text="Jazz (avec instrument de base : Saxophone)", font=controller.title_font)
+        label.pack(side="top", fill="x", pady=10)
+        frame1 = tk.Frame(self, bg='white')
+        frame1.pack(expand=True, fill=tk.BOTH)
+
+        button = tk.Button(self, text="Générer",
+                           command=lambda: self.jazzGenerator(piano=varPiano.get()))
+        buttonExit = tk.Button(self, text="<--",
+                               command=lambda: controller.show_frame("StartPage"))
+
+        varPiano = tk.IntVar()
+
+        tk.Checkbutton(frame1, text='Piano', variable=varPiano).grid(row=1, sticky=tk.W)
+
+
+        button.pack(side=tk.RIGHT)
+        buttonExit.pack(side=tk.LEFT)
+        # varDrums = tk.IntVar()
+        # tk.Checkbutton(self, text='Percussion', variable=varDrums).grid(row=0, sticky=tk.W)
+        # varBasse = tk.IntVar()
+        # tk.Checkbutton(self, text='Basse', variable=varBasse).grid(row=1, sticky=tk.W)
+        # varGuitare = tk.IntVar()
+        # tk.Checkbutton(self, text='Guitare', variable=varGuitare).grid(row=2, sticky=tk.W)
+
+
+
+    def jazzGenerator(self,piano=0):
+        #print("percussion is " + str(percussion) + str(basse) + str(guitare))
+        generateFromLoaded2HipHop("bctenor_saxo.hdf5","bob_catTenor_Saxophone.mid","Saxophone",1,piano=piano,musicType=2)
 
 if __name__ == "__main__":
     app = SampleApp()

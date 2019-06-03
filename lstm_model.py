@@ -294,7 +294,7 @@ def prepare_data():
     return config_sequences, train_generator, valid_generator
 
 
-def generateWithCAndPHipHop(model, seed, mid_name, temperature=1.0, length=512,channelInput = 14, programInput = 117,getArray=False,percussion=0,basse=0,guitare=0,violon=0,musicType=0):
+def generateWithCAndPHipHop(model, seed, mid_name, temperature=1.0, length=512,channelInput = 14, programInput = 117,getArray=False,percussion=0,basse=0,guitare=0,violon=0,saxophone=0,piano=0,musicType=0):
     '''Generate sequence using model, seed, and temperature.'''
 
     generated = []
@@ -513,7 +513,7 @@ def generateWithCAndPHipHop(model, seed, mid_name, temperature=1.0, length=512,c
                                                            True)
             # tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
             generatedForViolin2 = harMonize(generatedForViolin, numberOfActivatedNotes)
-            tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
+            tmpChan, tmpProgram = getChannelAndProgam("10_little_indiansvln.mid")
             mid3 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForViolin2), OUT_PITCHES),
                                                       "guitarForMid_name.mid",
                                                       channelInput=tmpChan, programInput=tmpProgram)
@@ -521,7 +521,7 @@ def generateWithCAndPHipHop(model, seed, mid_name, temperature=1.0, length=512,c
             mid3.save(os.path.join("music/violinClassic.mid"))
         else:
             generatedForViolin2 = [0]
-            tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
+            tmpChan, tmpProgram = getChannelAndProgam("10_little_indiansvln.mid")
             mid3 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForViolin2), OUT_PITCHES),
                                                       "guitarForMid_name.mid",
                                                       channelInput=tmpChan, programInput=tmpProgram)
@@ -574,27 +574,29 @@ def generateWithCAndPHipHop(model, seed, mid_name, temperature=1.0, length=512,c
         #         tmpTrack.append(msg)
         # mid2.save(os.path.join("drumsformid_name.mid"))
         mid.save(os.path.join("music/saxoJazz.mid"))
-        if (percussion == 1):
-            generatedForDrums3 = generateFromLoaded2HipHop("drumshiphop.hdf5",
-                                                           "Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid",
-                                                           "Drums", 1,
-                                                           True)
-            print("type of generated is " + str(type(generatedForDrums3)))
-            generatedForDrums4 = harMonize(generatedForDrums3, numberOfActivatedNotes)
-            tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid")
-            mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums4), OUT_PITCHES),
-                                                      "drumsForMid_name.mid",
-                                                      channelInput=tmpChan, programInput=tmpProgram)
-            mid2 = updateValue(mid2)
-            mid2.save(os.path.join("music/drumsHiphop.mid"))
-        else:
-            generatedForDrums4 = [0]
-            tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid")
-            mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums4), OUT_PITCHES),
-                                                      "drumsForMid_name.mid",
-                                                      channelInput=tmpChan, programInput=tmpProgram)
-            mid2 = updateValue(mid2)
-            mid2.save(os.path.join("music/drumsHiphop.mid"))
+        # if (percussion == 1):
+        #     generatedForDrums3 = generateFromLoaded2HipHop("drumshiphop.hdf5",
+        #                                                    "Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid",
+        #                                                    "Drums", 1,
+        #                                                    True)
+        #     print("type of generated is " + str(type(generatedForDrums3)))
+        #     generatedForDrums4 = harMonize(generatedForDrums3, numberOfActivatedNotes)
+        #     tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid")
+        #     mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums4), OUT_PITCHES),
+        #                                               "drumsForMid_name.mid",
+        #                                               channelInput=tmpChan, programInput=tmpProgram)
+        #     mid2 = updateValue(mid2)
+        #     mid2.save(os.path.join("music/drumsHiphop.mid"))
+        # else:
+        #     generatedForDrums4 = [0]
+        #     tmpChan, tmpProgram = getChannelAndProgam("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineDrums.mid")
+        #     mid2 = array_to_midiWithProgramAndChannel(unfold(decode(generatedForDrums4), OUT_PITCHES),
+        #                                               "drumsForMid_name.mid",
+        #                                               channelInput=tmpChan, programInput=tmpProgram)
+        #     mid2 = updateValue(mid2)
+        #     mid2.save(os.path.join("music/drumsHiphop.mid"))
+        merger(["saxoJazz", ], "Jazz.mid")
+        return mid
 
 def moyenneNotePlayedByBigBar(generatedarray):
     num = 16
@@ -1273,6 +1275,8 @@ def getAllPitchesFromTrack(songName):
 
 def getChannelAndProgam(songName):
     MidoFile = MidiFile(songName)
+    if(songName == "bob_catTenor_Saxophone.mid"):
+        return 8,67
     for track in MidoFile.tracks:
         for msg in track:
             if msg.type == "program_change":
@@ -1319,7 +1323,7 @@ def getTimeSignature(songName):
         #    message =
         return midiFileInput
 
-def generateFromLoaded2HipHop(hdf5Name,songRelatedToTheHdf5,type,temperature=1,getArray=False,percussion=0,basse=0,guitare=0,musicType=0):
+def generateFromLoaded2HipHop(hdf5Name,songRelatedToTheHdf5,type,temperature=1,getArray=False,piano=0,percussion=0,basse=0,guitare=0,violon=0,saxophone=0,musicType=0):
     # Initialize the model.
     modifyPITCHES(songRelatedToTheHdf5)
     model = init_model()
@@ -1357,7 +1361,7 @@ def generateFromLoaded2HipHop(hdf5Name,songRelatedToTheHdf5,type,temperature=1,g
                       phrase,
                       'DimMarvin_Gaye1Out_{}_{}_{}.mid'.format(gen_length, temperature,type),
                       temperature=temperature,
-                      length=gen_length, channelInput=channelToInput, programInput=programToInput,getArray=getArray,percussion=percussion,basse=basse,guitare=guitare,musicType=musicType)
+                      length=gen_length, channelInput=channelToInput, programInput=programToInput,piano=piano,getArray=getArray,percussion=percussion,basse=basse,guitare=guitare,violon=violon,saxophone=saxophone,musicType=musicType)
     if(getArray == True):
         return arrayGenerated
     else:
@@ -1366,7 +1370,7 @@ def generateFromLoaded2HipHop(hdf5Name,songRelatedToTheHdf5,type,temperature=1,g
 
 
 #run_trainWithSongName("Marvin_Gaye_-_I_Heard_It_Through_the_GrapevineGuitar.mid")
-#generateFromLoaded2("piano3hiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevinePiano.mid","Piano",1)
+#generateFromLoaded2HipHop("bctenor_saxo.hdf5","bob_catTenor_Saxophone.mid","Saxo",1)
 #songDiviser("the_entertainer-3.mid")
 #getTimeSignature("Bye bye Blackbird - Ray Henderson et Mort Dixon2.mid")
 #run_trainWithSongName()
