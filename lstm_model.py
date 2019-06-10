@@ -1383,7 +1383,7 @@ def generateFromLoaded2HipHop(hdf5Name,songRelatedToTheHdf5,type,temperature=1,g
     seq_index, phrase_start_index = sequence_indices[
         np.random.choice(len(sequence_indices))]
 
-    phrase_start_index = randint(0,len(sequence_indices))
+    #phrase_start_index = randint(0,len(sequence_indices))
     print("seq_index is " + str(seq_index) + " phrase_start_index is " + str(phrase_start_index))
     gen_length = 1024
     #for temperature in [0.5, 0.75, 1.0]:

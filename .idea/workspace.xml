@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="" />
+    <list default="true" id="5746ca3f-d30c-4d79-a9b7-2133fd83f6e5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/array/10_little_indians.mid.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/array/10_little_indiansvln.mid.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lstm_model.py" beforeDir="false" afterPath="$PROJECT_DIR$/lstm_model.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/merge.py" beforeDir="false" afterPath="$PROJECT_DIR$/merge.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/HipHop.mid" beforeDir="false" afterPath="$PROJECT_DIR$/music/HipHop.mid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/Pop.mid" beforeDir="false" afterPath="$PROJECT_DIR$/music/Pop.mid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/bassHiphop.mid" beforeDir="false" afterPath="$PROJECT_DIR$/music/bassHiphop.mid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/classical.mid" beforeDir="false" afterPath="$PROJECT_DIR$/music/classical.mid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/drumsHiphop.mid" beforeDir="false" afterPath="$PROJECT_DIR$/music/drumsHiphop.mid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/guitarePop.mid" beforeDir="false" afterPath="$PROJECT_DIR$/music/guitarePop.mid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/pianoHiphop.mid" beforeDir="false" afterPath="$PROJECT_DIR$/music/pianoHiphop.mid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/pianoPop.mid" beforeDir="false" afterPath="$PROJECT_DIR$/music/pianoPop.mid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/music/violinPop.mid" beforeDir="false" afterPath="$PROJECT_DIR$/music/violinPop.mid" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/saxo.hdf5" beforeDir="false" afterPath="$PROJECT_DIR$/saxo.hdf5" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/train.py" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,7 +30,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/midi_util.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="5460">
+            <state relative-caret-position="5325">
               <caret line="364" column="4" selection-start-line="364" selection-start-column="4" selection-end-line="364" selection-end-column="4" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -25,8 +42,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/lstm_model.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="598" column="18" selection-start-line="598" selection-start-column="18" selection-end-line="598" selection-end-column="18" />
+            <state relative-caret-position="8942">
+              <caret line="847" column="7" selection-start-line="847" selection-start-column="7" selection-end-line="847" selection-end-column="7" />
               <folding>
                 <element signature="e#162#191#0" expanded="true" />
               </folding>
@@ -34,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tkinterdisplayer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2635">
-              <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+            <state relative-caret-position="-2377">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="e#0#46#0" expanded="true" />
               </folding>
@@ -54,8 +71,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/merge.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2235">
-              <caret line="151" column="40" selection-start-line="151" selection-start-column="40" selection-end-line="151" selection-end-column="40" />
+            <state>
               <folding>
                 <element signature="e#3967#3978#0" expanded="true" />
               </folding>
@@ -80,14 +96,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/train.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="900">
-              <caret line="79" selection-start-line="79" selection-end-line="79" />
-              <folding>
-                <element signature="e#19#30#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="300">
+              <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
             </state>
           </provider>
         </entry>
@@ -123,9 +136,9 @@
       <find>for i is 1023 ele</find>
       <find>infiniteLoopCheck</find>
       <find>type of generated</find>
-      <find>lstm</find>
       <find>randit</find>
       <find>generateFromLoaded</find>
+      <find>lstm</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -143,11 +156,11 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/mergingMidis.py" />
         <option value="$PROJECT_DIR$/midiToWav.py" />
-        <option value="$PROJECT_DIR$/train.py" />
         <option value="$PROJECT_DIR$/midi_util.py" />
-        <option value="$PROJECT_DIR$/merge.py" />
-        <option value="$PROJECT_DIR$/lstm_model.py" />
         <option value="$PROJECT_DIR$/tkinterdisplayer.py" />
+        <option value="$PROJECT_DIR$/lstm_model.py" />
+        <option value="$PROJECT_DIR$/merge.py" />
+        <option value="$PROJECT_DIR$/train.py" />
       </list>
     </option>
   </component>
@@ -161,7 +174,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -183,6 +195,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -242,7 +255,7 @@
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1024" height="640" extended-state="0" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.27800408" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.28309572" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -253,7 +266,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" sideWeight="0.73625255" visible="true" weight="0.4350877" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" sideWeight="0.73625255" visible="true" weight="0.2982456" />
       <window_info anchor="bottom" id="Python Console" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.26374745" side_tool="true" weight="0.05263158" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -386,7 +399,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/midi_util.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="5460">
+        <state relative-caret-position="5325">
           <caret line="364" column="4" selection-start-line="364" selection-start-column="4" selection-end-line="364" selection-end-column="4" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
@@ -396,16 +409,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dssdsd.txt">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/merge.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2235">
-          <caret line="151" column="40" selection-start-line="151" selection-start-column="40" selection-end-line="151" selection-end-column="40" />
-          <folding>
-            <element signature="e#3967#3978#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/models/2016-07-08/history.jsonl">
       <provider selected="true" editor-type-id="text-editor" />
@@ -420,33 +423,39 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/train.py">
+    <entry file="file://$PROJECT_DIR$/tkinterdisplayer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="900">
-          <caret line="79" selection-start-line="79" selection-end-line="79" />
+        <state relative-caret-position="-2377">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
           <folding>
-            <element signature="e#19#30#0" expanded="true" />
+            <element signature="e#0#46#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/lstm_model.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="598" column="18" selection-start-line="598" selection-start-column="18" selection-end-line="598" selection-end-column="18" />
+        <state relative-caret-position="8942">
+          <caret line="847" column="7" selection-start-line="847" selection-start-column="7" selection-end-line="847" selection-end-column="7" />
           <folding>
             <element signature="e#162#191#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tkinterdisplayer.py">
+    <entry file="file://$PROJECT_DIR$/merge.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2635">
-          <caret line="19" column="5" selection-start-line="19" selection-start-column="5" selection-end-line="19" selection-end-column="5" />
+        <state>
           <folding>
-            <element signature="e#0#46#0" expanded="true" />
+            <element signature="e#3967#3978#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/train.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="20" column="46" selection-start-line="20" selection-start-column="46" selection-end-line="20" selection-end-column="46" />
         </state>
       </provider>
     </entry>
