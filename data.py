@@ -94,8 +94,6 @@ def idx_seq_of_length(sequences, length):
     sequence.'''
     indices = []
     for i, seq in enumerate(sequences):
-        print("seq"+str(seq))
-        print("len "+str(length))
         if len(seq) >= length:
             indices.extend(itertools.product([i], range(len(seq) - length + 1)))
     return indices

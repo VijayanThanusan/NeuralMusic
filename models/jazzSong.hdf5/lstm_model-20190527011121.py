@@ -3,24 +3,19 @@ number from 0 to 2**p-1 that represents a configuration of p pitches
 that may be on or off.'''
 
 from datetime import datetime
-import itertools
 import json
 import os
 import shutil
 
-from keras import backend as K
 from keras.layers.core import Dense, Activation, Dropout
 from keras.layers.recurrent import LSTM
-from keras.layers import CuDNNLSTM
 from keras.models import Sequential
 from keras.optimizers import RMSprop
 from random import  randint
-import numpy as np
-from numpy import array
 
 from data import *
-from midi_util import array_to_midiN, print_array,array_to_midiWithProgramAndChannel
-from mido import Message,MidiFile,MidiTrack
+from midi_util import array_to_midiN, array_to_midiWithProgramAndChannel
+from mido import MidiFile,MidiTrack
 np.random.seed(10)
 
 # All the pitches represented in the MIDI data arrays.
@@ -695,7 +690,7 @@ def trainWithCAndP(config_sequences, train_generator, valid_generator,channelInp
     return model
 
 def run_trainWithSongName():
-    train_song_name_array = ["Bye_bye_Blackbird1.mid","Bye_bye_Blackbird2.mid","Bye_bye_Blackbird3.mid","Bye_bye_Blackbird4.mid","Bye_bye_Blackbird5.mid","Bye_bye_Blackbird6.mid","Bye_bye_Blackbird7.mid","Bye_bye_Blackbird8.mid","Bye_bye_Blackbird9.mid","Bye_bye_Blackbird10.mid","Bye_bye_Blackbird11.mid","Bye_bye_Blackbird12.mid","Bye_bye_Blackbird13.mid","Bye_bye_Blackbird14.mid","Bye_bye_Blackbird15.mid","Bye_bye_Blackbird16.mid"]
+    train_song_name_array = ["Bye_bye_Blackbird1.mid"]
     for n in train_song_name_array:
         songName = n
         songNameSplited = songName.split('.')

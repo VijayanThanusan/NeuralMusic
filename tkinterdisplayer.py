@@ -98,7 +98,7 @@ class PageOne(tk.Frame):
 
     def hiphopGenerator(self,percussion=0,basse=0,guitare=0):
         print("percussion is " + str(percussion) + str(basse) + str(guitare))
-        generateFromLoaded2HipHop("piano3hiphop.hdf5","Marvin_Gaye_-_I_Heard_It_Through_the_GrapevinePiano.mid","Piano",1,percussion=percussion,basse=basse,guitare=guitare)
+        generateFromLoaded2HipHop('hdfFiveFiles/piano3hiphop.hdf5',"Marvin_Gaye_-_I_Heard_It_Through_the_GrapevinePiano.mid","Piano",1,percussion=percussion,basse=basse,guitare=guitare)
 
 class PageTwo(tk.Frame):
 
@@ -133,7 +133,7 @@ class PageTwo(tk.Frame):
 
     def popGenerator(self,guitare=0,violin=0):
         #print("percussion is " + str(percussion) + str(basse) + str(guitare))
-        generateFromLoaded2HipHop("piano3hiphop.hdf5","10_little_indians.mid","Piano",1,guitare=guitare,violon=violin,musicType=1)
+        generateFromLoaded2HipHop('hdfFiveFiles/piano3hiphop.hdf5',"10_little_indians.mid","Piano",1,guitare=guitare,violon=violin,musicType=1)
 
 
 class PageThree(tk.Frame):
@@ -167,7 +167,7 @@ class PageThree(tk.Frame):
 
     def jazzGenerator(self):
         #print("percussion is " + str(percussion) + str(basse) + str(guitare))
-        generateFromLoaded2HipHop("saxo.hdf5","maple_leaf_rag .mid","Saxophone",1,musicType=2)
+        generateFromLoaded2HipHop('hdfFiveFiles/saxo.hdf5',"maple_leaf_rag .mid","Saxophone",1,musicType=2)
 
 class PageFour(tk.Frame):
 
@@ -189,18 +189,13 @@ class PageFour(tk.Frame):
 
         button.pack(side=tk.RIGHT)
         buttonExit.pack(side=tk.LEFT)
-        # varDrums = tk.IntVar()
-        # tk.Checkbutton(self, text='Percussion', variable=varDrums).grid(row=0, sticky=tk.W)
-        # varBasse = tk.IntVar()
-        # tk.Checkbutton(self, text='Basse', variable=varBasse).grid(row=1, sticky=tk.W)
-        # varGuitare = tk.IntVar()
-        # tk.Checkbutton(self, text='Guitare', variable=varGuitare).grid(row=2, sticky=tk.W)
+
 
 
 
     def classicGenerator(self):
         #print("percussion is " + str(percussion) + str(basse) + str(guitare))
-        generateFromLoaded2HipHop("beethoven_ode_to_joy.hdf5","beethoven_ode_to_joy.mid","Piano",musicType=3)
+        generateFromLoaded2HipHop('hdfFiveFiles/beethoven_ode_to_joy.hdf5',"beethoven_ode_to_joy.mid","Piano",musicType=3)
 
 
 if __name__ == "__main__":

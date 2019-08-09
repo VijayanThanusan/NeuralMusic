@@ -21,7 +21,6 @@ PITCHES_VERSION = '0.1'
 
 def getAllNotesFromTrackWithoutOccur(MidoFile):
     notesArray = []
-    #MidoFile = MidiFile(songName)
     for track in MidoFile.tracks:
         for msg in track:
             if msg.type == "note_on":
@@ -82,9 +81,7 @@ def quantize_track(track, ticks_per_quarter, quantization):
     cum_msgs = list(zip(
         np.cumsum([msg.time for msg in track[first_note_msg_idx:]]),
         [msg for msg in track[first_note_msg_idx:]]))
-    #print("the list is "+str(cum_msgs))
     end_of_track_cum_time = cum_msgs[-1][0]
-    #print("the end_of_track_cum_time is "+str(cum_msgs))
     quantized_track = MidiTrack()
     quantized_track.extend(track[:first_note_msg_idx])
     # Keep track of note_on events that have not had an off event yet.
@@ -92,7 +89,6 @@ def quantize_track(track, ticks_per_quarter, quantization):
     open_msgs = defaultdict(list)
     quantized_msgs = []
     for cum_time, msg in cum_msgs:
-        #print("cum_time is " + str(cum_time) + " msg + " + str(msg))
         if DEBUG:
             print ('Message:', msg)
             print ('Open messages:')
@@ -107,7 +103,6 @@ def quantize_track(track, ticks_per_quarter, quantization):
             #assert msg.note in open_msgs, \
             #    'Bad MIDI. Cannot have note off event before note on event'
             note_on_open_msgs = open_msgs[msg.note]
-            #print("note_on_open_msgs " + str(note_on_open_msgs))
             if(len(note_on_open_msgs) > 0):
                 note_on_cum_time, note_on_msg = note_on_open_msgs[0]
                 open_msgs[msg.note] = note_on_open_msgs[1:]
@@ -118,7 +113,6 @@ def quantize_track(track, ticks_per_quarter, quantization):
                 # cumulative time of note_on plus the orginal difference
                 # of the unquantized cumulative times.
                 quantized_note_off_cum_time = quantized_note_on_cum_time + (cum_time - note_on_cum_time)
-                print("test1 " + str((min(end_of_track_cum_time, quantized_note_on_cum_time), note_on_msg)))
                 quantized_msgs.append((min(end_of_track_cum_time, quantized_note_on_cum_time), note_on_msg))
                 quantized_msgs.append((min(end_of_track_cum_time, quantized_note_off_cum_time), msg))
 
@@ -134,23 +128,6 @@ def quantize_track(track, ticks_per_quarter, quantization):
     # note_type), making sure that note_on events come before note_off
     # events when two event have the same cumulative time. Compute
     # differential times and construct the quantized track messages.
-    #print("the quantized_msgsSize " + str(quantized_msgs))
-    #quantized_msgs = sorted(quantized_msgs, key=lambda tup: tup[3])
-
-    #quantized_msgs = Sort_Tuple(quantized_msgs)
-
-    #for idx,x in enumerate(quantized_msgs):
-    #    quantized_msgs[idx] = (quantized_msgs[idx][0],quantized_msgs[idx][1])
-    #print("the quantized_msgsSize 2" + str(quantized_msgs))
-    #quantized_msgs.sort(
-
-        #key=itemgetter(3) )
-        #msg[2]['time'] if msg[2]['type'] == 'note_on' else msg[2]['time'] + 0.5)
-
-   #     key= cum_time)
-        #if (msg.type == 'note_on' and msg.velocity > 0) else cum_time + 0.5)
-        #key=lambda msg: msg.time
-        #if (msg.type=='note_on' and msg.velocity > 0) else msg.time + 0.5)
 
 
     diff_times = [quantized_msgs[0][0]] + list(
@@ -176,7 +153,6 @@ def letter_cmp(a, b):
         return 1
 
 def miniLambda(msg):
-    print("the msg" +str(msg))
     if(msg.type == "note_on"):
         print(msg.time * 10)
         return msg
@@ -209,11 +185,6 @@ def Sort_Tuple(tup):
     for i in range(0, lst):
 
         for j in range(0, lst - i - 1):
-            #pass
-            #print("tuuup is " + str(tup[j][1].type) + " time " + str(tup[j][1].time))
-            #print("tuup j is " + str(tup[j]))
-            #print("tuup j+1 is " + str(tup[j+1]))
-            #print("the j is " + str(j) + " j + 1 " + str(j+1) + " lst " + str(lst))
             if (tup[j][1].time > tup[j + 1][1].time):
                 temp = tup[j]
                 tup[j] = tup[j + 1]
@@ -223,7 +194,6 @@ def Sort_Tuple(tup):
                     temp = tup[j]
                     tup[j] = tup[j + 1]
                     tup[j + 1] = temp
-    print("the tuuuup is "  +str(tup))
     return tup
 
 
@@ -240,20 +210,14 @@ def midi_to_arrayWithPitch(mid, quantization):
     mid -- MIDI object with a 4/4 time signature
     quantization -- The note duration, represented as 1/2**quantization.'''
 
-    print("the str of mid is " + str(mid))
     PITCHES = getAllNotesFromTrackWithoutOccur(mid)
     PITCHES_MAP = {p: i for i, p in enumerate(PITCHES)}
-    PITCHES_VERSION = '0.1'
 
-    for element in mid.tracks[0]:
-        print("fd,klscdks " + str(element.type))
+
     for msg in mid.tracks[0]:
         if msg.type == 'time_signature':
             time_sig_msgs = [msg]
             break
-    print("time_sig_msgs is " + str(time_sig_msgs))
-    print("thetime_sig_msgslen is " + str(len(time_sig_msgs)))
-    #time_sig_msgs = [ msg for msg in mid.tracks[0] if msg.type == 'time_signature' ]
     assert len(time_sig_msgs) == 1, 'No time signature found'
     time_sig = time_sig_msgs[0]
     assert time_sig.numerator == 4 and time_sig.denominator == 4, 'Not 4/4 time.'
@@ -286,11 +250,8 @@ def midi_to_arrayWithPitch(mid, quantization):
     for (position, note_num, velocity) in notes:
         print("the notes : " + str(notes) + " position : " + str(position) + " note_num " + str(note_num) + " velocity " + str(velocity) + " note_num in pitches " + str(note_num in PITCHES_MAP))
         if position == normalized_num_steps:
-            #print 'Warning: truncating from position {} to {}'.format(position, normalized_num_steps - 1)
             continue
-            #position = normalized_num_steps - 1
         if position > normalized_num_steps:
-            #print 'Warning: skipping note at position {} (greater than {})'.format(position, normalized_num_steps)
             continue
         if note_num in PITCHES_MAP:
             print("note_numdd"+str(position)+ " pitch " + str(PITCHES_MAP[note_num]))
@@ -310,14 +271,13 @@ def midi_to_array(mid, quantization):
     mid -- MIDI object with a 4/4 time signature
     quantization -- The note duration, represented as 1/2**quantization.'''
     for element in mid.tracks[0]:
-        print("fd,klscdks " + str(element.type))
+        print("the element is " + str(element.type))
     for msg in mid.tracks[0]:
         if msg.type == 'time_signature':
             time_sig_msgs = [msg]
             break
     print("time_sig_msgs is " + str(time_sig_msgs))
     print("thetime_sig_msgslen is " + str(len(time_sig_msgs)))
-    #time_sig_msgs = [ msg for msg in mid.tracks[0] if msg.type == 'time_signature' ]
     assert len(time_sig_msgs) == 1, 'No time signature found'
     time_sig = time_sig_msgs[0]
     assert time_sig.numerator == 4 and time_sig.denominator == 4, 'Not 4/4 time.'
@@ -350,11 +310,8 @@ def midi_to_array(mid, quantization):
     for (position, note_num, velocity) in notes:
         print("the notes : " + str(notes) + " position : " + str(position) + " note_num " + str(note_num) + " velocity " + str(velocity) + " note_num in pitches " + str(note_num in PITCHES_MAP))
         if position == normalized_num_steps:
-            #print 'Warning: truncating from position {} to {}'.format(position, normalized_num_steps - 1)
             continue
-            #position = normalized_num_steps - 1
         if position > normalized_num_steps:
-            #print 'Warning: skipping note at position {} (greater than {})'.format(position, normalized_num_steps)
             continue
         if note_num in PITCHES_MAP:
             print("note_numdd"+str(position)+ " pitch " + str(PITCHES_MAP[note_num]))
@@ -574,14 +531,6 @@ def array_to_midi2(array,
         last_time = msg['time']
     note_track1.append(MetaMessage('end_of_track', time=0))
     note_track2.append(MetaMessage('end_of_track', time=0))
-    # for msg in cumulative_events:
-    #     note_track2.append(Message(type=msg['type'],
-    #                               channel=9,
-    #                               note=msg['pitch'],
-    #                               velocity=100,
-    #                               time=msg['time']-last_time))
-    #     last_time = msg['time']
-    # note_track2.append(MetaMessage('end_of_track', time=0))
 
     for track in mid.tracks:
         for msg in track:

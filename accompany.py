@@ -3,7 +3,7 @@ import os
 import numpy as np
 from keras.models import Sequential
 from keras.layers.core import Dense, Dropout, Activation
-from keras.optimizers import SGD, Adam, RMSprop
+from keras.optimizers import RMSprop
 
 import midi_util
 

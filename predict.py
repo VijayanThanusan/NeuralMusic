@@ -69,7 +69,7 @@ def prepare_sequences(notes, vocab, sequence_length):
     return (x, normal_x, pitchnames)  
 
 def create_network(x, vocab, instrument_type, i):
-    #Crée la structure du réseau de neurones
+
     model = Sequential()
     model.add(LSTM(512, input_shape=(x[i].shape[1], x[i].shape[2]), return_sequences=True ))
     model.add(Dropout(0.3))
